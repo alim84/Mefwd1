@@ -8,7 +8,7 @@ import Inventory from "./pages/Inventory";
 import Inventoryconsumption from "./pages/Inventoryconsumption";
 import Leave from "./pages/Leave";
 import Me from "./pages/Me";
-import PersonelInfo from "./pages/PersonelInfo";
+
 import Students from "./pages/Students";
 import {
   createRoutesFromElements,
@@ -17,6 +17,7 @@ import {
   RouterProvider,
   Router,
 } from "react-router-dom";
+import PersonelInfo from "./pages/PersonelInfo";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

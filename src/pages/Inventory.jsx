@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
-import "./Datatable.css";
+
 
 const Inventory = () => {
   let [productName, setProductName] = useState("");

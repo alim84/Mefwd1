@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
-import "./Datatable.css";
+
+import "../pages/Datatable.css";
 
 
 const Desipline = () => {

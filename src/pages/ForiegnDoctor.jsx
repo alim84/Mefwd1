@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
-import "./Datatable.css";
+
 
 const Foriegndoctor = () => {
   let [doctorname, setdoctorName] = useState("");

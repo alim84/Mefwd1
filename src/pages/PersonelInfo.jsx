@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
 
@@ -11,21 +10,21 @@ const PersonelInfo = () => {
   let [mobile, setMobile] = useState("");
   let [email, setEmail] = useState("");
   let [gender, setGender] = useState("");
-  let [metital, setmerital] = useState("");
+  let [merital, setmerital] = useState("");
   let [religion, setReligion] = useState("");
   let [homedistrict, setHomeDristrict] = useState("");
   let [perdivision, setPerDivision] = useState("");
   let [perdristrict, setPerdristrict] = useState("");
   let [perthana, setPerthana] = useState("");
   let [perPostoffice, setPerpostoffice] = useState("");
-  let [pervillage, setpervillage] = useState("");
+  let [pervillage, setPervillage] = useState("");
   let [perroad, setPerroad] = useState("");
   let [perhouse, setPerhouse] = useState("");
   let [predivision, setPreDivision] = useState("");
   let [predristrict, setPredristrict] = useState("");
   let [prethana, setPrethana] = useState("");
   let [prePostoffice, setPrepostoffice] = useState("");
-  let [previllage, setprevillage] = useState("");
+  let [previllage, setPrevillage] = useState("");
   let [preroad, setPreroad] = useState("");
   let [prehouse, setPrehouse] = useState("");
   let [appontmentCatagory, setappontmentCatagory] = useState("");
@@ -56,7 +55,7 @@ const PersonelInfo = () => {
     setMobile(e.target.value);
   };
   let emailHandler = (e) => {
-    setUpzila(e.target.value);
+    setEmail(e.target.value);
   };
   let gengerHandler = (e) => {
     setGender(e.target.value);
@@ -67,58 +66,143 @@ const PersonelInfo = () => {
   let religionHandler = (e) => {
     setReligion(e.target.value);
   };
-  let homeHandler = (e) => {
+  let homedristrictHandler = (e) => {
     setHomeDristrict(e.target.value);
   };
-  let totalfemalestudentHandler = (e) => {
-    setTotalfemalestudent(e.target.value);
+  let perdivisionHandler = (e) => {
+    setPerDivision(e.target.value);
   };
-  let poorstudentHandler = (e) => {
-    setPoorstudent(e.target.value);
+  let perdristrictHandler = (e) => {
+    setPerdristrict(e.target.value);
   };
-  let yearHandler = (e) => {
-    setYear(e.target.value);
+  let perthanaHandler = (e) => {
+    setPerthana(e.target.value);
+  };
+  let perpostHandler = (e) => {
+    setPerpostoffice(e.target.value);
+  };
+  let pervillageHandler = (e) => {
+    setPervillage(e.target.value);
+  };
+  let perroadHandler = (e) => {
+    setPerroad(e.target.value);
+  };
+  let perhouseHandler = (e) => {
+    setPerhouse(e.target.value);
+  };
+  let predivisionHandler = (e) => {
+    setPreDivision(e.target.value);
+  };
+  let predristrictHandler = (e) => {
+    setPredristrict(e.target.value);
+  };
+  let prethanaHandler = (e) => {
+    setPrethana(e.target.value);
+  };
+  let prepostHandler = (e) => {
+    setPrepostoffice(e.target.value);
+  };
+  let previllageHandler = (e) => {
+    setPrevillage(e.target.value);
+  };
+  let preroadHandler = (e) => {
+    setPreroad(e.target.value);
+  };
+  let prehouseHandler = (e) => {
+    setPrehouse(e.target.value);
+  };
+  let appcatagoryHandler = (e) => {
+    setappontmentCatagory(e.target.value);
+  };
+  let firstJointdateHandler = (e) => {
+    setFirstjoint(e.target.value);
+  };
+  let firstdesignationHandler = (e) => {
+    setFirstdesignation(e.target.value);
+  };
+  let scaleHandler = (e) => {
+    setScale(e.target.value);
+  };
+  let promotionHandler = (e) => {
+    setPromotiondesignation(e.target.value);
+  };
+  let promotionjoindateHandler = (e) => {
+    setPromotionjoinindate(e.target.value);
   };
 
   let submitButton = () => {
     const db = getDatabase();
-    set(push(ref(db, "Medical/")), {
-      instituteName: instituteName,
-      ministryaprove: ministryaprove,
-      academicaprove: academicaprove,
-      institutecatagory: institutecatagory,
-      division: division,
-      distric: distric,
-      upzila: upzila,
-      house: house,
-      seat: seat,
-      totalstudent: totalstudent,
-      totalmalestudent: totalmalestudent,
-      totalfemalestudent: totalfemalestudent,
-      poorstudent: poorstudent,
-      year: year,
+    set(push(ref(db, "personell/")), {
+      name: name,
+      designation: designation,
+      grade: grade,
+      section: section,
+      mobile: mobile,
+      email: email,
+      dateofbirth: dateofbirth,
+      gender: gender,
+      merital: merital,
+      religion: religion,
+      homedistrict: homedistrict,
+      perdivision: perdivision,
+      perdristrict: perdristrict,
+      perthana: perthana,
+      perPostoffice: perPostoffice,
+      pervillage: pervillage,
+      perroad: perroad,
+      perhouse: perhouse,
+      predivision: predivision,
+      predristrict: predristrict,
+      prethana: prethana,
+      prePostoffice: prePostoffice,
+      previllage: previllage,
+      preroad: preroad,
+      prehouse: prehouse,
+      appontmentCatagory: appontmentCatagory,
+      firstjoint: firstjoint,
+      firstdesignation: firstdesignation,
+      scale: scale,
+      promotiondesignation: promotiondesignation,
+      promotionjoinindate: promotionjoinindate,
     }).then(() => {
-      setInstituteName("");
-      setMinistryapprove("");
-      setAcademicaprove("");
-      SetInstitutecatagory("");
-      setDivision("");
-      setDistric("");
-      setUpzila("");
-      setHouse("");
-      setSeat("");
-      setTotalstudent("");
-      setTotalmalestudent("");
-      setTotalfemalestudent("");
-      setPoorstudent("");
-      setYear("");
+      setName("");
+      setDesignation("");
+      setGrade("");
+      setSection("");
+      setMobile("");
+      setEmail("");
+      setDateofbirth("");
+      setGender("");
+      setmerital("");
+      setReligion("");
+      setHomeDristrict("");
+      setPerDivision("");
+      setPerdristrict("");
+      setPerthana("");
+      setPerpostoffice("");
+      setPervillage("");
+      setPerroad("");
+      setPerhouse("");
+      setPreDivision("");
+      setPredristrict("");
+      setPrethana("");
+      setPrepostoffice("");
+      setPrevillage("");
+      setPreroad("");
+      setPrehouse("");
+      setappontmentCatagory("");
+      setFirstjoint("");
+      setFirstdesignation("");
+      setScale("");
+      setPromotiondesignation("");
+      setPromotionjoinindate("");
       alert("Successfully Submitted your Data");
     });
   };
   useEffect(() => {
     const db = getDatabase();
-    const medicalRef = ref(db, "Medical/");
-    onValue(medicalRef, (snapshot) => {
+    const MefwdRef = ref(db, "personell/");
+    onValue(MefwdRef, (snapshot) => {
       let array = [];
       snapshot.forEach((item) => {
         array.push(item.val());
@@ -129,7 +213,7 @@ const PersonelInfo = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <form action="" method="POST">
         <div className=" w-[1200px]  mx-auto bg-cyan-900 py-5 px-5 mt-10">
           <div className="mb-12 text-center font-bold text-2xl text-orange-500">
@@ -152,6 +236,7 @@ const PersonelInfo = () => {
                     placeholder="কর্মকর্তার নাম"
                     type="text"
                     name="name"
+                    onChange={nameHandler}
                   ></input>
                 </div>
                 <div>
@@ -160,32 +245,7 @@ const PersonelInfo = () => {
                     className="rounded-lg ml-3 border-none hover:border-indigo-300 py-2 px-5"
                     id="designation"
                     name="designation"
-                  >
-                    <option>নির্বাচন করুন</option>
-                    <option>প্রশাসন অনুবিভাগ</option>
-                    <option>প্রোগ্রামার</option>
-                    <option>সহকারী সচিব</option>
-                    <option>হিসাব রক্ষণ কর্মকর্তা</option>
-                    <option>সহকারী মেইনট্যানেন্স ইঞ্জিনিয়ার</option>
-                    <option>লাইব্রেরিয়ান</option>
-                    <option>প্রশাসনিক কর্মকর্তা</option>
-                    <option>ব্যক্তিগত কর্মকর্তা</option>
-                    <option>সহকারী হিসাব রক্ষণ কর্মকর্তা</option>
-                    <option>ক্যাশিয়ার</option>
-                    <option>কম্পিউটার অপারেটর</option>
-                    <option>সাঁট মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর</option>
-                    <option>অফিস সহকারী কাম কম্পিউটার অপারেটর</option>
-                    <option>অফিস সহায়ক</option>
-                  </select>
-                </div>
-                <div>
-                  <level className="text-yellow-200 block">
-                    গ্রেড ও বেতন স্কেল :
-                  </level>
-                  <select
-                    className="rounded-lg ml-3 border-none hover:border-indigo-300 py-2 px-5"
-                    id="designation"
-                    name="designation"
+                    onChange={designationHandler}
                   >
                     <option>নির্বাচন করুন</option>
                     <option>প্রশাসন অনুবিভাগ</option>
@@ -206,6 +266,31 @@ const PersonelInfo = () => {
                 </div>
               </div>{" "}
               <div className="flex mx-auto justify-between">
+                <div>
+                  <level className="text-yellow-200 block">গ্রেড :</level>
+                  <select
+                    className="rounded-lg ml-3 border-none hover:border-indigo-300 py-2 px-5"
+                    id="designation"
+                    name="designation"
+                    onChange={gradeHandler}
+                  >
+                    <option>নির্বাচন করুন</option>
+                    <option>প্রশাসন অনুবিভাগ</option>
+                    <option>প্রোগ্রামার</option>
+                    <option>সহকারী সচিব</option>
+                    <option>হিসাব রক্ষণ কর্মকর্তা</option>
+                    <option>সহকারী মেইনট্যানেন্স ইঞ্জিনিয়ার</option>
+                    <option>লাইব্রেরিয়ান</option>
+                    <option>প্রশাসনিক কর্মকর্তা</option>
+                    <option>ব্যক্তিগত কর্মকর্তা</option>
+                    <option>সহকারী হিসাব রক্ষণ কর্মকর্তা</option>
+                    <option>ক্যাশিয়ার</option>
+                    <option>কম্পিউটার অপারেটর</option>
+                    <option>সাঁট মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর</option>
+                    <option>অফিস সহকারী কাম কম্পিউটার অপারেটর</option>
+                    <option>অফিস সহায়ক</option>
+                  </select>
+                </div>
                 <div className="py-3">
                   <level className="text-yellow-200 block">
                     শাখা/অধিশাখা/অনুবিভাগ :
@@ -215,6 +300,7 @@ const PersonelInfo = () => {
                     className="rounded-lg  border-none hover:border-indigo-300 py-2 px-5"
                     id="designation"
                     name="designation"
+                    onChange={sectionHandler}
                   >
                     <option>নির্বাচন করুন</option>
                     <option>সিস্টেম এনালিস্ট</option>
@@ -233,14 +319,6 @@ const PersonelInfo = () => {
                     <option>অফিস সহায়ক</option>
                   </select>
                 </div>
-                <div className="py-3">
-                  <level className="text-yellow-200 block">জন্মতারিখ :</level>
-                  <input
-                    className=" py-2 px-10 rounded-md border outline-1 hover:outline-indigo-600 "
-                    type="date"
-                    name="name"
-                  ></input>
-                </div>
               </div>{" "}
               <div className="flex mx-auto justify-between">
                 <div className="py-3">
@@ -253,6 +331,7 @@ const PersonelInfo = () => {
                     placeholder="মোবাইল নাম্বার "
                     type="text"
                     name="name"
+                    onChange={mobileHandler}
                   ></input>
                 </div>
                 <div className="py-3">
@@ -262,16 +341,27 @@ const PersonelInfo = () => {
                     placeholder="ই-মেইল"
                     type="email"
                     name="name"
+                    onChange={emailHandler}
                   ></input>
                 </div>
               </div>{" "}
               <div className="flex mx-auto justify-around gap-40">
                 <div className="py-3">
+                  <level className="text-yellow-200 block">জন্মতারিখ :</level>
+                  <input
+                    className=" py-2 px-4 rounded-md border outline-1 hover:outline-indigo-600 "
+                    type="date"
+                    name="name"
+                    onChange={birthHandler}
+                  ></input>
+                </div>
+                <div className="py-3">
                   <level className="text-yellow-200">জেন্ডার :</level>
                   <select
-                    className="rounded-full ml-3 border-none hover:border-indigo-300 py-[4px] px-6"
+                    className="rounded-full  border-none hover:border-indigo-300 py-[4px] px-2"
                     id="gender"
                     name="gender"
+                    onChange={gengerHandler}
                   >
                     <option value="male">নির্বাচন করুন</option>
                     <option value="male">পুরুষ</option>
@@ -281,9 +371,10 @@ const PersonelInfo = () => {
                 <div className="py-3">
                   <level className="text-yellow-200">বৈবাহিক অবস্থা :</level>
                   <select
-                    className="rounded-full ml-3 border-none hover:border-indigo-300  py-[4px] px-6"
+                    className="rounded-full ml-3 border-none hover:border-indigo-300  py-[4px] px-2"
                     id="mariul status"
                     name="mariul status"
+                    onChange={meritalHandler}
                   >
                     <option value="male">নির্বাচন করুন</option>
                     <option value="male">বিবাহিত</option>
@@ -298,6 +389,7 @@ const PersonelInfo = () => {
                     className="rounded-full ml-3 border-none hover:border-indigo-300  py-[4px] px-6"
                     id="religion"
                     name="religion"
+                    onChange={religionHandler}
                   >
                     <option value="male">নির্বাচন করুন</option>
                     <option value="male">ইসলাম</option>
@@ -313,6 +405,7 @@ const PersonelInfo = () => {
                     className="rounded-full ml-3 border-none hover:border-indigo-300  py-[4px] px-6"
                     id="selfdist"
                     name="selfdist"
+                    onChange={homedristrictHandler}
                   >
                     <option value="male">নির্বাচন করুন</option>
                     <option value="dist">সিরাজগঞ্জ</option>
@@ -331,6 +424,7 @@ const PersonelInfo = () => {
                     className="rounded-lg ml-3 border-none hover:border-indigo-300 py-[2px] px-5"
                     id="division"
                     name="division"
+                    onChange={perdivisionHandler}
                   >
                     <option value="dist">নির্বাচন করুন</option>
                     <option value="dist">ঢাকা</option>
@@ -345,6 +439,7 @@ const PersonelInfo = () => {
                     className="rounded-lg ml-3 border-none hover:border-indigo-300 py-[2px] px-5"
                     id="dist"
                     name="dist"
+                    onChange={perdristrictHandler}
                   >
                     <option value="dist">নির্বাচন করুন</option>
                     <option value="dist">ঢাকা</option>
@@ -359,6 +454,7 @@ const PersonelInfo = () => {
                     className="rounded-lg ml-3 border-none hover:border-indigo-300 py-[2px] px-5"
                     id="upzila"
                     name="upzila"
+                    onChange={perthanaHandler}
                   >
                     <option value="dist">নির্বাচন করুন</option>
                     <option value="dist">ঢাকা</option>
@@ -379,6 +475,7 @@ const PersonelInfo = () => {
                   placeholder="পোস্ট অফিস "
                   type="text"
                   name="name"
+                  onChange={perpostHandler}
                 ></input>
               </div>
               <div className="py-3">
@@ -390,6 +487,7 @@ const PersonelInfo = () => {
                   placeholder="গ্রাম/মহল্লা/ওয়ার্ড "
                   type="text"
                   name="name"
+                  onChange={pervillageHandler}
                 ></input>
               </div>
               <div className="py-3">
@@ -399,6 +497,7 @@ const PersonelInfo = () => {
                   placeholder="রাস্তা নং"
                   type="text"
                   name="name"
+                  onChange={perroadHandler}
                 ></input>
               </div>
               <div className="py-3 ">
@@ -408,6 +507,7 @@ const PersonelInfo = () => {
                   placeholder="বাড়ি"
                   type="text"
                   name="name"
+                  onChange={perhouseHandler}
                 ></input>
               </div>
             </div>
@@ -419,6 +519,7 @@ const PersonelInfo = () => {
                     className="rounded-lg ml-3 border-none hover:border-indigo-300 py-[2px] px-5"
                     id="division"
                     name="division"
+                    onChange={predivisionHandler}
                   >
                     <option value="dist">নির্বাচন করুন</option>
                     <option value="dist">ঢাকা</option>
@@ -433,6 +534,7 @@ const PersonelInfo = () => {
                     className="rounded-lg ml-3 border-none hover:border-indigo-300 py-[2px] px-5"
                     id="dist"
                     name="dist"
+                    onChange={predristrictHandler}
                   >
                     <option value="dist">নির্বাচন করুন</option>
                     <option value="dist">ঢাকা</option>
@@ -447,6 +549,7 @@ const PersonelInfo = () => {
                     className="rounded-lg ml-3 border-none hover:border-indigo-300 py-[2px] px-5"
                     id="upzila"
                     name="upzila"
+                    onChange={prethanaHandler}
                   >
                     <option value="dist">নির্বাচন করুন</option>
                     <option value="dist">ঢাকা</option>
@@ -467,6 +570,7 @@ const PersonelInfo = () => {
                   placeholder="পোস্ট অফিস "
                   type="text"
                   name="name"
+                  onChange={prepostHandler}
                 ></input>
               </div>
               <div className="py-3">
@@ -478,6 +582,7 @@ const PersonelInfo = () => {
                   placeholder="গ্রাম/মহল্লা/ওয়ার্ড "
                   type="text"
                   name="name"
+                  onChange={previllageHandler}
                 ></input>
               </div>
               <div className="py-3">
@@ -487,6 +592,7 @@ const PersonelInfo = () => {
                   placeholder="রাস্তা নং"
                   type="text"
                   name="name"
+                  onChange={preroadHandler}
                 ></input>
               </div>
               <div className="py-3 ">
@@ -496,6 +602,7 @@ const PersonelInfo = () => {
                   placeholder="বাড়ি"
                   type="text"
                   name="name"
+                  onChange={prehouseHandler}
                 ></input>
               </div>
             </div>
@@ -509,6 +616,7 @@ const PersonelInfo = () => {
                   className="rounded-lg ml-28 border-none hover:border-indigo-300 py-2 px-5"
                   id="apptype"
                   name="apptype"
+                  onChange={appcatagoryHandler}
                 >
                   <option value="dist">নির্বাচন করুন</option>
                   <option value="dist">সরাসরি</option>
@@ -523,6 +631,7 @@ const PersonelInfo = () => {
                   className="py-2 px-10 rounded-md  ml-14 border outline-1 hover:outline-indigo-600 "
                   type="date"
                   name="name"
+                  onChange={firstJointdateHandler}
                 ></input>
               </div>
               <div className="py-3">
@@ -531,6 +640,7 @@ const PersonelInfo = () => {
                   className="rounded-lg ml-44  border-none hover:border-indigo-300 py-2 px-5"
                   id="designation"
                   name="designation"
+                  onChange={firstdesignationHandler}
                 >
                   <option>নির্বাচন করুন</option>
                   <option>সিস্টেম এনালিস্ট</option>
@@ -555,6 +665,7 @@ const PersonelInfo = () => {
                   className="rounded-lg ml-36  border-none hover:border-indigo-300 py-2 px-5"
                   id="designation"
                   name="designation"
+                  onChange={scaleHandler}
                 >
                   <option>নির্বাচন করুন</option>
                   <option>(20)-8100X20---23000X15</option>
@@ -576,6 +687,7 @@ const PersonelInfo = () => {
                   className="rounded-lg ml-28  border-none hover:border-indigo-300 py-3 px-5"
                   id="designation"
                   name="designation"
+                  onChange={promotionHandler}
                 >
                   <option>নির্বাচন করুন</option>
                   <option>সিস্টেম এনালিস্ট</option>
@@ -595,22 +707,105 @@ const PersonelInfo = () => {
                 </select>
               </div>
               <div className="py-3">
-                <level className="text-yellow-200">প্রথম যোগদানের তারিখ:</level>
+                <level className="text-yellow-200">পদোন্নতির তারিখ:</level>
                 <input
                   className="py-2 px-10 rounded-md ml-20 border outline-1 hover:outline-indigo-600 "
                   placeholder="Enter Your Name"
                   type="date"
                   name="name"
+                  onChange={promotionjoindateHandler}
                 ></input>
               </div>
             </div>
-            <button className="py-2 px-16 bg-yellow-200 rounded-lg mt-12 font-bold text-purple-900 hover:bg-indigo-600 hover:text-yellow-300 flex mx-auto justify-center">
+            <button
+              onClick={submitButton}
+              className="py-2 px-16 bg-yellow-200 rounded-lg mt-12 font-bold text-purple-900 hover:bg-indigo-600 hover:text-yellow-300 flex mx-auto justify-center"
+            >
               Submit
             </button>
           </div>
         </div>
       </form>
-    </div>
+
+      <div className="container  mx-auto justify-between  mt-10 ">
+        <ul>
+          <table id="showdata">
+            <th className="w-[193px] ">কর্মকর্তার নাম</th>
+            <th className="w-[193px]">পদবি</th>
+            <th className="w-[193px]">গ্রেড</th>
+            <th className="w-[193px]">শাখা</th>
+            <th className="w-[193px]">মোবাইল</th>
+            <th className="w-[193px]">ই-মেইল</th>
+            <th className="w-[193px]">জন্মতারিখ</th>
+            <th className="w-[193px]">জেন্ডার</th>
+            <th className="w-[193px]">বৈবাহিক অবস্থা</th>
+            <th className="w-[193px]">ধর্ম</th>
+            <th className="w-[193px]">নিজ জেলা</th>
+            <th className="w-[193px]">বিভাগ</th>
+            <th className="w-[193px]">জেলা</th>
+            <th className="w-[193px]">উপজেলা</th>
+            <th className="w-[193px]">পোস্ট অফিস</th>
+            <th className="w-[193px]">গ্রাম</th>
+            <th className="w-[193px]">বাস্তা</th>
+            <th className="w-[193px]">বাড়ি নং</th>
+            <th className="w-[193px]">বিভাগ</th>
+            <th className="w-[193px]">জেলা</th>
+            <th className="w-[193px]">উপজেলা</th>
+            <th className="w-[193px]">পোস্ট অফিস</th>
+            <th className="w-[193px]">গ্রাম</th>
+            <th className="w-[193px]">বাস্তা</th>
+            <th className="w-[193px]">বাড়ি নং</th>
+            <th className="w-[193px]">নিয়োগের ধরন</th>
+            <th className="w-[193px]">প্রথম যোগদানের তারিখ</th>
+            <th className="w-[193px]">যোগদানের পদবি</th>
+            <th className="w-[193px]">বেতন গ্রেড</th>
+            <th className="w-[193px]">পদোন্নতি পদবি</th>
+            <th className="w-[193px]">পদোন্নতির তারিখ</th>
+          </table>
+          {alldata.map((items) => {
+            return (
+              <li>
+                <table id="showdata">
+                  <tr>
+                    <td className="w-[150px]">{items.name}</td>
+                    <td className="w-[150px]">{items.designation}</td>
+                    <td className="w-[150px]">{items.grade}</td>
+                    <td className="w-[150px]">{items.section}</td>
+                    <td className="w-[150px]">{items.mobile}</td>
+                    <td className="w-[150px]">{items.email}</td>
+                    <td className="w-[150px]">{items.dateofbirth}</td>
+                    <td className="w-[150px]">{items.gender}</td>
+                    <td className="w-[150px]">{items.merital}</td>
+                    <td className="w-[150px]">{items.religion}</td>
+                    <td className="w-[150px]">{items.homedistrict}</td>
+                    <td className="w-[150px]">{items.perdivision}</td>
+                    <td className="w-[150px]">{items.perdristrict}</td>
+                    <td className="w-[150px]">{items.perthana}</td>
+                    <td className="w-[150px]">{items.perPostoffice}</td>
+                    <td className="w-[150px]">{items.pervillage}</td>
+                    <td className="w-[150px]">{items.perroad}</td>
+                    <td className="w-[150px]">{items.perhouse}</td>
+                    <td className="w-[150px]">{items.predivision}</td>
+                    <td className="w-[150px]">{items.predristrict}</td>
+                    <td className="w-[150px]">{items.prethana}</td>
+                    <td className="w-[150px]">{items.prePostoffice}</td>
+                    <td className="w-[150px]">{items.previllage}</td>
+                    <td className="w-[150px]">{items.preroad}</td>
+                    <td className="w-[150px]">{items.prehouse}</td>
+                    <td className="w-[150px]">{items.appontmentCatagory}</td>
+                    <td className="w-[150px]">{items.firstjoint}</td>
+                    <td className="w-[150px]">{items.firstdesignation}</td>
+                    <td className="w-[150px]">{items.scale}</td>
+                    <td className="w-[150px]">{items.promotiondesignation}</td>
+                    <td className="w-[150px]">{items.promotionjoinindate}</td>
+                  </tr>
+                </table>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </>
   );
 };
 
