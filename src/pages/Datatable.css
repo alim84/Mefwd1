@@ -1,0 +1,27 @@
+#showdata {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#showdata td,
+#showdata th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#showdata tr:nth-child(even) {
+  background-color: rgb(210, 210, 224);
+}
+
+#showdata tr:hover {
+  background-color: #f0eee6;
+}
+
+#showdata th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(39, 134, 151);
+  color: white;
+}
