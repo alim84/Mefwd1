@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
 
-
 const InstituteManPower = () => {
   let [instituteName, setInstituteName] = useState("");
   let [designation, setDesignation] = useState("");
@@ -101,6 +100,10 @@ const InstituteManPower = () => {
                     value={instituteName}
                   >
                     <option>নির্বাচন করুন</option>
+                    <option>স্বাস্থ্য শিক্ষা ও পরিবার কল্যাণ বিভাগ</option>
+                    <option>পরিবার পরিকল্পনা অধিদপ্তর</option>
+                    <option>স্বাস্থ্য শিক্ষা অধিদপ্তর</option>
+                    <option>জাতীয় জনসংখ্য ও গবেষনা প্রতিষ্ঠান</option>
                     <option>ঢাকা মেডিকেল কলেজ</option>
                     <option>শহীদ সোরয়ারদী মেডিকেল কলেজ</option>
                   </select>
@@ -117,7 +120,7 @@ const InstituteManPower = () => {
                     value={designation}
                   >
                     <option>নির্বাচন করুন</option>
-                    <option>প্রশাসন অনুবিভাগ</option>
+                    <option>সিস্টেম এনালিস্ট</option>
                     <option>প্রোগ্রামার</option>
                     <option>সহকারী সচিব</option>
                     <option>হিসাব রক্ষণ কর্মকর্তা</option>
@@ -140,26 +143,32 @@ const InstituteManPower = () => {
 
                   <select
                     className="rounded-lg  border-none hover:border-indigo-300 py-2 px-5"
-                    id="designation"
-                    name="designation"
+                    id="grade"
+                    name="grade"
                     onChange={gradeHandler}
                     value={grade}
                   >
                     <option>নির্বাচন করুন</option>
-                    <option>সিস্টেম এনালিস্ট</option>
-                    <option>প্রোগ্রামার</option>
-                    <option>সহকারী সচিব</option>
-                    <option>হিসাব রক্ষণ কর্মকর্তা</option>
-                    <option>সহকারী মেইনট্যানেন্স ইঞ্জিনিয়ার</option>
-                    <option>লাইব্রেরিয়ান</option>
-                    <option>প্রশাসনিক কর্মকর্তা</option>
-                    <option>ব্যক্তিগত কর্মকর্তা</option>
-                    <option>সহকারী হিসাব রক্ষণ কর্মকর্তা</option>
-                    <option>ক্যাশিয়ার</option>
-                    <option>কম্পিউটার অপারেটর</option>
-                    <option>সাঁট মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর</option>
-                    <option>অফিস সহকারী কাম কম্পিউটার অপারেটর</option>
-                    <option>অফিস সহায়ক</option>
+                    <option>গ্রেড-১ ৭৮০০০ (নির্ধারিত)</option>
+                    <option>গ্রেড-২ (৬৬০০০-৭৯৪৯০)</option>
+                    <option>গ্রেড-৩ (৫৬৫০০-৭৪৪০০)</option>
+                    <option>গ্রেড-৪ (৫০০০০-৭১২০০)</option>
+                    <option>গ্রেড-৫ (৪৩০০০-৬৯৮৫০)</option>
+                    <option>গ্রেড-৬ (৩৫৫০০-৬৭০১০)</option>
+                    <option>গ্রেড-৭ (২৯০০০-৬৩৪১০)</option>
+                    <option>গ্রেড-৮ (২৩০০০-৫৫৪৬০)</option>
+                    <option>গ্রেড-৯ (২২০০০-৫৩০৬০)</option>
+                    <option>গ্রেড-১০ (১৬০০০-৩৮৬৪০)</option>
+                    <option>গ্রেড-১১ (১২৫০০-৩২২৪০)</option>
+                    <option>গ্রেড-১২ (১১৩০০-২৭৩০০)</option>
+                    <option>গ্রেড-১৩ (১১০০০-২৬৫৯০)</option>
+                    <option>গ্রেড-১৪ (১০২০০-২৪৬৮০)</option>
+                    <option>গ্রেড-১৫ (৯৭০০-২৩৪৯০)</option>
+                    <option>গ্রেড-১৬ (৯৩০০-২২৪৯০)</option>
+                    <option>গ্রেড-১৭ (৯০০০-২১৮০০)</option>
+                    <option>গ্রেড-১৮ (৮৮০০-২১৩১০)</option>
+                    <option>গ্রেড-১৯ (৮৫০০-২০৫৭০) </option>
+                    <option>গ্রেড-২০ (৮২৫০-২০০১০)</option>
                   </select>
                 </div>
                 <div className="py-3">
@@ -169,7 +178,7 @@ const InstituteManPower = () => {
                   <input
                     className=" py-2 px-10 rounded-md border outline-1 hover:outline-indigo-600 "
                     type="text"
-                    name="name"
+                    name="approvalpost"
                     onChange={approvalpostHandler}
                     value={approvalPost}
                   ></input>
@@ -183,7 +192,7 @@ const InstituteManPower = () => {
                     className="py-2 px-10 rounded-md border outline-1 hover:outline-indigo-600 "
                     placeholder="কর্মরত জনবল "
                     type="text"
-                    name="name"
+                    name="manpower"
                     onChange={workingmanHandler}
                     value={workingMan}
                   ></input>
@@ -196,7 +205,7 @@ const InstituteManPower = () => {
                     className="py-2 px-10 rounded-md  border outline-1 hover:outline-indigo-600 "
                     placeholder="শুন্য পদে সংখ্যা"
                     type="text"
-                    name="name"
+                    name="vacant"
                     onChange={vacantpostHandler}
                     value={vacantPost}
                   ></input>
@@ -212,7 +221,7 @@ const InstituteManPower = () => {
                     className="py-2 px-10 rounded-md border outline-1 hover:outline-indigo-600 "
                     placeholder="কর্মরত পুরুষ জনবল "
                     type="text"
-                    name="name"
+                    name="maleemploy"
                     onChange={workingMaleHandler}
                     value={workingMale}
                   ></input>
@@ -225,7 +234,7 @@ const InstituteManPower = () => {
                     className="py-2 px-10 rounded-md  border outline-1 hover:outline-indigo-600 "
                     placeholder="কর্মরত মহিলা জনবল"
                     type="text"
-                    name="name"
+                    name="femaleemploy"
                     onChange={workingFemaleHandler}
                     value={workingFemale}
                   ></input>

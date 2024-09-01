@@ -4,9 +4,7 @@ import { getDatabase, ref, set, push, onValue } from "firebase/database";
 
 import "../pages/Datatable.css";
 
-
 const Desipline = () => {
-
   let [name, setName] = useState("");
   let [designation, setDesignation] = useState("");
   let [code, setCode] = useState("");
@@ -126,7 +124,7 @@ const Desipline = () => {
                     className="py-2 px-10 rounded-md  border outline-1 hover:outline-indigo-600 "
                     placeholder="পরিচিতি কোড"
                     type="text"
-                    name="emname"
+                    name="code"
                     onChange={codeHandler}
                     value={code.code}
                   ></input>
@@ -139,7 +137,7 @@ const Desipline = () => {
                     className="py-2 px-10 rounded-md  border outline-1 hover:outline-indigo-600 "
                     placeholder="মামলার বিবরণ"
                     type="text"
-                    name="designation"
+                    name="case details"
                     onChange={caseHandler}
                     value={casedes.casedes}
                   ></input>
@@ -173,7 +171,7 @@ const Desipline = () => {
                   <select
                     className="rounded-lg  border-none hover:border-indigo-300 py-2 px-5"
                     id="catagory"
-                    name="catagory"
+                    name="casecatagory"
                     onChange={casecatagoryHandler}
                     value={casecatagory.casecatagory}
                   >
@@ -219,14 +217,15 @@ const Desipline = () => {
                 </div>
               </div>{" "}
             </div>
-            <button onClick={submitBtn} className="py-2 px-16 bg-yellow-200 rounded-lg mt-12 font-bold text-gray-600 hover:bg-indigo-600 hover:text-white flex mx-auto justify-center">
+            <button
+              onClick={submitBtn}
+              className="py-2 px-16 bg-yellow-200 rounded-lg mt-12 font-bold text-gray-600 hover:bg-indigo-600 hover:text-white flex mx-auto justify-center"
+            >
               সংরক্ষণ করুন
             </button>
           </div>
         </div>
       </form>
-
-
 
       <div className="container  mx-auto justify-between  mt-10 ">
         <ul>
@@ -260,8 +259,6 @@ const Desipline = () => {
           })}
         </ul>
       </div>
-
-
     </>
   );
 };

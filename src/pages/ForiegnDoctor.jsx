@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
 
-
 const Foriegndoctor = () => {
   let [doctorname, setdoctorName] = useState("");
   let [code, setcode] = useState("");
@@ -134,22 +133,17 @@ const Foriegndoctor = () => {
                         className="py-2 px-20  rounded-lg border-red-400 mb-6"
                       >
                         <option>Select</option>
-                        <option>Secretary</option>
-                        <option>Additional Secretary</option>
-                        <option>Joint Secretary</option>
-                        <option>Deputy Secretary</option>
-                        <option>System Analyst</option>
-                        <option>Senior Assistant Secretary</option>
-                        <option>Programmer</option>
-                        <option>Assistant Secretary</option>
-                        <option>Assistant Programmer</option>
-                        <option>Accountant</option>
-                        <option>Libruant</option>
-                        <option>Administrative Officer</option>
-                        <option>Personal Officer</option>
-                        <option>Assistant Accountant</option>
-                        <option>3rd Grade Stuff</option>
-                        <option>4th Grade Stuff</option>
+                        <option>Director General</option>
+                        <option>Additional Director General</option>
+                        <option>Deputy Director General</option>
+                        <option>Director</option>
+                        <option>Professoret</option>
+                        <option>Associate Professore</option>
+                        <option>Assistant Professore</option>
+                        <option>Senior Consultant</option>
+                        <option>Jonior Consultant</option>
+                        <option>Lecturer</option>
+                        <option>Medical Officer</option>
                       </select>
                     </div>
                     <div>

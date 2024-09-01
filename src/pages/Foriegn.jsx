@@ -180,7 +180,7 @@ const Foriegn = () => {
                         Finance by
                       </label>
                       <select
-                        name="finance"
+                        name="financeby"
                         value={inputfinance.finance}
                         onChange={financeHandler}
                         className="py-2 px-28  rounded-lg border-red-400 mb-6"
