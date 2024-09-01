@@ -18,6 +18,7 @@ import {
   Router,
 } from "react-router-dom";
 import PersonelInfo from "./pages/PersonelInfo";
+import Inventoryshow from "./showdata/Inventoryshow";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
       <Route path="/me" element={<Me />}></Route>
       <Route path="/personell" element={<PersonelInfo />}></Route>
       <Route path="/student" element={<Students />}></Route>
+      <Route path="/inventoryshow" element={<Inventoryshow />}></Route>
     </>
   )
 );
