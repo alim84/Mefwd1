@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../pages/Dashboard.css";
 import "../pages/Dashboarstyle.css";
 import { RiAdminFill } from "react-icons/ri";
@@ -6,8 +6,11 @@ import { MdOutlineFamilyRestroom, MdAttachMoney } from "react-icons/md";
 import { FaMoneyCheck } from "react-icons/fa";
 import { SiMicrosoftacademic, SiConstruct3 } from "react-icons/si";
 import { IoIosLogOut } from "react-icons/io";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const Dashboard = () => {
+  const db = getDatabase();
+  let [alldata, setAllData] = useState([]);
   const [open, setOpen] = useState(false);
   const [openpfl, setOpenPflw] = useState(false);
   const [openDev, setOpenDev] = useState(false);
@@ -51,6 +54,32 @@ const Dashboard = () => {
       setOpenMe(false);
     }
   });
+
+  useEffect(() => {
+    const db = getDatabase();
+    const studentRef = ref(db, "institutemanpower/");
+    onValue(studentRef, (snapshot) => {
+      let array = [];
+      snapshot.forEach((item) => {
+        array.push(item.val());
+      });
+
+      setAllData(array);
+    });
+  }, []);
+
+  useEffect(() => {
+    const db = getDatabase();
+    const studentRef = ref(db, "Medical/");
+    onValue(studentRef, (snapshot) => {
+      let array = [];
+      snapshot.forEach((item) => {
+        array.push(item.val());
+      });
+
+      setAllData(array);
+    });
+  }, []);
 
   return (
     <>
@@ -265,18 +294,27 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="box-container">
-            <div className="box box1">
-              <div className="text">
-                <h2 className="topic-heading">Admin </h2>
-                <h2 className="topic">Article Views</h2>
-                <h2 className="topic">Article Views</h2>
-                <h2 className="topic">Article Views</h2>
-              </div>
-              <img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
-                alt="Views"
-              />
-            </div>
+            {alldata.map((item) => {
+              return (
+                <div className="box box1">
+                  <div className="text">
+                    <h2 className="topic-heading">ME </h2>
+                    <h2 className="topic">
+                      প্রতিষ্ঠানের নাম : {item.instituteName}
+                    </h2>
+                    <h2 className="topic">
+                      মন্ত্রণালয়ের অনুমোদন : {item.ministryaprove}
+                    </h2>
+                    <h2 className="topic">আসন সংখ্যা : {item.seat}</h2>
+
+                    <h2 className="topic">
+                      মোট শিক্ষার্থী : {item.totalstudent}
+                    </h2>
+                  </div>
+                </div>
+              );
+            })}
+
             <div className="box box2">
               <div className="text">
                 <h2 className="topic-heading">ME </h2>
@@ -318,23 +356,40 @@ const Dashboard = () => {
             <div className="report-container">
               <div className="report-header">
                 <h1 className="recent-Articles">ManPower</h1>
-                <button className="view">View</button>
+                <button className="view">
+                  <a href={`/manpowershow`}>All Data</a>
+                </button>
               </div>
               <div className="report-body">
-                <div className="report-topic-heading">
-                  <h3 className="t-op">Class-1</h3>
-                  <h3 className="t-op">Class-2</h3>
-                  <h3 className="t-op">Class-3</h3>
-                  <h3 className="t-op">Class-4</h3>
+                <div className="report-topic-heading py-3 text-center bg-yellow-500 rounded-lg text-sm">
+                  <h3 className="t-op w-[150px]">প্রতিষ্ঠানের নাম</h3>
+                  <h3 className="t-op">অনুমোদিত পদ সংখ্যা </h3>
+                  <h3 className="t-op">কর্মরত জনবল</h3>
+                  <h3 className="t-op">শুন্য পদের সংখ্যা</h3>
                 </div>
-                <div className="items">
-                  <div className="item1">
-                    <h3 className="t-op-nextlvl">20</h3>
-                    <h3 className="t-op-nextlvl">35</h3>
-                    <h3 className="t-op-nextlvl">75</h3>
-                    <h3 className="t-op-nextlvl">115</h3>
-                  </div>
-                </div>
+
+                {alldata.map((item) => {
+                  return (
+                    <div className="items">
+                      <div className="item1">
+                        <table>
+                          <tr className="even:bg-yellow-200">
+                            <td className="w-[150px] ">{item.instituteName}</td>
+                            <td className="w-[150px] text-center">
+                              {item.approvalPost}
+                            </td>
+                            <td className="w-[150px] text-center">
+                              {item.workingMan}
+                            </td>
+                            <td className="w-[150px] text-center">
+                              {item.vacantPost}
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <div className="report-container">
@@ -359,8 +414,6 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-
-    
           </div>
         </div>
       </div>

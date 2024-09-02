@@ -19,6 +19,17 @@ import {
 } from "react-router-dom";
 import PersonelInfo from "./pages/PersonelInfo";
 import Inventoryshow from "./showdata/Inventoryshow";
+import Desiplineshow from "./showdata/Desiplineshow";
+import Foriegnshow from "./showdata/Foriegnshow";
+import DoctorForShow from "./showdata/DoctorForShow";
+import ManpowerShow from "./showdata/ManpowerShow";
+import Consumshow from "./showdata/Consumshow";
+import Leaveshow from "./showdata/Leaveshow";
+import Meshow from "./showdata/Meshow";
+import Personnelshow from "./showdata/Personnelshow";
+import Studentshow from "./showdata/Studentshow";
+
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,7 +45,16 @@ const router = createBrowserRouter(
       <Route path="/me" element={<Me />}></Route>
       <Route path="/personell" element={<PersonelInfo />}></Route>
       <Route path="/student" element={<Students />}></Route>
+      <Route path="/disiplineshow" element={<Desiplineshow />}></Route>
+      <Route path="/foriegnshow" element={<Foriegnshow />}></Route>
+      <Route path="/doctorshow" element={<DoctorForShow />}></Route>
+      <Route path="/manpowershow" element={<ManpowerShow />}></Route>
+      <Route path="/consumshow" element={<Consumshow />}></Route>
+      <Route path="/leaveshow" element={<Leaveshow />}></Route>
+      <Route path="/meshow" element={<Meshow />}></Route>
+      <Route path="/personnelshow" element={<Personnelshow />}></Route>
       <Route path="/inventoryshow" element={<Inventoryshow />}></Route>
+      <Route path="/studentshow" element={<Studentshow />}></Route>
     </>
   )
 );

@@ -254,14 +254,14 @@ const InstituteManPower = () => {
       <div className="container  mx-auto justify-between  mt-10 ">
         <ul>
           <table id="showdata">
-            <th className="w-[193px] ">কর্মকর্তার নাম</th>
+            <th className="w-[193px] "> প্রতিষ্ঠানের নাম</th>
             <th className="w-[193px]">পদবি</th>
-            <th className="w-[193px]">কোড</th>
-            <th className="w-[193px]">মামলার বিবরণ</th>
-            <th className="w-[193px]">প্রতিষ্ঠানের নাম</th>
-            <th className="w-[193px]">মামলার ধরন</th>
-            <th className="w-[193px]">সন</th>
-            <th className="w-[193px]">শাস্তির ধরন</th>
+            <th className="w-[193px]">গ্রেড</th>
+            <th className="w-[193px]">অনুমোদিত পদ সংখ্যা</th>
+            <th className="w-[193px]">কর্মরত জনবল</th>
+            <th className="w-[193px]">শুন্য পদের সংখ্যা</th>
+            <th className="w-[193px]">কর্মরত পুরুষ জনবল</th>
+            <th className="w-[193px]">কর্মরত মহিলা জনবল</th>
           </table>
           {alldata.map((item) => {
             return (
