@@ -23,14 +23,14 @@ const Personnelshow = () => {
     <>
       <div className=" mx-auto  mt-10 shadow-lg shadow-gray-400 ">
         <div className="flex mx-auto gap-5 justify-end items-center bg-black/85 text-purple-400 relative rounded-t-md ">
-          <a className="hover:text-lg hover:text-purple-300" href="">
-            Dashboard
+          <a className="hover:text-lg hover:text-purple-300" href={`/`}>
+           হোম
+          </a>
+          <a className="hover:text-lg hover:text-purple-300" href={`/personell`}>
+            ব্যক্তিগত তথ্য
           </a>
           <a className="hover:text-lg hover:text-purple-300" href="">
-            Inventory
-          </a>
-          <a className="hover:text-lg hover:text-purple-300" href="">
-            Contact
+            যোগাযোগ
           </a>
           <input
             className="py-1 px-14 rounded-md mb-4 outline-red-300  mt-2"

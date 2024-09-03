@@ -23,14 +23,17 @@ const Consumshow = () => {
     <>
       <div className="container  mx-auto  mt-10 shadow-lg shadow-gray-400 ">
         <div className="flex mx-auto gap-5 justify-end items-center bg-black/85 text-purple-400 relative rounded-t-md ">
-          <a className="hover:text-lg hover:text-purple-300" href="">
-            Dashboard
+          <a className="hover:text-lg hover:text-purple-300" href={`/`}>
+            হোম
+          </a>
+          <a
+            className="hover:text-lg hover:text-purple-300"
+            href={`/consumption`}
+          >
+            মালামাল বিতরন
           </a>
           <a className="hover:text-lg hover:text-purple-300" href="">
-            Inventory
-          </a>
-          <a className="hover:text-lg hover:text-purple-300" href="">
-            Contact
+            যোগাযোগ
           </a>
           <input
             className="py-1 px-14 rounded-md mb-4 outline-red-300  mt-2"
@@ -56,8 +59,12 @@ const Consumshow = () => {
                   <tr>
                     <td className="w-[150px]">{item.productName}</td>
                     <td className="w-[150px] text-center">{item.quantity}</td>
-                    <td className="w-[150px] text-center">{item.sectionName}</td>
-                    <td className="w-[150px] text-center">{item.delevarydate}</td>
+                    <td className="w-[150px] text-center">
+                      {item.sectionName}
+                    </td>
+                    <td className="w-[150px] text-center">
+                      {item.delevarydate}
+                    </td>
                     <td className="w-[150px] text-center">
                       <button className=" bg-green-600 text-white font-bold py-1 px-2 rounded-lg  ">
                         Update

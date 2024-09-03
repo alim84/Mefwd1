@@ -1,11 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "../pages/Dashboard.css";
 import "../pages/Dashboarstyle.css";
-import { RiAdminFill } from "react-icons/ri";
-import { MdOutlineFamilyRestroom, MdAttachMoney } from "react-icons/md";
-import { FaMoneyCheck } from "react-icons/fa";
-import { SiMicrosoftacademic, SiConstruct3 } from "react-icons/si";
-import { IoIosLogOut } from "react-icons/io";
+
 import { getDatabase, ref, onValue } from "firebase/database";
 
 const Dashboard = () => {
@@ -54,17 +50,11 @@ const Dashboard = () => {
 
   return (
     <>
-      <meta charSet="UTF-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta
-        name="viewport"
-        content="width=device-width, 
-             initial-scale=1.0"
-      />
-      <title>MEFWD</title>
+   
+    
       <link rel="stylesheet" href="style.css" />
       <link rel="stylesheet" href="responsive.css" />
-      {/* for header part */}
+    
       <header>
         <div className="logo">MEFWDHRM</div>
 
@@ -95,107 +85,7 @@ const Dashboard = () => {
         </div>
       </header>
       <div className="main-container ">
-        <div className="navcontainer  ">
-          <nav className="nav  ">
-            <div className="nav-upper-options ">
-              <div className="nav-option option1 ">
-                <img
-                  src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
-                  className="nav-img"
-                  alt="dashboard"
-                />
-                <h3> Wing Function</h3>
-              </div>
-              <div className="option2 nav-option relative">
-                <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">
-                  <RiAdminFill className="flex absolute top-[20px] left-[35px]" />
-                </div>
-                <div className="relative">
-                  <button className="block focus:overflow-visible cursor-visible drop relative hover:  ">
-                    <ul>
-                      <li>
-                        <a href={`/disipline`}>শৃঙ্খলা</a>
-                      </li>
-                    </ul>
-                  </button>
-                </div>
-              </div>
-
-              <div className="nav-option option3 relative">
-                <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">
-                  <MdOutlineFamilyRestroom className="flex absolute top-[20px] left-[35px]" />
-                </div>
-                <div className="relative">
-                  <button className="block focus:overflow-visible cursor-visible drop relative ">
-                    <a href={`/foriegn`}>বহিঃ বাংলাদেশ</a>
-                  </button>
-                </div>
-              </div>
-              <div className="nav-option option4 relative">
-                <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">
-                  <SiConstruct3 className="flex absolute top-[20px] left-[35px]" />
-                </div>
-                <div className="relative">
-                  <button className="block focus:overflow-visible cursor-visible drop relative ">
-                    <a href={`/doctor`}>চিকিৎসক বহিঃ বাংলাদেশ</a>
-                  </button>
-                </div>
-              </div>
-              <div className="nav-option option5 relative">
-                <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">
-                  <SiMicrosoftacademic className="flex absolute top-[20px] left-[35px]" />
-                </div>
-                <div className="relative">
-                  <button className="block focus:overflow-visible cursor-visible drop relative ">
-                    <a href={`/institute`}>জনবল</a>
-                  </button>
-                </div>
-              </div>
-              <div className="nav-option option6 relative">
-                <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">
-                  <MdAttachMoney className="flex absolute top-[20px] left-[35px]" />
-                </div>
-                <a href={`/inventory`}>মালামাল গ্রহণ</a>
-              </div>
-              <div className="nav-option option6 relative">
-                <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">
-                  <FaMoneyCheck className="flex absolute top-[20px] left-[35px]" />
-                </div>
-                <a href={`/consumption`}>মালামাল বিতরন</a>
-              </div>
-              <div className="nav-option option6 relative">
-                <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">
-                  <FaMoneyCheck className="flex absolute top-[20px] left-[35px]" />
-                </div>
-                <a href={`/leave`}>ছুটি</a>
-              </div>
-              <div className="nav-option option6 relative">
-                <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">
-                  <FaMoneyCheck className="flex absolute top-[20px] left-[35px]" />
-                </div>
-                <a href={`/me`}>মেডিকেল প্রতিষ্ঠানের তথ্য</a>
-              </div>
-              <div className="nav-option option6 relative">
-                <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">
-                  <FaMoneyCheck className="flex absolute top-[20px] left-[35px]" />
-                </div>
-                <a href={`/personell`}>ব্যক্তিগত তথ্য</a>
-              </div>
-              <div className="nav-option option6 relative">
-                <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">
-                  <FaMoneyCheck className="flex absolute top-[20px] left-[35px]" />
-                </div>
-                <a href={`/student`}>শিক্ষার্থী তথ্য</a>
-              </div>
-              <div className="nav-option logout relative">
-                <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">
-                  <IoIosLogOut className="flex absolute top-[20px] left-[35px]" />
-                </div>
-                <h3>Logout</h3>
-              </div>
-            </div>
-          </nav>
-        </div>
+       
 
         <div className="main">
           <div className="searchbar2">

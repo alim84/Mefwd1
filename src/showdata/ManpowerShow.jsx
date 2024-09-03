@@ -24,13 +24,13 @@ const ManpowerShow = () => {
       <div className="container  mx-auto  mt-10 shadow-lg shadow-gray-400 ">
         <div className="flex mx-auto gap-5 justify-end items-center bg-black/85 text-purple-400 relative rounded-t-md ">
           <a className="hover:text-lg hover:text-purple-300" href={`/`}>
-            Dashboard
+            হোম
           </a>
           <a className="hover:text-lg hover:text-purple-300" href={`/institute`}>
-            Manpower
+            জনবল
           </a>
           <a className="hover:text-lg hover:text-purple-300" href="#contact">
-            Contact
+            যোগাযেগ
           </a>
           <input
             className="py-1 px-14 rounded-md mb-4 outline-red-300  mt-2"
