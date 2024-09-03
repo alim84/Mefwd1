@@ -28,6 +28,7 @@ import Leaveshow from "./showdata/Leaveshow";
 import Meshow from "./showdata/Meshow";
 import Personnelshow from "./showdata/Personnelshow";
 import Studentshow from "./showdata/Studentshow";
+import Sidebar from "./pages/Sidebar";
 
 
 
@@ -55,6 +56,7 @@ const router = createBrowserRouter(
       <Route path="/personnelshow" element={<Personnelshow />}></Route>
       <Route path="/inventoryshow" element={<Inventoryshow />}></Route>
       <Route path="/studentshow" element={<Studentshow />}></Route>
+      <Route path="/side" element={<Sidebar />}></Route>
     </>
   )
 );

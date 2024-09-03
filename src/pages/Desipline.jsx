@@ -84,6 +84,7 @@ const Desipline = () => {
             <h1 className="py-4">মামলা সংক্রান্ত তথ্য</h1>
             <hr></hr>
           </div>
+
           <div>
             <div className="grid-cols-3 justify-between mx-auto  mt-10 p-5 outline-gray-400 outline outline-3 border-2 border-r-rose-500 border-b-rose-500/75  border-l-rose-500/50  border-t-rose-500/25 w-[800px]">
               <h3 className="absulate top-0 left-0 translate-y-[-32px] bg-cyan-900 inline-block px-2 text-yellow-200">

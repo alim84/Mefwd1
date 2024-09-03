@@ -214,7 +214,7 @@ header {
 }
 .box {
   height: 150px;
-  width: 250px;
+  width: 350px;
   border-radius: 20px;
   box-shadow: 3px 3px 10px rgba(0, 30, 87, 0.751);
   padding: 20px;
@@ -260,8 +260,8 @@ header {
 }
 
 .report-container {
-  min-height: 300px;
-  max-width: 1000px;
+  min-height: 400px;
+  max-width: 800px;
   margin: 70px auto 0px auto;
   background-color: #ffffff;
   border-radius: 30px;
