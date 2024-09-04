@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
-
+import { IoIosSearch } from "react-icons/io";
 import "../pages/Datatable.css";
 
 const Desipline = () => {
@@ -78,8 +78,10 @@ const Desipline = () => {
 
   return (
     <>
-      <form action="" method="POST">
-        <div className=" w-[1200px]  mx-auto bg-cyan-900 py-5 px-5 mt-10 rounded-lg shadow-2xl shadow-gray-400">
+  <div>
+
+  <form action="" method="POST">
+        <div className=" w-[1200px]  mx-auto bg-cyan-900 py-5 px-5 mt-2 rounded-lg shadow-2xl shadow-gray-400">
           <div className="mb-12 text-center font-bold text-2xl text-yellow-200">
             <h1 className="py-4">মামলা সংক্রান্ত তথ্য</h1>
             <hr></hr>
@@ -228,38 +230,8 @@ const Desipline = () => {
         </div>
       </form>
 
-      <div className="container  mx-auto justify-between  mt-10 ">
-        <ul>
-          <table id="showdata">
-            <th className="w-[193px] ">কর্মকর্তার নাম</th>
-            <th className="w-[193px]">পদবি</th>
-            <th className="w-[193px]">কোড</th>
-            <th className="w-[193px]">মামলার বিবরণ</th>
-            <th className="w-[193px]">প্রতিষ্ঠানের নাম</th>
-            <th className="w-[193px]">মামলার ধরন</th>
-            <th className="w-[193px]">সন</th>
-            <th className="w-[193px]">শাস্তির ধরন</th>
-          </table>
-          {alldata.map((item) => {
-            return (
-              <li>
-                <table id="showdata">
-                  <tr>
-                    <td className="w-[150px]">{item.name}</td>
-                    <td className="w-[150px]">{item.designation}</td>
-                    <td className="w-[150px]">{item.code}</td>
-                    <td className="w-[150px]">{item.casedes}</td>
-                    <td className="w-[150px]">{item.institute}</td>
-                    <td className="w-[150px]">{item.casecatagory}</td>
-                    <td className="w-[150px]">{item.year}</td>
-                    <td className="w-[150px]">{item.punishment}</td>
-                  </tr>
-                </table>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+  </div>
+    
     </>
   );
 };

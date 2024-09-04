@@ -210,30 +210,6 @@ const Inventoryconsumption = () => {
         </div>
       </form>
 
-      <div className="container  mx-auto justify-between  mt-10 ">
-        <ul>
-          <table id="showdata">
-            <th className="w-[193px] ">মালামালের নাম</th>
-            <th className="w-[193px]">পরিমান</th>
-            <th className="w-[193px]">দপ্তর/অনুবিভাগ/অধিশাখা/শাখার নাম</th>
-            <th className="w-[193px]">বিতরনের তারিখ</th>
-          </table>
-          {alldata.map((item) => {
-            return (
-              <li>
-                <table id="showdata">
-                  <tr>
-                    <td className="w-[150px]">{item.productName}</td>
-                    <td className="w-[150px]">{item.quantity}</td>
-                    <td className="w-[150px]">{item.sectionName}</td>
-                    <td className="w-[150px]">{item.delevarydate}</td>
-                  </tr>
-                </table>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
     </>
   );
 };

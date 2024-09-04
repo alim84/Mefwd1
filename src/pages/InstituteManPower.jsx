@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
+import { IoIosSearch } from "react-icons/io";
 
 const InstituteManPower = () => {
   let [instituteName, setInstituteName] = useState("");
@@ -75,9 +76,11 @@ const InstituteManPower = () => {
   }, []);
 
   return (
-    <div>
+   <div>
+
+     <div>
       <form action="" method="POST">
-        <div className=" w-[1200px]  mx-auto bg-cyan-900 py-5 px-5 mt-10">
+        <div className=" w-[1200px] h-screen mx-auto bg-cyan-900 py-5 px-5">
           <div className="mb-12 text-center font-bold text-2xl text-orange-500">
             <h1 className="py-4">প্রতিষ্ঠানের জনবলের তথ্য</h1>
             <hr></hr>
@@ -251,39 +254,9 @@ const InstituteManPower = () => {
         </div>
       </form>
 
-      <div className="container  mx-auto justify-between  mt-10 ">
-        <ul>
-          <table id="showdata">
-            <th className="w-[193px] "> প্রতিষ্ঠানের নাম</th>
-            <th className="w-[193px]">পদবি</th>
-            <th className="w-[193px]">গ্রেড</th>
-            <th className="w-[193px]">অনুমোদিত পদ সংখ্যা</th>
-            <th className="w-[193px]">কর্মরত জনবল</th>
-            <th className="w-[193px]">শুন্য পদের সংখ্যা</th>
-            <th className="w-[193px]">কর্মরত পুরুষ জনবল</th>
-            <th className="w-[193px]">কর্মরত মহিলা জনবল</th>
-          </table>
-          {alldata.map((item) => {
-            return (
-              <li>
-                <table id="showdata">
-                  <tr>
-                    <td className="w-[150px]">{item.instituteName}</td>
-                    <td className="w-[150px]">{item.designation}</td>
-                    <td className="w-[150px]">{item.grade}</td>
-                    <td className="w-[150px]">{item.approvalPost}</td>
-                    <td className="w-[150px]">{item.workingMan}</td>
-                    <td className="w-[150px]">{item.vacantPost}</td>
-                    <td className="w-[150px]">{item.workingMale}</td>
-                    <td className="w-[150px]">{item.workingFemale}</td>
-                  </tr>
-                </table>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+
     </div>
+   </div>
   );
 };
 

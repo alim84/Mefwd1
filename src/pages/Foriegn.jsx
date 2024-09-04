@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
-
+import { IoIosSearch } from "react-icons/io";
 
 const Foriegn = () => {
   let [inputname, setinputName] = useState("");
@@ -50,14 +50,14 @@ const Foriegn = () => {
       goingdate: inputgoingdate,
       country: inputcountry,
     }).then(() => {
-      setinputName('');
-      setinputDesignation('');
-      setinputGodate('');
-      setinputCatagory('');
-      setinputSubject('');
-      setinputFinance('');
-      setinputGoingdate('');
-      setinputCountry('');
+      setinputName("");
+      setinputDesignation("");
+      setinputGodate("");
+      setinputCatagory("");
+      setinputSubject("");
+      setinputFinance("");
+      setinputGoingdate("");
+      setinputCountry("");
       alert("Submit Data");
     });
   };
@@ -76,6 +76,7 @@ const Foriegn = () => {
   return (
     <>
       <div>
+     
         <div className="container bg-blue-200 mx-auto h-[800px] ">
           <div>
             <h1 className="text-center font-bold text-blue-600 pt-10 text-2xl mb-2 underline ">
@@ -90,7 +91,7 @@ const Foriegn = () => {
               <div>
                 <div className="absulate translate-y-[-50px]">
                   <h3 className=" inline-block bg-blue-200 px-2 font-bold text-red-700">
-                   MEFWD Foriegn TSW Data
+                    MEFWD Foriegn TSW Data
                   </h3>
                 </div>
                 <div className="grid grid-cols-2">
@@ -563,48 +564,6 @@ const Foriegn = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="container  mx-auto justify-between  mt-10 ">
-       
-        <ul >
-        <table id="showdata">
-         
-         <th className="w-[193px] " >Name</th>
-         <th className="w-[193px]" >Designation</th>
-         <th className="w-[193px]">GoDate</th>
-         <th className="w-[193px]">Catagory</th>
-         <th className="w-[193px]">Subject</th>
-         <th className="w-[193px]">Finance</th>
-         <th className="w-[193px]">Going Date</th>
-         <th className="w-[193px]">Country</th>
-  
-       
-       </table>
-          {alldata.map((item) => {
-
-            return (
-            
-              <li >
-          
-      
-          <table id="showdata" >
-              <tr>
-              <td className="w-[150px]" >{item.name}</td>
-                  <td className="w-[150px]"  >{item.designation}</td>
-                  <td className="w-[150px]" >{item.godate}</td>
-                  <td className="w-[150px]" >{item.catagory}</td>
-                  <td className="w-[150px]" >{item.subject}</td>
-                  <td  className="w-[150px]" >{item.finance}</td>
-                  <td className="w-[150px]" >{item.goingdate}</td>
-                  <td className="w-[150px]" >{item.country}</td>
-              </tr>
-              
-              
-          </table>
-              </li>
-            );
-          })}
-        </ul>
       </div>
     </>
   );

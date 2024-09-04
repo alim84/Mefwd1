@@ -431,50 +431,7 @@ const Me = () => {
         </div>
       </div>
 
-      <div className="container  mx-auto justify-between  mt-10 ">
-        <ul>
-          <table id="showdata">
-            <th className="w-[193px] ">প্রতিষ্ঠানের নাম</th>
-            <th className="w-[193px]">মন্ত্রণালয় কর্তৃক অনুমোদন</th>
-            <th className="w-[193px]">মন্ত্রণালয় কর্তৃক একাডেমিক অনুমোদন</th>
-            <th className="w-[193px]">প্রতিষ্ঠানের ধরন</th>
-            <th className="w-[193px]">বিভাগ</th>
-            <th className="w-[193px]">জেলা</th>
-            <th className="w-[193px]">উপজেলা</th>
-            <th className="w-[193px]">বাড়িং নং/রাস্তা/মহল্লা</th>
-            <th className="w-[193px]">আসন সংখ্যা</th>
-            <th className="w-[193px]">মোট শিক্ষার্থী</th>
-            <th className="w-[193px]">মোট ছাত্র</th>
-            <th className="w-[193px]">মোট ছাত্রী</th>
-            <th className="w-[193px]">দরিদ্র শিক্ষার্থী সংখ্যা</th>
-            <th className="w-[193px]">শিক্ষাবর্ষ</th>
-          </table>
-          {alldata.map((item) => {
-            return (
-              <li>
-                <table id="showdata">
-                  <tr>
-                    <td className="w-[150px]">{item.instituteName}</td>
-                    <td className="w-[150px]">{item.ministryaprove}</td>
-                    <td className="w-[150px]">{item.academicaprove}</td>
-                    <td className="w-[150px]">{item.institutecatagory}</td>
-                    <td className="w-[150px]">{item.division}</td>
-                    <td className="w-[150px]">{item.division}</td>
-                    <td className="w-[150px]">{item.distric}</td>
-                    <td className="w-[150px]">{item.house}</td>
-                    <td className="w-[150px]">{item.seat}</td>
-                    <td className="w-[150px]">{item.totalstudent}</td>
-                    <td className="w-[150px]">{item.totalmalestudent}</td>
-                    <td className="w-[150px]">{item.totalfemalestudent}</td>
-                    <td className="w-[150px]">{item.poorstudent}</td>
-                    <td className="w-[150px]">{item.year}</td>
-                  </tr>
-                </table>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+
     </>
   );
 };

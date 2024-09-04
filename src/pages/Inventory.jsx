@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
 
-
 const Inventory = () => {
   let [productName, setProductName] = useState("");
   let [quantity, setQuantity] = useState("");
@@ -155,33 +154,6 @@ const Inventory = () => {
           </div>
         </div>
       </form>
-
-      <div className="container  mx-auto justify-between  mt-10 ">
-        <ul>
-          <table id="showdata">
-            <th className="w-[193px] ">মালামালের নাম</th>
-            <th className="w-[193px]">পরিমান</th>
-            <th className="w-[193px]">ক্যাশ মেমো/টেন্ডারের তথ্য</th>
-            <th className="w-[193px]">ক্রয়ের তারিখ</th>
-            <th className="w-[193px]">মালামালের ধরন</th>
-          </table>
-          {alldata.map((item) => {
-            return (
-              <li>
-                <table id="showdata">
-                  <tr>
-                    <td className="w-[150px]">{item.productName}</td>
-                    <td className="w-[150px]">{item.quantity}</td>
-                    <td className="w-[150px]">{item.cashmemo}</td>
-                    <td className="w-[150px]">{item.purchasedate}</td>
-                    <td className="w-[150px]">{item.productscatagory}</td>
-                  </tr>
-                </table>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
     </>
   );
 };

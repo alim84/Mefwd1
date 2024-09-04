@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
+import { IoIosSearch } from "react-icons/io";
 
 const Foriegndoctor = () => {
   let [doctorname, setdoctorName] = useState("");
@@ -81,6 +82,7 @@ const Foriegndoctor = () => {
   return (
     <>
       <div>
+     
         <div className="container bg-blue-200 mx-auto  ">
           <div>
             <h1 className="text-center font-bold text-blue-600 pt-10 text-3xl mb-2 underline ">
@@ -575,52 +577,7 @@ const Foriegndoctor = () => {
           </div>
         </div>
       </div>
-      <div className="container  mx-auto justify-between  mt-10 ">
-        <ul>
-          <table id="showdata">
-            <th className="w-[150px] ">Name</th>
-            <th className="w-[150px] ">Code</th>
-            <th className="w-[150px]">Designation</th>
-            <th className="w-[150px]">GoDate</th>
-            <th className="w-[150px]">Catagory</th>
-            <th className="w-[150px]">Subject</th>
-            <th className="w-[150px]">Finance</th>
-            <th className="w-[150px]">Going Date</th>
-            <th className="w-[150px]">Country</th>
-            <th className="w-[150px]">Update</th>
-            <th className="w-[150px]">Delete</th>
-          </table>
-          {alldatadoctor.map((item) => {
-            return (
-              <li className="flex">
-                <table id="showdata">
-                  <tr>
-                    <td className="w-[150px]">{item.name}</td>
-                    <td className="w-[150px]">{item.code}</td>
-                    <td className="w-[150px]">{item.designation}</td>
-                    <td className="w-[150px]">{item.godate}</td>
-                    <td className="w-[150px]">{item.catagory}</td>
-                    <td className="w-[150px]">{item.subject}</td>
-                    <td className="w-[150px]">{item.finance}</td>
-                    <td className="w-[150px]">{item.goingdate}</td>
-                    <td className="w-[150px]">{item.country}</td>
-                    <td className="w-[150px] text-center">
-                      <button className=" bg-green-600 text-white font-bold py-1 px-2 rounded-lg  ">
-                        Update
-                      </button>
-                    </td>
-                    <td className="w-[150px] text-center">
-                      <button className="  bg-red-500 text-white font-bold py-1 px-2 rounded-lg ">
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                </table>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      
     </>
   );
 };

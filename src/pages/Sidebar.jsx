@@ -13,9 +13,9 @@ const Sidebar = () => {
       <link rel="stylesheet" href="style.css" />
       <link rel="stylesheet" href="responsive.css" />
 
-      <div className="navcontainer   ">
+      <div className="navcontainer    ">
         <nav className="nav  ">
-          <div className="nav-upper-options ">
+          <div className="nav-upper-options pt-10 ">
             <div className="nav-option option1 ">
               <img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"

@@ -240,40 +240,6 @@ const Students = () => {
         </div>
       </form>
 
-      <div className="container  mx-auto justify-between  mt-10 ">
-        <ul>
-          <table id="showdata">
-            <th className="w-[193px] ">প্রতিষ্ঠানের নাম</th>
-            <th className="w-[193px]">কোর্সের নাম</th>
-            <th className="w-[193px]">সেশন</th>
-            <th className="w-[193px]">আসন সংখ্য</th>
-            <th className="w-[193px]">মোট ভর্তিকৃত শিক্ষার্থীর সংখ্যা</th>
-            <th className="w-[193px]">শুন্য আসন</th>
-            <th className="w-[193px]">ছাত্র সংখ্যা</th>
-            <th className="w-[193px]">ছাত্রী সংখ্যা</th>
-            <th className="w-[193px]">প্রতিষ্ঠানের অবস্থান</th>
-          </table>
-          {alldata.map((item) => {
-            return (
-              <li>
-                <table id="showdata">
-                  <tr>
-                    <td className="w-[150px]">{item.instituteName}</td>
-                    <td className="w-[150px]">{item.course}</td>
-                    <td className="w-[150px]">{item.session}</td>
-                    <td className="w-[150px]">{item.seat}</td>
-                    <td className="w-[150px]">{item.totaladmissionstudent}</td>
-                    <td className="w-[150px]">{item.vacantSeat}</td>
-                    <td className="w-[150px]">{item.maleStudent}</td>
-                    <td className="w-[150px]">{item.femalStudent}</td>
-                    <td className="w-[150px]">{item.district}</td>
-                  </tr>
-                </table>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
     </>
   );
 };

@@ -351,42 +351,7 @@ const Leave = () => {
         </div>
       </div>
 
-      <div className="container  mx-auto justify-between  mt-10 ">
-        <ul>
-          <table id="showdata">
-            <th className="w-[193px] ">Name</th>
-            <th className="w-[193px]">Designation</th>
-            <th className="w-[193px]">Section</th>
-            <th className="w-[193px]">Type of Leave</th>
-            <th className="w-[193px]">Leave From</th>
-            <th className="w-[193px]">Leave to</th>
-            <th className="w-[193px]">Total day required</th>
-            <th className="w-[193px]">Enjoy Total day Leave</th>
-            <th className="w-[193px]">Remaining Leave</th>
-            <th className="w-[193px]">Total day due</th>
-          </table>
-          {showdata.map((items) => {
-            return (
-              <li>
-                <table id="showdata">
-                  <tr>
-                    <td className="w-[150px]">{items.name}</td>
-                    <td className="w-[150px]">{items.designation}</td>
-                    <td className="w-[150px]">{items.section}</td>
-                    <td className="w-[150px]">{items.typeofleave}</td>
-                    <td className="w-[150px]">{items.leavefrom}</td>
-                    <td className="w-[150px]">{items.leaveto}</td>
-                    <td className="w-[150px]">{items.totaldaysrequired}</td>
-                    <td className="w-[150px]">{items.enjoytotalleave}</td>
-                    <td className="w-[150px]">{items.remainingleave}</td>
-                    <td className="w-[150px]">{items.totaldaysdue}</td>
-                  </tr>
-                </table>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      
     </>
   );
 };
