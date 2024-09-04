@@ -21,27 +21,8 @@ const Desiplineshow = () => {
 
   return (
     <>
-      <div className="container  mx-auto  mt-10 shadow-lg shadow-gray-400 ">
-        <div className="flex mx-auto gap-5 justify-end items-center bg-black/85 text-purple-400 relative rounded-t-md ">
-          <a className="hover:text-lg hover:text-purple-300" href={`/`}>
-            হোম
-          </a>
-          <a
-            className="hover:text-lg hover:text-purple-300"
-            href={"/disipline"}
-          >
-            শৃংখলা
-          </a>
-          <a className="hover:text-lg hover:text-purple-300" href="#contact">
-            যোগাযোগ
-          </a>
-          <input
-            className="py-1 px-14 rounded-md mb-4 outline-red-300  mt-2"
-            type="text"
-            placeholder="Search.."
-          ></input>
-          <IoIosSearch className="absulate translate-x-[-50px] translate-y-[-5px] text-red-500 text-xl " />
-        </div>
+      <div className="container  mx-auto shadow-lg shadow-gray-400 ">
+  
 
         <ul>
           <table id="showdata">

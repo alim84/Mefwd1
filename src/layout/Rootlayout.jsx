@@ -7,10 +7,10 @@ const Rootlayout = () => {
   return (
     <div className="flex">
       <Sidebar />
-       <div>
-       <Topmenu/>
-       <Outlet />
-       </div>
+      <div>
+        <Topmenu />
+        <Outlet />
+      </div>
     </div>
   );
 };

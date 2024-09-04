@@ -49,13 +49,13 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <>
+    <div className="container" >
    
     
       <link rel="stylesheet" href="style.css" />
       <link rel="stylesheet" href="responsive.css" />
     
-      <header>
+      <header className="container">
         <div className="logo">MEFWDHRM</div>
 
         <div className="searchbar">
@@ -87,7 +87,7 @@ const Dashboard = () => {
       <div className="main-container ">
        
 
-        <div className="main">
+        <div className="main container">
           <div className="searchbar2">
             <input type="text" name="" id="" placeholder="Search" />
             <div className="searchbtn">
@@ -242,7 +242,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
