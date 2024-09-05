@@ -77,12 +77,12 @@ const Foriegn = () => {
     <>
       <div>
      
-        <div className="container bg-blue-200 mx-auto h-[800px] ">
+        <div className="container bg-cyan-900 mx-auto h-[800px] ">
           <div>
-            <h1 className="text-center font-bold text-blue-600 pt-10 text-2xl mb-2 underline ">
+            <h1 className="text-center font-bold text-yellow-200 pt-10 text-2xl mb-2 underline ">
               Medical Education and family Welfare Division
             </h1>
-            <h2 className="text-center font-bold text-purple-800  text-xl mb-10">
+            <h2 className="text-center font-bold text-white  text-xl mb-10">
               Foriegn Training/WorkShop/Seminar DataSheet
             </h2>
           </div>
@@ -90,14 +90,14 @@ const Foriegn = () => {
             <div className=" border-2 border-white px-4 py-8 mx-[250px]">
               <div>
                 <div className="absulate translate-y-[-50px]">
-                  <h3 className=" inline-block bg-blue-200 px-2 font-bold text-red-700">
+                  <h3 className=" inline-block bg-cyan-900 px-2 font-bold text-yellow-200">
                     MEFWD Foriegn TSW Data
                   </h3>
                 </div>
                 <div className="grid grid-cols-2">
                   <div>
                     <div>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Employee Name
                       </label>
                       <input
@@ -108,7 +108,7 @@ const Foriegn = () => {
                         value={inputname.name}
                         placeholder="Enter Employee Name"
                       ></input>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Designation
                       </label>
                       <select
@@ -137,7 +137,7 @@ const Foriegn = () => {
                       </select>
                     </div>
                     <div>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         GO Date
                       </label>
                       <input
@@ -147,7 +147,7 @@ const Foriegn = () => {
                         name="godate"
                         value={inputgodate.godate}
                       ></input>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Catagory
                       </label>
                       <select
@@ -166,7 +166,7 @@ const Foriegn = () => {
                   </div>
                   <div className="mr-10">
                     <div>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Subject
                       </label>
                       <input
@@ -177,7 +177,7 @@ const Foriegn = () => {
                         onChange={subjectHandler}
                         placeholder="Type Subject"
                       ></input>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Finance by
                       </label>
                       <select
@@ -195,7 +195,7 @@ const Foriegn = () => {
                       </select>
                     </div>
                     <div>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Going date
                       </label>
                       <input
@@ -205,7 +205,7 @@ const Foriegn = () => {
                         onChange={goingHandler}
                         name="goingdate"
                       ></input>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Country
                       </label>
                       <select

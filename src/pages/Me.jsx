@@ -112,20 +112,20 @@ const Me = () => {
 
   return (
     <>
-      <div className="container mx-auto justify-between bg-gray-200 mt-10 ">
+      <div className="container mx-auto justify-between bg-cyan-900 ">
         <div>
-          <h1 className="text-center font-bold text-blue-600 pt-10 text-2xl mb-2 underline ">
+          <h1 className="text-center font-bold text-yellow-200 pt-10 text-2xl mb-2 underline ">
             Medical Education and family Welfare Division
           </h1>
-          <h2 className="text-center font-bold text-purple-800  text-xl mb-10">
+          <h2 className="text-center font-bold text-white  text-xl mb-10">
             Non-Govt. Medical Collge Record
           </h2>
         </div>
 
-        <div className="border border-2 border-white px-6 py-8 mx-[250px]">
+        <div className=" border-2 border-white px-6 py-8 mx-[250px]">
           <div className="grid grid-cols-3 gap-4 content-center">
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 প্রতিষ্ঠানের নাম
               </label>
               <input
@@ -137,7 +137,7 @@ const Me = () => {
               ></input>
             </div>
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 মন্ত্রণালয় কর্তৃক অনুমোদন
               </label>
               <input
@@ -149,7 +149,7 @@ const Me = () => {
               ></input>
             </div>
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 মন্ত্রণালয় কর্তৃক একাডেমিক অনুমোদন
               </label>
               <input
@@ -161,7 +161,7 @@ const Me = () => {
               ></input>
             </div>
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 প্রতিষ্ঠানের ধরণ
               </label>
               <select
@@ -185,13 +185,13 @@ const Me = () => {
           </div>
         </div>
 
-        <div className="relative border border-2 border-white px-6 py-6 mx-[250px] mt-5  ">
-          <h3 className="absulate inline-block translate-y-[-35px] bg-gray-200 px-2 font-bold ">
+        <div className="relative border-2 border-white px-6 py-6 mx-[250px] mt-5   ">
+          <h3 className="absulate inline-block translate-y-[-35px] bg-cyan-900 px-2 font-bold text-yellow-200 ">
             ঠিকানা
           </h3>
           <div className="grid grid-cols-4 ">
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 বিভাগ
               </label>
               <select
@@ -215,7 +215,7 @@ const Me = () => {
             </div>
 
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 জেলা
               </label>
               <select
@@ -295,7 +295,7 @@ const Me = () => {
             </div>
 
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 উপজেলা
               </label>
               <select
@@ -318,7 +318,7 @@ const Me = () => {
               </select>
             </div>
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 বাড়ি নং/রাস্তা/মহল্লা
               </label>
               <input
@@ -332,13 +332,13 @@ const Me = () => {
           </div>
         </div>
 
-        <div className="relative border border-2 border-white px-6 py-6 mx-[250px] mt-5  ">
-          <h3 className="absulate inline-block translate-y-[-35px] bg-gray-200 px-2 font-bold ">
+        <div className="relative border-2 border-white px-6 py-6 mx-[250px] mt-5  ">
+          <h3 className="absulate inline-block translate-y-[-35px] text-yellow-200 bg-cyan-900 px-2 font-bold ">
             আসন সংখ্যা
           </h3>
           <div className="grid grid-cols-3 gap-2 ">
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 আসন সংখ্যা
               </label>
               <input
@@ -351,7 +351,7 @@ const Me = () => {
             </div>
 
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 মোট শিক্ষার্থী
               </label>
               <input
@@ -364,7 +364,7 @@ const Me = () => {
             </div>
 
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className=" font-semibold py-2 text-yellow-200">
                 মোট ছাত্র
               </label>
               <input
@@ -376,7 +376,7 @@ const Me = () => {
               ></input>
             </div>
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 মোট ছাত্রী
               </label>
               <input
@@ -388,7 +388,7 @@ const Me = () => {
               ></input>
             </div>
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 দরিদ্র শিক্ষার্থী সংখ্যা
               </label>
               <input
@@ -400,7 +400,7 @@ const Me = () => {
               ></input>
             </div>
             <div>
-              <label className="block font-semibold py-2 text-purple-800">
+              <label className="block font-semibold py-2 text-yellow-200">
                 শিক্ষাবর্ষ
               </label>
               <select
@@ -430,8 +430,6 @@ const Me = () => {
           </button>
         </div>
       </div>
-
-
     </>
   );
 };

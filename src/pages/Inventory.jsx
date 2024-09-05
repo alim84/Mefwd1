@@ -59,7 +59,7 @@ const Inventory = () => {
   return (
     <>
       <form action="" method="POST">
-        <div className=" w-[1200px]  mx-auto bg-cyan-900 py-5 px-5 mt-10 rounded-lg shadow-2xl shadow-gray-400">
+        <div className=" w-[1200px]  mx-auto bg-cyan-900 py-5 px-5  rounded-b-lg shadow-2xl shadow-gray-400">
           <div className="mb-12 text-center font-bold text-2xl text-yellow-200">
             <h1 className="py-4">স্টোর জমা তথ্য</h1>
             <hr></hr>

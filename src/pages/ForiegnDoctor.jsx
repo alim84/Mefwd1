@@ -82,28 +82,27 @@ const Foriegndoctor = () => {
   return (
     <>
       <div>
-     
-        <div className="container bg-blue-200 mx-auto  ">
+        <div className="container bg-cyan-900 mx-auto  ">
           <div>
-            <h1 className="text-center font-bold text-blue-600 pt-10 text-3xl mb-2 underline ">
+            <h1 className="text-center font-bold text-yellow-200 pt-10 text-3xl mb-2 underline ">
               Medical Education and family Welfare Division
             </h1>
-            <h2 className="text-center font-bold text-purple-800 text-2xl mb-10">
+            <h2 className="text-center font-bold text-white text-2xl mb-10">
               Foriegn Training/WorkShop/Seminar DataSheet
             </h2>
           </div>
-          <div className="relative">
-            <div className="border border-2 border-white px-4 py-8 mx-[200px]">
+          <div className="relative py-10">
+            <div className=" border-2 border-white px-4 py-8 mx-[200px]">
               <div>
                 <div className="absulate translate-y-[-50px]">
-                  <h3 className=" inline-block bg-blue-200 px-2 font-bold text-purple-800">
+                  <h3 className=" inline-block bg-cyan-900 px-2 font-bold text-yellow-200">
                     Doctor Foriegn TSW Data Entry
                   </h3>
                 </div>
                 <div className="grid grid-cols-2">
                   <div>
                     <div>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Employee Name
                       </label>
                       <input
@@ -114,7 +113,7 @@ const Foriegndoctor = () => {
                         value={doctorname.name}
                         placeholder="Enter Employee Name"
                       ></input>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Employee Code
                       </label>
                       <input
@@ -125,7 +124,7 @@ const Foriegndoctor = () => {
                         value={code.code}
                         placeholder="Enter Employee Code"
                       ></input>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Designation
                       </label>
                       <select
@@ -149,7 +148,7 @@ const Foriegndoctor = () => {
                       </select>
                     </div>
                     <div>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         GO Date
                       </label>
                       <input
@@ -159,7 +158,7 @@ const Foriegndoctor = () => {
                         name="godate"
                         value={doctorgodate.godate}
                       ></input>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Catagory
                       </label>
                       <select
@@ -178,7 +177,7 @@ const Foriegndoctor = () => {
                   </div>
                   <div className="mr-10">
                     <div>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Subject
                       </label>
                       <input
@@ -189,7 +188,7 @@ const Foriegndoctor = () => {
                         onChange={subjectHandler}
                         placeholder="Type Subject"
                       ></input>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Finance by
                       </label>
                       <select
@@ -207,7 +206,7 @@ const Foriegndoctor = () => {
                       </select>
                     </div>
                     <div>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Going date
                       </label>
                       <input
@@ -217,7 +216,7 @@ const Foriegndoctor = () => {
                         onChange={goingHandler}
                         name="goingdate"
                       ></input>
-                      <label className="block font-semibold py-2 text-purple-800">
+                      <label className="block font-semibold py-2 text-yellow-200">
                         Country
                       </label>
                       <select
@@ -568,7 +567,7 @@ const Foriegndoctor = () => {
               <div className="text-center py-10">
                 <button
                   onClick={doctorsubmitButton}
-                  className=" bg-purple-800 px-24 py-3 rounded-lg text-white font-bold hover:bg-blue-300 "
+                  className=" bg-purple-800 px-24 py-3 rounded-lg text-white font-bold hover:bg-cyan-800 hover:text-yellow-200 "
                 >
                   Submit
                 </button>
@@ -577,7 +576,6 @@ const Foriegndoctor = () => {
           </div>
         </div>
       </div>
-      
     </>
   );
 };

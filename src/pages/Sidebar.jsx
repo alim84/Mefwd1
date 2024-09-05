@@ -14,15 +14,15 @@ const Sidebar = () => {
       <link rel="stylesheet" href="responsive.css" />
 
       <div className="navcontainer ">
-        <nav className="nav  ">
-          <div className="nav-upper-options pt-10 ">
-            <div className="nav-option option1 ">
+        <nav className="nav   ">
+          <div className="nav-upper-options ">
+            <div className="nav-option option1 py-[50px] ">
               <img
                 src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
-                className="nav-img"
+                className="nav-img "
                 alt="dashboard"
               />
-              <h3> কার্যক্রম</h3>
+              <h3 className="text-2xl font-bold"> কার্যক্রম</h3>
             </div>
             <div className="option2 nav-option relative">
               <div className="w-[50px] h-[50px] bg-green-200 rounded-full hover:bg-purple-800 hover:text-white">

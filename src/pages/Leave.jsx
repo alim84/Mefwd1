@@ -88,7 +88,7 @@ const Leave = () => {
 
   return (
     <>
-      <div className="container mx-auto rounded-3xl shadow-xl shadow-green-500 justify-between bg-gray-500 mt-10 ">
+      <div className="container mx-auto rounded-b-lg shadow-xl justify-between bg-cyan-900 ">
         <div>
           <h1 className="text-center font-bold text-green-400 pt-10 text-2xl mb-2 ">
             স্বাস্থ্য শিক্ষা ও পরিবার কল্যাণ বিভাগ
@@ -261,8 +261,8 @@ const Leave = () => {
           </div>
         </div>
 
-        <div className="relative border border-2 border-white px-6 py-6 mx-[250px] mt-16  ">
-          <h3 className="absulate inline-block translate-y-[-45px] bg-gray-500 text-white px-2 font-light ">
+        <div className="relative  border-2 border-white px-6 py-6 mx-[250px] mt-16  ">
+          <h3 className="absulate font-semibold inline-block translate-y-[-40px] bg-cyan-900 text-white px-2 ">
             ছুটির প্রাপ্যতা
           </h3>
           <div className="grid grid-cols-3 ">
@@ -350,8 +350,6 @@ const Leave = () => {
           </button>
         </div>
       </div>
-
-      
     </>
   );
 };

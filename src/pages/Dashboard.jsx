@@ -98,7 +98,7 @@ const Dashboard = () => {
               />
             </div>
           </div>
-          <div className="box-container">
+          <div className="box-container flex justify-between items-center">
             {alldata.map((item) => {
               return (
                 <div className="box box1">

@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
 
-
 const Students = () => {
   let [instituteName, setinstituteName] = useState("");
   let [course, setCourse] = useState("");
@@ -84,7 +83,7 @@ const Students = () => {
   return (
     <>
       <form action="" method="POST">
-        <div className=" w-[1200px]  mx-auto bg-cyan-900 py-5 px-5 mt-10 rounded-lg shadow-xl shadow-slate-500 ">
+        <div className=" w-[1200px]  mx-auto bg-cyan-900 py-10 px-5 rounded-b-lg shadow-xl shadow-slate-500 ">
           <div className="mb-12 text-center font-bold text-2xl text-orange-500">
             <h1 className="py-4">শিক্ষার্থীর তথ্য</h1>
             <hr></hr>
@@ -239,7 +238,6 @@ const Students = () => {
           </div>
         </div>
       </form>
-
     </>
   );
 };
