@@ -13,14 +13,13 @@
 }
 
 .dropdownmenu a {
-  background: #30a6e6;
   color: white;
   display: block;
   font-weight: 400;
   font-size: 13px;
   font-family: "Poppins", sans-serif;
   padding: 15px 55px;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   transition: all 0.2s ease;
 }
@@ -33,7 +32,7 @@
   position: absolute;
   top: 35px;
   visibility: hidden;
-  z-index: 1;
+  z-index: 0;
 }
 li:hover ul#submenu {
   opacity: 1;

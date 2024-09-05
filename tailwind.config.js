@@ -12,7 +12,7 @@ export default {
       
     },
     extend: {
-      container:"1320px"
+      container:"1380px"
     },
   },
   plugins: [],
