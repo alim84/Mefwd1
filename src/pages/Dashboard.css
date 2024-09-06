@@ -194,6 +194,7 @@ header {
 }
 .nav-img {
   height: 30px;
+  background-color: orange;
 }
 
 .nav-upper-options {
@@ -204,14 +205,14 @@ header {
 }
 
 .option1 {
-  border-left: 5px solid #010058af;
-  background-color: var(--Border-color);
+ 
+  
   color: white;
   cursor: pointer;
 }
 .option1:hover {
-  border-left: 5px solid #010058af;
-  background-color: var(--Border-color);
+  border-left: 5px;
+
 }
 .box {
   height: 150px;

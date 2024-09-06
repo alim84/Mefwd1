@@ -22,7 +22,7 @@ const Consumshow = () => {
 
   return (
     <>
-      <div className="container  mx-auto  mt- shadow-lg shadow-gray-400 ">
+      <div className="container  mx-auto  mt- shadow-lg shadow-gray-400  text-[14px]">
  
         <ul>
           <table id="showdata">

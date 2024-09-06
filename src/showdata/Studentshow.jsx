@@ -20,7 +20,7 @@ const Studentshow = () => {
   }, []);
   return (
     <>
-      <div className=" container mx-auto shadow-lg shadow-gray-400 ">
+      <div className=" container mx-auto shadow-lg shadow-gray-400 text-[14px] ">
      
 
         <ul>

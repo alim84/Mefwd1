@@ -21,7 +21,7 @@ const Personnelshow = () => {
 
   return (
     <>
-      <div className=" mx-auto  shadow-lg shadow-gray-400 ">
+      <div className=" mx-auto  shadow-lg shadow-gray-400 text-[14px] ">
     
 
         <ul>

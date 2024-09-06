@@ -22,7 +22,7 @@ const Inventoryshow = () => {
 
   return (
     <>
-      <div className="container  mx-auto  shadow-lg shadow-gray-400 ">
+      <div className="container  mx-auto  shadow-lg shadow-gray-400 text-[14px] ">
         <ul>
           <table className="outline-red-300" id="showdata">
             <th className="w-[150px] text-center  ">মালামালের নাম</th>
