@@ -11,19 +11,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     const db = getDatabase();
-    const instituteRef = ref(db, "institutemanpower/");
-    onValue(instituteRef, (snapshot) => {
-      let array = [];
-      snapshot.forEach((item) => {
-        array.push(item.val());
-      });
-
-      setAllData(array);
-    });
-  }, []);
-
-  useEffect(() => {
-    const db = getDatabase();
     const studentRef = ref(db, "Medical/");
     onValue(studentRef, (snapshot) => {
       let array = [];
@@ -49,15 +36,11 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="container" >
-   
-    
+    <div className="container">
       <link rel="stylesheet" href="style.css" />
       <link rel="stylesheet" href="responsive.css" />
-    
-      <div className="main-container ">
-       
 
+      <div className="main-container ">
         <div className="main container">
           <div className="searchbar2">
             <input type="text" name="" id="" placeholder="Search" />
@@ -91,18 +74,6 @@ const Dashboard = () => {
               );
             })}
 
-            <div className="box box2">
-              <div className="text">
-                <h2 className="topic-heading">প্রশাসন </h2>
-                <h2 className="topic">Article Views</h2>
-                <h2 className="topic">Article Views</h2>
-                <h2 className="topic">Article Views</h2>
-              </div>
-              <img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png"
-                alt="likes"
-              />
-            </div>
             <div className="box box3">
               <div className="text">
                 <h2 className="topic-heading">শৃংখলা</h2>
@@ -128,42 +99,7 @@ const Dashboard = () => {
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-2">
-            <div className="report-container">
-              <div className="report-header">
-                <h1 className="recent-Articles">ManPower</h1>
-                <button className="view">
-                  <a href={`/manpowershow`}>All Data</a>
-                </button>
-              </div>
-              <div className="report-body">
-                <div className="report-topic-heading py-3 text-center bg-yellow-500 rounded-lg text-sm">
-                  <h3 className="t-op w-[150px]">প্রতিষ্ঠানের নাম</h3>
-                  <h3 className="t-op">অনুমোদিত পদ সংখ্যা </h3>
-                  <h3 className="t-op">কর্মরত জনবল</h3>
-                  <h3 className="t-op">শুন্য পদের সংখ্যা</h3>
-                </div>
-
-                {alldata.map((item) => {
-                  return (
-                    <div className="items">
-                      <div className="item1">
-                        <table>
-                          <tr className="even:bg-yellow-200">
-                            <td className=" ">{item.instituteName}</td>
-                            <td className=" text-center">
-                              {item.approvalPost}
-                            </td>
-                            <td className=" text-center">{item.workingMan}</td>
-                            <td className=" text-center">{item.vacantPost}</td>
-                          </tr>
-                        </table>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+          <div className="grid grid-cols-3 gap-2">
             <div className="report-container">
               <div className="report-header">
                 <h1 className="recent-Articles">
