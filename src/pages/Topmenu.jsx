@@ -8,7 +8,7 @@ import { GoHomeFill } from "react-icons/go";
 
 const Topmenu = () => {
   let [toggle, Settoggle] = useState(false);
-  let [subMenu, setSubMenu] = useState(true);
+  let [subMenu, setSubMenu] = useState(false);
 
   return (
     <>

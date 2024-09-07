@@ -8,6 +8,9 @@ const Dashboard = () => {
   const db = getDatabase();
 
   let [alldata, setAllData] = useState([]);
+  let [medata, setMedata] = useState([]);
+  let [disdata, setDisData] = useState([]);
+  let [manpower, setManpower] = useState([]);
 
   useEffect(() => {
     const db = getDatabase();
@@ -18,7 +21,32 @@ const Dashboard = () => {
         array.push(item.val());
       });
 
-      setAllData(array);
+      setMedata(array);
+    });
+  }, []);
+
+  useEffect(() => {
+    const db = getDatabase();
+    const disRef = ref(db, "disipline/");
+    onValue(disRef, (snapshot) => {
+      let array = [];
+      snapshot.forEach((item) => {
+        array.push(item.val());
+      });
+
+      setDisData(array);
+    });
+  }, []);
+  useEffect(() => {
+    const db = getDatabase();
+    const manpowerRef = ref(db, "institutemanpower/");
+    onValue(manpowerRef, (snapshot) => {
+      let array = [];
+      snapshot.forEach((item) => {
+        array.push(item.val());
+      });
+
+      setManpower(array);
     });
   }, []);
 
@@ -53,7 +81,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="box-container flex justify-between items-center">
-            {alldata.map((item) => {
+            {medata.map((item) => {
               return (
                 <div className="box box1">
                   <div className="text">
@@ -74,43 +102,56 @@ const Dashboard = () => {
               );
             })}
 
-            <div className="box box3">
-              <div className="text">
-                <h2 className="topic-heading">শৃংখলা</h2>
-                <h2 className="topic">Article Views</h2>
-                <h2 className="topic">Article Views</h2>
-                <h2 className="topic">Article Views</h2>
-              </div>
-              <img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
-                alt="comments"
-              />
-            </div>
-            <div className="box box4">
-              <div className="text">
-                <h2 className="topic-heading">প্রতিষ্ঠান</h2>
-                <h2 className="topic">Article Views</h2>
-                <h2 className="topic">Article Views</h2>
-                <h2 className="topic">Article Views</h2>
-              </div>
-              <img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png"
-                alt="published"
-              />
-            </div>
+            {disdata.map((item) => {
+              return (
+                <div className="box box3">
+                  <div className="text">
+                    <h2 className="topic-heading">শৃংখলা</h2>
+                    <h2 className="topic">
+                      প্রতিষ্ঠানের নাম : {item.institute}
+                    </h2>
+                    <h2 className="topic">শাস্তির : {item.punishment} </h2>
+                    <h2 className="topic">সন : {item.year}</h2>
+                  </div>
+                  <img
+                    src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
+                    alt="comments"
+                  />
+                </div>
+              );
+            })}
+            {manpower.map((item) => {
+              return (
+                <div className="box box4">
+                  <div className="text">
+                    <h2 className="topic-heading">জনবল</h2>
+                    <h2 className="topic">
+                      প্রতিষ্ঠান : {item.instituteName}{" "}
+                    </h2>
+                    <h2 className="topic">পদ সংখ্যা : {item.approvalPost} </h2>
+                    <h2 className="topic">কর্মরত {item.workingMan}</h2>
+                    <h2 className="topic">শুন্য {item.vacantPost}</h2>
+                  </div>
+                  <img
+                    src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png"
+                    alt="published"
+                  />
+                </div>
+              );
+            })}
           </div>
           <div className="grid grid-cols-3 gap-2">
             <div className="report-container">
               <div className="report-header">
-                <h1 className="recent-Articles">
+                <h1 className="recent-Articles text-[20px]">
                   সরকারী মেডিকেল কলেজ শিক্ষার্থী
                 </h1>
                 <button className="view">
                   <a href={`/studentshow`}>All Data</a>
                 </button>
               </div>
-              <div className="report-body">
-                <div className="report-topic-heading">
+              <div className="report-body bg-sky-100 rounded-lg font-semibold">
+                <div className="report-topic-heading ">
                   <h3 className="t-op">প্রতিষ্ঠান</h3>
                   <h3 className="t-op">কোর্সের নাম</h3>
                   <h3 className="t-op">সেশন</h3>
