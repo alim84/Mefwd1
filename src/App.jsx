@@ -28,6 +28,7 @@ import Meshow from "./showdata/Meshow";
 import Personnelshow from "./showdata/Personnelshow";
 import Studentshow from "./showdata/Studentshow";
 import Rootlayout from "./layout/Rootlayout";
+import Submenu from "./pages/Submenu";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -54,6 +55,7 @@ const router = createBrowserRouter(
         <Route path="/personnelshow" element={<Personnelshow />}></Route>
         <Route path="/inventoryshow" element={<Inventoryshow />}></Route>
         <Route path="/studentshow" element={<Studentshow />}></Route>
+        
       </Route>
     </>
   )

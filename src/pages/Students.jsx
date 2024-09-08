@@ -118,19 +118,12 @@ const Students = () => {
                     onChange={courseHandler}
                   >
                     <option>নির্বাচন করুন</option>
-                    <option>প্রশাসন অনুবিভাগ</option>
-                    <option>প্রোগ্রামার</option>
-                    <option>সহকারী সচিব</option>
-                    <option>হিসাব রক্ষণ কর্মকর্তা</option>
-                    <option>সহকারী মেইনট্যানেন্স ইঞ্জিনিয়ার</option>
-                    <option>লাইব্রেরিয়ান</option>
-                    <option>প্রশাসনিক কর্মকর্তা</option>
-                    <option>ব্যক্তিগত কর্মকর্তা</option>
-                    <option>সহকারী হিসাব রক্ষণ কর্মকর্তা</option>
-                    <option>ক্যাশিয়ার</option>
-                    <option>কম্পিউটার অপারেটর</option>
-
-                    <option>অফিস সহায়ক</option>
+                    <option>এমবিবিএস</option>
+                    <option>এমবিবিএস (ডেন্টাল) </option>
+                    <option>বিএসসি নার্সিং</option>
+                    <option>ডিপ্লোমা নার্সিং</option>
+                    <option>আইএসটি</option>
+                    <option>ম্যাটস</option>
                   </select>
                 </div>
               </div>{" "}

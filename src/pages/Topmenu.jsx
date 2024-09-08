@@ -5,15 +5,31 @@ import "../Style/Topbar.css";
 import { FaChevronRight } from "react-icons/fa";
 import { RiAdminFill } from "react-icons/ri";
 import { GoHomeFill } from "react-icons/go";
+import { FaHome } from "react-icons/fa";
 
 const Topmenu = () => {
   let [toggle, Settoggle] = useState(false);
-  let [subMenu, setSubMenu] = useState(false);
+
+  let Menus = [
+    "Contract",
+    "About",
+    "Ask",
+    "Ask",
+    "Ask",
+    "Ask",
+    "Ask",
+    "Ask",
+    "Ask",
+    "Ask",
+    "Ask",
+    "Ask",
+    "Ask",
+  ];
 
   return (
     <>
-      <div className=" container flex mx-auto gap-5 justify-end items-center bg-cyan-900 text-yellow-200 shadow-lg shadow-gray-300 relative py-[22px]  ">
-        <div className=" py-3 px-3 rounded-full bg-[#000066] ">
+      <div className=" container flex mx-auto gap-5 justify-end items-center bg-cyan-900 text-yellow-200 shadow-md shadow-gray-100 relative py-[22px]  ">
+        <div className=" py-3 px-3 rounded-full bg-purple-900 ">
           <a href="">
             <GoHomeFill />
           </a>
@@ -28,55 +44,98 @@ const Topmenu = () => {
             </a>
             <IoMdArrowDropdown className="absolute translate-x-[75px]   text-white  " />
           </button>
-          <nav className="dropdownmenu absolute hover:rounded-md mt-1 z-30 translate-x-[60px]  ">
+          <div>
             {toggle && (
-              <ul id="submenu" className="relative ">
-                <li>
-                  <a href="">Home</a>
-                </li>
+              <div className="absolute translate-x-[-150px]  grid grid-cols-4 justify-between items-center  w-[500px] h-[200px] bg-cyan-900  z-20 mt-10 text-center text-white font-semibold text-[13px]  ">
+                <div className=" flex justify-center items-center">
+                  <ul className=" ">
+                    <li className="">
+                      <FaHome className="text-purple-700 w-[30px] h-[30px] bg-yellow-50 rounded-full" />
 
-                <li>
-                  <a href="">Home</a>
-                </li>
-
-                <li className="relative flex">
-                  <a onClick={() => setSubMenu(!subMenu)} href="">
-                    about
-                    <FaChevronRight className="absolute translate-x-[80px] translate-y-[-15px]  " />
-                  </a>
-                </li>
-
-                <li>
-                  <a href="">Home</a>
-                </li>
-              </ul>
-            )}
-            {subMenu && (
-              <div className="absolute translate-x-[148px] translate-y-[100px] top-0 left-0">
-                <ul id="submenu" className="">
-                  <li className=" shadow-md shadow-gray-200 mb-[1px]   ">
-                    <a className=" bg-cyan-900 text-left">Contract</a>
-                  </li>
-
-                  <li className=" shadow-md shadow-gray-200 mb-[1px]   ">
-                    <a className=" bg-cyan-900 text-left">Contract</a>
-                  </li>
-
-                  <li className=" shadow-md shadow-gray-200 mb-[1px]   ">
-                    <a className=" bg-cyan-900 text-left">Contract</a>
-                  </li>
-
-                  <li className=" shadow-md shadow-gray-200 mb-[1px]   ">
-                    <a className=" bg-cyan-900 text-left">Contract</a>
-                  </li>
-
-                  <li className=" shadow-md shadow-gray-200 mb-[1px]   ">
-                    <a className=" bg-cyan-900 text-left">Contract</a>
-                  </li>
-                </ul>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <a href="">Home</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             )}
-          </nav>
+          </div>
         </div>
 
         <input
@@ -86,8 +145,8 @@ const Topmenu = () => {
         ></input>
         <IoIosSearch className="absolute z-10 translate-x-[-100px] translate-y-[-5px] text-yellow-200 text-xl " />
 
-        <button className="bg-[#000066] absolute  py-5 px-6 z-0 translate-x-[-90px] rounded-r-md rounded-l-full translate-y-[-4px]"></button>
-        <div className="bg-[#000066] w-[45px] h-[45px] mr-8 rounded-full">
+        <button className="bg-purple-900 absolute  py-5 px-6 z-0 translate-x-[-90px] rounded-r-md rounded-l-full translate-y-[-4px]"></button>
+        <div className="bg-purple-900 w-[45px] h-[45px] mr-8 rounded-full">
           <a href="">
             <RiAdminFill className="absolute translate-y-[15px] translate-x-[15px] " />
           </a>
