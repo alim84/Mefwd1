@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../pages/Dashboard.css";
 import "../pages/Dashboarstyle.css";
 
+
 import { getDatabase, ref, onValue } from "firebase/database";
 
 const Dashboard = () => {
@@ -140,7 +141,7 @@ const Dashboard = () => {
               );
             })}
           </div>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-2 gap-2">
             <div className="report-container">
               <div className="report-header">
                 <h1 className="recent-Articles text-[20px]">
@@ -187,6 +188,47 @@ const Dashboard = () => {
                 );
               })}
             </div>
+           
+
+            <section>
+  <h2>Players per sports team</h2>
+  <ul className="chart">
+    <li style={{ gridColumn: "span 9" }}>
+      Baseball:
+      <span>9</span>
+    </li>
+    <li style={{ gridColumn: "span 11" }}>
+      Football:
+      <span>11</span>
+    </li>
+    <li style={{ gridColumn: "span 5" }}>
+      Basketball:
+      <span>5</span>
+    </li>
+    <li style={{ gridColumn: "span 11" }}>
+      Soccer:
+      <span>11</span>
+    </li>
+    <li style={{ gridColumn: "span 6" }}>
+      Hockey:
+      <span>6</span>
+    </li>
+    <li style={{ gridColumn: "span 6" }}>
+      Volleyball:
+      <span>6</span>
+    </li>
+  </ul>
+</section>
+
+
+
+
+
+
+
+
+
+
           </div>
         </div>
       </div>

@@ -115,7 +115,7 @@ header {
 .main-container {
   display: flex;
   width: 100vw;
-  
+
   position: relative;
   top: 70px;
   z-index: 1;
@@ -125,9 +125,8 @@ header {
 }
 
 .main {
-  height: calc(100vh - 70px);
+  height: 100vh;
   width: 100%;
-  overflow-y: scroll;
   overflow-x: hidden;
   padding: 40px 30px 30px 30px;
 }
@@ -150,19 +149,17 @@ header {
   gap: 50px;
 }
 .nav {
-
- 
   background-color: var(--background-color2);
- 
- position: absolute;
-  
+
+  position: absolute;
+
   box-shadow: 1px 1px 10px rgba(198, 189, 248, 0.825);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  padding: px 0 20px 0px;
-   margin-left: 150px;
+  padding: px 0px 20px 0px;
+  margin-left: 150px;
 }
 .navcontainer {
   height: 100vh;
@@ -188,9 +185,10 @@ header {
   transition: all 0.1s ease-in-out;
 }
 .nav-option:hover {
-  border-left: 5px solid #a2a2a2;
-  background-color: #dadada;
+  border-left: 8px solid purple;
+  background-color: gainsboro;
   cursor: pointer;
+  color: #0c007d;
 }
 .nav-img {
   height: 30px;
@@ -205,14 +203,11 @@ header {
 }
 
 .option1 {
- 
-  
   color: white;
   cursor: pointer;
 }
 .option1:hover {
   border-left: 5px;
-
 }
 .box {
   height: 150px;
@@ -334,4 +329,61 @@ header {
   background-color: rgb(0, 177, 0);
   color: white;
   border-radius: 4px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Bitter", sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.125rem;
+  color: #101820;
+  background-color: #f8f8f8;
+}
+
+section {
+  width: 100%;
+  max-width: 30rem;
+  padding: 1.5rem 1.5rem 2rem;
+  border: 2px solid #a7a8aa;
+  border-radius: 0.5rem;
+  margin: auto;
+}
+
+h2 {
+  margin: 0 0 2.5rem;
+}
+
+chart {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 0.5em 0;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  grid-auto-columns: 1fr;
+  margin-top: 5px;
+}
+
+li {
+  background: #4a148c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 0.5rem;
+  margin-top: 5px;
+  color: white;
+}
+
+li span {
+  font-weight: bold;
 }

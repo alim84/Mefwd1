@@ -25,8 +25,8 @@ const Sidebar = () => {
               <h3 className="text-[16px] font-bold"> কার্যক্রম</h3>
             </div>
             <div className="option2 nav-option relative">
-              <div className="w-[50px] h-[50px] bg-yellow-200 rounded-full hover:bg-purple-800 hover:text-white">
-                <RiAdminFill className="flex absolute top-[20px] left-[35px] text-sky-600" />
+              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                <RiAdminFill className="flex absolute top-[20px] left-[32px] text-white" />
               </div>
               <div className="relative">
                 <button className="block focus:overflow-visible cursor-visible drop relative text-[12px]  ">
@@ -40,8 +40,8 @@ const Sidebar = () => {
             </div>
 
             <div className="nav-option option3 relative">
-              <div className="w-[50px] h-[50px] bg-yellow-200 rounded-full hover:bg-purple-800 hover:text-white">
-                <MdOutlineFamilyRestroom className="flex absolute top-[20px] left-[35px] text-sky-600" />
+              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                <MdOutlineFamilyRestroom className="flex absolute top-[22px] left-[32px] text-white" />
               </div>
               <div className="relative">
                 <button className="block focus:overflow-visible cursor-visible drop relative text-[12px]">
@@ -50,8 +50,8 @@ const Sidebar = () => {
               </div>
             </div>
             <div className="nav-option option4 relative">
-              <div className="w-[50px] h-[50px] bg-yellow-200 rounded-full hover:bg-purple-800 hover:text-white">
-                <SiConstruct3 className="flex absolute top-[20px] left-[35px] text-sky-600" />
+              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                <SiConstruct3 className="flex absolute top-[22px] left-[32px] text-white" />
               </div>
               <div className="relative">
                 <button className="block focus:overflow-visible cursor-visible drop relative  text-[12px] ">
@@ -60,8 +60,8 @@ const Sidebar = () => {
               </div>
             </div>
             <div className="nav-option option5 relative">
-              <div className="w-[50px] h-[50px] bg-yellow-200 rounded-full hover:bg-purple-800 hover:text-white">
-                <SiMicrosoftacademic className="flex absolute top-[20px] left-[35px] text-sky-600" />
+              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                <SiMicrosoftacademic className="flex absolute top-[22px] left-[32px] text-white" />
               </div>
               <div className="relative">
                 <button className="block focus:overflow-visible cursor-visible drop relative  text-[12px] ">
@@ -70,58 +70,58 @@ const Sidebar = () => {
               </div>
             </div>
             <div className="nav-option option6 relative">
-              <div className="w-[50px] h-[50px] bg-yellow-200 rounded-full hover:bg-purple-800 hover:text-white ">
-                <MdAttachMoney className="flex absolute top-[20px] left-[35px] text-sky-600" />
+              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white ">
+                <MdAttachMoney className="flex absolute top-[22px] left-[32px] text-white" />
               </div>
               <a className=" text-[12px]" href={`/inventory`}>
                 মালামাল গ্রহণ
               </a>
             </div>
             <div className="nav-option option6 relative">
-              <div className="w-[50px] h-[50px] bg-yellow-200 rounded-full hover:bg-purple-800 hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[20px] left-[35px] text-sky-600" />
+              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
               </div>
               <a className=" text-[12px]" href={`/consumption`}>
                 মালামাল বিতরন
               </a>
             </div>
             <div className="nav-option option6 relative">
-              <div className="w-[50px] h-[50px] bg-yellow-200 rounded-full hover:bg-purple-800 hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[20px] left-[35px] text-sky-600" />
+              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
               </div>
               <a className=" text-[12px]" href={`/leave`}>
                 ছুটি
               </a>
             </div>
             <div className="nav-option option6 relative">
-              <div className="w-[50px] h-[50px] bg-yellow-200 rounded-full hover:bg-purple-800 hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[20px] left-[35px] text-sky-600" />
+              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
               </div>
               <a className=" text-[12px]" href={`/me`}>
                 প্রতিষ্ঠান
               </a>
             </div>
             <div className="nav-option option6 relative">
-              <div className="w-[50px] h-[50px] bg-yellow-200 rounded-full hover:bg-purple-800 hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[20px] left-[35px] text-sky-600" />
+              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
               </div>
               <a className=" text-[12px]" href={`/personell`}>
                 মানব সম্পদ
               </a>
             </div>
             <div className="nav-option option6 relative">
-              <div className="w-[50px] h-[50px] bg-yellow-200 rounded-full hover:bg-purple-800 hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[20px] left-[35px] text-sky-600" />
+              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
               </div>
               <a className=" text-[12px]" href={`/student`}>
                 শিক্ষার্থী
               </a>
             </div>
             <div className="nav-option logout relative">
-              <div className="w-[50px] h-[50px] bg-yellow-200 rounded-full hover:bg-purple-800 hover:text-white">
-                <IoIosLogOut className="flex absolute top-[20px] left-[35px] text-sky-600" />
+              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                <IoIosLogOut className="flex absolute top-[22px] left-[32px] text-white" />
               </div>
-              <h3>Logout</h3>
+              <h3>বাহির</h3>
             </div>
           </div>
         </nav>
