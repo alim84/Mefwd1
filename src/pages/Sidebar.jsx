@@ -30,11 +30,9 @@ const Sidebar = () => {
               </div>
               <div className="relative">
                 <button className="block focus:overflow-visible cursor-visible drop relative text-[12px]  ">
-                  <ul>
-                    <li>
+               
                       <a href={`/disipline`}>শৃঙ্খলা</a>
-                    </li>
-                  </ul>
+                   
                 </button>
               </div>
             </div>

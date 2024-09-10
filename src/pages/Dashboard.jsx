@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import "../pages/Dashboard.css";
 import "../pages/Dashboarstyle.css";
-
-
 import { getDatabase, ref, onValue } from "firebase/database";
+import { FaHandHoldingMedical } from "react-icons/fa";
 
 const Dashboard = () => {
   const db = getDatabase();
@@ -99,6 +98,7 @@ const Dashboard = () => {
                       মোট শিক্ষার্থী : {item.totalstudent}
                     </h2>
                   </div>
+                  <FaHandHoldingMedical className="text-white  bg-purple-950 rounded-md w-[40px] h-[40px]" />
                 </div>
               );
             })}
@@ -141,7 +141,7 @@ const Dashboard = () => {
               );
             })}
           </div>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-20">
             <div className="report-container">
               <div className="report-header">
                 <h1 className="recent-Articles text-[20px]">
@@ -188,47 +188,162 @@ const Dashboard = () => {
                 );
               })}
             </div>
-           
 
-            <section>
-  <h2>Players per sports team</h2>
-  <ul className="chart">
-    <li style={{ gridColumn: "span 9" }}>
-      Baseball:
-      <span>9</span>
-    </li>
-    <li style={{ gridColumn: "span 11" }}>
-      Football:
-      <span>11</span>
-    </li>
-    <li style={{ gridColumn: "span 5" }}>
-      Basketball:
-      <span>5</span>
-    </li>
-    <li style={{ gridColumn: "span 11" }}>
-      Soccer:
-      <span>11</span>
-    </li>
-    <li style={{ gridColumn: "span 6" }}>
-      Hockey:
-      <span>6</span>
-    </li>
-    <li style={{ gridColumn: "span 6" }}>
-      Volleyball:
-      <span>6</span>
-    </li>
-  </ul>
-</section>
+            <div className=" flex  items-center">
+              <div>
+                <section>
+                  <h2 className=" flex justify-between items-center gap-3 text-[13px] font-semibold">
+                    মেডিকেল কলেজ শিক্ষার্থী তথ্য
+                    <div>
+                      <select
+                        className="rounded-lg  border-none hover:border-indigo-300 py-1 px-3"
+                        id="designation"
+                        name="designation"
+                      >
+                        <option>নির্বাচন করুন</option>
+                        <option>ঢাকা মেডিকেল কলেজ</option>
+                        <option>সিরাজগঞ্জ সরকারী মেডিকেল কলেজ</option>
+                      </select>
+                    </div>
+                  </h2>
 
+                  <ul className="chart text-[13px]">
+                    <li
+                      className="sidebar rounded-r-full"
+                      style={{ gridColumn: "span 9" }}
+                    >
+                      মোট শিক্ষার্থী:
+                      <span>9</span>
+                    </li>
+                    <li
+                      className=" sidebar rounded-r-full"
+                      style={{ gridColumn: "span 11" }}
+                    >
+                      আসন সংখ্যা:
+                      <span>11</span>
+                    </li>
+                    <li
+                      className=" sidebar rounded-r-full"
+                      style={{ gridColumn: "span 5" }}
+                    >
+                      ছাত্র:
+                      <span>5</span>
+                    </li>
+                    <li
+                      className=" sidebar rounded-r-full"
+                      style={{ gridColumn: "span 11" }}
+                    >
+                      ছাত্রী:
+                      <span>11</span>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
 
-
-
-
-
-
-
-
-
+          <div className="grid grid-cols-2 gap-20 pt-10">
+            <div className="chart-container text-[10px]">
+              <div className="year-stats">
+                <div className="month-group">
+                  <div className="bar h-100" />
+                  <p className="month">শিক্ষার্থী</p>
+                </div>
+                <div className="month-group">
+                  <div className="bar h-50" />
+                  <p className="month">আসন</p>
+                </div>
+                <div className="month-group">
+                  <div className="bar h-75" />
+                  <p className="month">জনবল</p>
+                </div>
+                <div className="month-group">
+                  <div className="bar h-25" />
+                  <p className="month">কর্মরত</p>
+                </div>
+                <div className="month-group selected">
+                  <div className="bar h-100" />
+                  <p className="month">প্রতিষ্ঠান</p>
+                </div>
+                <div className="month-group">
+                  <div className="bar h-50" />
+                  <p className="month">মামলা</p>
+                </div>
+                <div className="month-group">
+                  <div className="bar h-75" />
+                  <p className="month">পদ</p>
+                </div>
+                <div className="month-group">
+                  <div className="bar h-25" />
+                  <p className="month">অনুমোদন</p>
+                </div>
+                <div className="month-group">
+                  <div className="bar h-50" />
+                  <p className="month">আইএইচটি</p>
+                </div>
+                <div className="month-group">
+                  <div className="bar h-75" />
+                  <p className="month">ম্যাটস</p>
+                </div>
+                <div className="month-group">
+                  <div className="bar h-25" />
+                  <p className="month">কলেজ</p>
+                </div>
+                <div className="month-group">
+                  <div className="bar h-100" />
+                  <p className="month">নাই</p>
+                </div>
+              </div>
+              <div className="stats-info">
+                <div className="graph-container">
+                  <div className="percent">
+                    <svg viewBox="0 0 36 36" className="circular-chart">
+                      <path
+                        className="circle"
+                        strokeDasharray="100, 100"
+                        d="M18 2.0845
+a 15.9155 15.9155 0 0 1 0 31.831
+a 15.9155 15.9155 0 0 1 0 -31.831"
+                      />
+                      <path
+                        className="circle"
+                        strokeDasharray="85, 100"
+                        d="M18 2.0845
+a 15.9155 15.9155 0 0 1 0 31.831
+a 15.9155 15.9155 0 0 1 0 -31.831"
+                      />
+                      <path
+                        className="circle"
+                        strokeDasharray="60, 100"
+                        d="M18 2.0845
+a 15.9155 15.9155 0 0 1 0 31.831
+a 15.9155 15.9155 0 0 1 0 -31.831"
+                      />
+                      <path
+                        className="circle"
+                        strokeDasharray="30, 100"
+                        d="M18 2.0845
+a 15.9155 15.9155 0 0 1 0 31.831
+a 15.9155 15.9155 0 0 1 0 -31.831"
+                      />
+                    </svg>
+                  </div>
+                  <p>মোট শিক্ষার্থী</p>
+                </div>
+                <div className="info">
+                  <p>
+                    নার্সিং তথ্য <br />
+                    <span>বিএসসি নার্সিং : ৮০০০ </span>
+                  </p>
+                  <p>
+                    ডিপ্লোমা নার্সিং <span>: ১১২০০০</span>
+                  </p>
+                  <p>
+                    মিডওয়াইফ <span>: ৯০০</span>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

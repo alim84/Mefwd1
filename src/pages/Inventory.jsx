@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
+import data from "../json/Division.json";
 
 const Inventory = () => {
   let [productName, setProductName] = useState("");
@@ -8,7 +9,6 @@ const Inventory = () => {
   let [cashmemo, setCashmemo] = useState("");
   let [purchasedate, setpurchasedate] = useState("");
   let [productscatagory, setProductscatagory] = useState("");
-  let [alldata, setAllData] = useState([]);
 
   let productNameHandler = (e) => {
     setProductName(e.target.value);
@@ -136,12 +136,13 @@ const Inventory = () => {
                     onChange={productsCatagoryHandler}
                     value={productscatagory}
                   >
-                    <option>নির্বাচন করুন</option>
-                    <option value="কম্পিউটার">কম্পিউটার </option>
+                    {Array.isArray(data) &&
+                      data?.map((data) => <option>{data.bn_name}</option>)}
+                  </select>
+                  {/* <option value="কম্পিউটার">কম্পিউটার </option>
                     <option value="স্ট্রেশনারী">স্ট্রেশনারী</option>
                     <option value="পেপার">পেপার</option>
-                    <option value="পেন্সিল">পেন্সিল</option>
-                  </select>
+                    <option value="পেন্সিল">পেন্সিল</option> */}
                 </div>
               </div>{" "}
             </div>

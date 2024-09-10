@@ -337,17 +337,7 @@ header {
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Bitter", sans-serif;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-size: 1.125rem;
-  color: #101820;
-  background-color: #f8f8f8;
-}
+
 
 section {
   width: 100%;
@@ -362,7 +352,7 @@ h2 {
   margin: 0 0 2.5rem;
 }
 
-chart {
+.chart {
   display: grid;
   grid-template-columns: auto;
   gap: 0.5em 0;
@@ -374,8 +364,8 @@ chart {
   margin-top: 5px;
 }
 
-li {
-  background: #4a148c;
+.sidebar {
+  background-color: #5500cb;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -386,4 +376,142 @@ li {
 
 li span {
   font-weight: bold;
+}
+
+
+
+/* Chart Graph=================*/
+
+
+
+
+
+
+
+.chart-container {
+	background: #0540f0 ;
+	color: #abafc6;
+	border-radius: 5px;
+	padding: 20px;
+	width: 440px;
+	
+}
+
+.year-stats {
+	white-space: nowrap;
+	max-height: 170px;
+	overflow: hidden;
+}
+
+.year-stats:hover {
+	overflow-x: auto;
+}
+
+
+::-webkit-scrollbar {
+	height: 5px;
+	width: 100%;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #abafc6;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #5397d6;
+}
+
+.month-group {
+	cursor: pointer;
+	max-width: 400px;
+	height: 110px;
+	margin: 10px;
+	display: inline-block;
+}
+
+.bar {
+	background-color: #abafc6;
+	width: 20px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.month-group:hover .bar,
+.selected .bar {
+	background: #5397d6;
+}
+
+.month-group:hover p,
+.selected p {
+	color: #fff;
+}
+
+.h-25 {
+	height: 25%;
+}
+.h-50 {
+	height: 50%;
+}
+.h-75 {
+	height: 75%;
+}
+.h-100 {
+	height: 100%;
+}
+
+.stats-info {
+	margin-top: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	position: relative;
+}
+
+.graph-container {
+	position: relative;
+}
+
+.percent {
+	display: block;
+	width: 120px;
+	height: 120px;
+}
+
+.circle {
+	stroke: #915db1;
+	fill: none;
+	stroke-width: 3;
+}
+
+.circle:nth-child(2) {
+	stroke: #e59f3c;
+}
+
+.circle:nth-child(3) {
+	stroke: #5397d6;
+}
+
+.circle:nth-child(4) {
+	stroke: #4cc790;
+}
+
+.graph-container p {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+}
+
+.info p {
+	margin-bottom: 10px;
+}
+
+.info span {
+	color: #fff;
 }

@@ -41,7 +41,7 @@ const Topmenu = () => {
     <>
       <div className=" container flex mx-auto gap-5 justify-end items-center bg-cyan-900 text-yellow-200 shadow-md shadow-gray-100 relative py-[22px] ">
         <div className=" py-3 px-3 rounded-full bg-purple-900 ">
-          <a href="">
+          <a href={`/`}>
             <GoHomeFill />
           </a>
         </div>
