@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
+import upazilas from "../json/Upazilas.json";
 
 const PersonelInfo = () => {
   let [name, setName] = useState("");
@@ -35,6 +36,7 @@ const PersonelInfo = () => {
   let [promotionjoinindate, setPromotionjoinindate] = useState("");
 
   let [alldata, setAllData] = useState([]);
+  let [upzilas, setUpzila] = useState([]);
 
   let nameHandler = (e) => {
     setName(e.target.value);
@@ -76,7 +78,7 @@ const PersonelInfo = () => {
     setPerdristrict(e.target.value);
   };
   let perthanaHandler = (e) => {
-    setPerthana(e.target.value);
+    setUpzila(e.target.value);
   };
   let perpostHandler = (e) => {
     setPerpostoffice(e.target.value);
@@ -210,6 +212,9 @@ const PersonelInfo = () => {
 
       setAllData(array);
     });
+  }, []);
+  useEffect(() => {
+    setUpzila(upazilas);
   }, []);
 
   function divisionsList() {
@@ -686,11 +691,9 @@ const PersonelInfo = () => {
                     name="upzila"
                     onChange={perthanaHandler}
                   >
-                    <option value="dist">নির্বাচন করুন</option>
-                    <option value="dist">ঢাকা</option>
-                    <option value="dist">চট্রগ্রাম</option>
-                    <option value="dist">রাজশাহী</option>
-                    <option value="dist">সিলেট</option>
+                    {upzilas.map((item) => {
+                      return <option>{item.bn_name}</option>;
+                    })}
                   </select>
                 </div>
               </div>
