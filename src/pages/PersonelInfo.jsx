@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
+import divisions from "../json/Division.json";
+import districtss from "../json/Districts.json";
 import upazilas from "../json/Upazilas.json";
 
 const PersonelInfo = () => {
@@ -13,17 +15,12 @@ const PersonelInfo = () => {
   let [gender, setGender] = useState("");
   let [merital, setmerital] = useState("");
   let [religion, setReligion] = useState("");
-  let [homedistrict, setHomeDristrict] = useState("");
-  let [perdivision, setPerDivision] = useState("");
-  let [perdristrict, setPerdristrict] = useState("");
-  let [perthana, setPerthana] = useState("");
+
   let [perPostoffice, setPerpostoffice] = useState("");
   let [pervillage, setPervillage] = useState("");
   let [perroad, setPerroad] = useState("");
   let [perhouse, setPerhouse] = useState("");
-  let [predivision, setPreDivision] = useState("");
-  let [predristrict, setPredristrict] = useState("");
-  let [prethana, setPrethana] = useState("");
+
   let [prePostoffice, setPrepostoffice] = useState("");
   let [previllage, setPrevillage] = useState("");
   let [preroad, setPreroad] = useState("");
@@ -35,7 +32,8 @@ const PersonelInfo = () => {
   let [promotiondesignation, setPromotiondesignation] = useState("");
   let [promotionjoinindate, setPromotionjoinindate] = useState("");
 
-  let [alldata, setAllData] = useState([]);
+  let [divisitons, setDivisions] = useState([]);
+  let [districts, setDistricts] = useState([]);
   let [upzilas, setUpzila] = useState([]);
 
   let nameHandler = (e) => {
@@ -69,13 +67,13 @@ const PersonelInfo = () => {
     setReligion(e.target.value);
   };
   let homedristrictHandler = (e) => {
-    setHomeDristrict(e.target.value);
+    setDistricts(e.target.value);
   };
   let perdivisionHandler = (e) => {
-    setPerDivision(e.target.value);
+    setDivisions(e.target.value);
   };
   let perdristrictHandler = (e) => {
-    setPerdristrict(e.target.value);
+    setDistricts(e.target.value);
   };
   let perthanaHandler = (e) => {
     setUpzila(e.target.value);
@@ -93,13 +91,13 @@ const PersonelInfo = () => {
     setPerhouse(e.target.value);
   };
   let predivisionHandler = (e) => {
-    setPreDivision(e.target.value);
+    setDivisions(e.target.value);
   };
   let predristrictHandler = (e) => {
-    setPredristrict(e.target.value);
+    setDistricts(e.target.value);
   };
   let prethanaHandler = (e) => {
-    setPrethana(e.target.value);
+    setUpzila(e.target.value);
   };
   let prepostHandler = (e) => {
     setPrepostoffice(e.target.value);
@@ -145,17 +143,17 @@ const PersonelInfo = () => {
       gender: gender,
       merital: merital,
       religion: religion,
-      homedistrict: homedistrict,
-      perdivision: perdivision,
-      perdristrict: perdristrict,
-      perthana: perthana,
+      homedistrict: districts,
+      perdivision: divisitons,
+      perdristrict: districts,
+      perthana: upzilas,
       perPostoffice: perPostoffice,
       pervillage: pervillage,
       perroad: perroad,
       perhouse: perhouse,
-      predivision: predivision,
-      predristrict: predristrict,
-      prethana: prethana,
+      predivision: divisitons,
+      predristrict: districts,
+      prethana: upzilas,
       prePostoffice: prePostoffice,
       previllage: previllage,
       preroad: preroad,
@@ -177,17 +175,10 @@ const PersonelInfo = () => {
       setGender("");
       setmerital("");
       setReligion("");
-      setHomeDristrict("");
-      setPerDivision("");
-      setPerdristrict("");
-      setPerthana("");
       setPerpostoffice("");
       setPervillage("");
       setPerroad("");
       setPerhouse("");
-      setPreDivision("");
-      setPredristrict("");
-      setPrethana("");
       setPrepostoffice("");
       setPrevillage("");
       setPreroad("");
@@ -212,6 +203,12 @@ const PersonelInfo = () => {
 
       setAllData(array);
     });
+  }, []);
+  useEffect(() => {
+    setDivisions(divisions);
+  }, []);
+  useEffect(() => {
+    setDistricts(districtss);
   }, []);
   useEffect(() => {
     setUpzila(upazilas);
@@ -519,71 +516,11 @@ const PersonelInfo = () => {
                     name="selfdist"
                     onChange={homedristrictHandler}
                   >
-                    <option value="জেলা">নির্বাচন করুন</option>
-                    <option value="বাগেরহাট">বাগেরহাট</option>
-                    <option value="বান্দরবান">বান্দরবান</option>
-                    <option value="বরগুনা">বরগুনা</option>
-                    <option value="বরিশাল">বরিশাল</option>
-                    <option value="ভোলা">ভোলা</option>
-                    <option value="বগুড়া">বগুড়া</option>
-                    <option value="ব্রাহ্মণবাড়িয়া">ব্রাহ্মণবাড়িয়া</option>
-                    <option value="চাঁদপুর">চাঁদপুর</option>
-                    <option value="চট্রগ্রাম">চট্রগ্রাম</option>
-                    <option value="চুয়াডাঙ্গা">চুয়াডাঙ্গা</option>
-                    <option value="কুমিল্লা">কুমিল্লা</option>
-                    <option value="কক্সবাজার">কক্সবাজারr</option>
-                    <option value="ঢাকা">ঢাকা</option>
-                    <option value="দিনাজপুর">দিনাজপুর</option>
-                    <option value="ফরিদপুর">ফরিদপুর</option>
-                    <option value="ফেনী">ফেনী</option>
-                    <option value="গাইবান্ধা">গাইবান্ধা</option>
-                    <option value="গাজীপুর">গাজীপুর</option>
-                    <option value="গোপালগঞ্জ">গোপালগঞ্জ</option>
-                    <option value="হবিগঞ্জ">হবিগঞ্জ</option>
-                    <option value="জয়পুরহাট">জয়পুরহাট</option>
-                    <option value="জামালপুর">জামালপুর</option>
-                    <option value="যশোর">যশোর</option>
-                    <option value="ঝালকাঠী">ঝালকাঠী</option>
-                    <option value="ঝিনাইদহ">ঝিনাইদহ</option>
-                    <option value="খাগড়াছড়ি">খাগড়াছড়ি</option>
-                    <option value="খুলনা">খুলনা</option>
-                    <option value="কিশোরগঞ্জ">কিশোরগঞ্জ</option>
-                    <option value="কুড়িগ্রাম">কুড়িগ্রাম</option>
-                    <option value="কুষ্টিয়া">কুষ্টিয়া</option>
-                    <option value="লক্ষীপুর">লক্ষীপুর</option>
-                    <option value="লালমনিরহাট">লালমনিরহাট</option>
-                    <option value="মাদারীপুর">মাদারীপুর</option>
-                    <option value="মাগুড়া">মাগুড়া</option>
-                    <option value="মানিকগঞ্জ">মানিকগঞ্জ</option>
-                    <option value="মৌলভীবাজার">মৌলভীবাজার</option>
-                    <option value="মেহেরপুর">মেহেরপুর</option>
-                    <option value="মুন্সিগঞ্জ">মুন্সিগঞ্জ</option>
-                    <option value="ময়মনসিংহ">ময়মনসিংহ</option>
-                    <option value="নওগাঁ">নওগাঁ</option>
-                    <option value="নড়াইল">নড়াইল</option>
-                    <option value="নারায়নগঞ্জ">নারায়নগঞ্জ</option>
-                    <option value="নরসিংদী">নরসিংদী</option>
-                    <option value="নাটোর">নাটোর</option>
-                    <option value="নবাবগঞ্জ">নবাবগঞ্জ</option>
-                    <option value="নেত্রকোনা">নেত্রকোনা</option>
-                    <option value="নীলফামারী">নীলফামারী</option>
-                    <option value="নোয়াখালী">নোয়াখালী</option>
-                    <option value="পাবনা">পাবনা</option>
-                    <option value="পঞ্চগড়">পঞ্চগড়</option>
-                    <option value="পটুয়াখালী">পটুয়াখালী</option>
-                    <option value="পিরোজপুর">পিরোজপুর</option>
-                    <option value="রাজবাড়ী">রাজবাড়ী</option>
-                    <option value="রাজশাহী">রাজশাহী</option>
-                    <option value="রাঙ্গামাটি">রাঙ্গামাটি</option>
-                    <option value="রংপুর">রংপুর</option>
-                    <option value="সাতক্ষিরা">সাতক্ষিরা</option>
-                    <option value="শরিয়তপুর">শরিয়তপুর</option>
-                    <option value="শেরপুর">শেরপুর</option>
-                    <option value="সিরাজগঞ্জ">সিরাজগঞ্জ</option>
-                    <option value="সুনামগঞ্জ">সুনামগঞ্জ</option>
-                    <option value="সিলেট">সিলেট</option>
-                    <option value="টাংগাইল">টাংগাইল</option>
-                    <option value="ঠাকুরগাঁ">ঠাকুরগাঁ</option>
+                    {districts.map((item) => (
+                      <option value={item.district_name}>
+                        {item.district_name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -598,15 +535,11 @@ const PersonelInfo = () => {
                     name="division"
                     onChange={perdivisionHandler}
                   >
-                    <option value="">নির্বাচন করুন</option>
-                    <option value="ঢাকা">ঢাকা</option>
-                    <option value="চট্রগ্রাম">চট্রগ্রাম</option>
-                    <option value="রাজশাহী">রাজশাহী</option>
-                    <option value="খুলনা">খুলনা</option>
-                    <option value="সিলেট">সিলেট</option>
-                    <option value="বরিশাল">বরিশাল</option>
-                    <option value="রংপুর">রংপুর</option>
-                    <option value="ময়মনসিংহ">ময়মনসিংহ</option>
+                    {divisions.map((item) => (
+                      <option value={item.division_name}>
+                        {item.division_name}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="py-3">
@@ -617,72 +550,14 @@ const PersonelInfo = () => {
                     name="dist"
                     onChange={perdristrictHandler}
                   >
-                    <option value="বাগেরহাট">বাগেরহাট</option>
-                    <option value="বান্দরবান">বান্দরবান</option>
-                    <option value="বরগুনা">বরগুনা</option>
-                    <option value="বরিশাল">বরিশাল</option>
-                    <option value="ভোলা">ভোলা</option>
-                    <option value="বগুড়া">বগুড়া</option>
-                    <option value="ব্রাহ্মণবাড়িয়া">ব্রাহ্মণবাড়িয়া</option>
-                    <option value="চাঁদপুর">চাঁদপুর</option>
-                    <option value="চট্রগ্রাম">চট্রগ্রাম</option>
-                    <option value="চুয়াডাঙ্গা">চুয়াডাঙ্গা</option>
-                    <option value="কুমিল্লা">কুমিল্লা</option>
-                    <option value="কক্সবাজার">কক্সবাজারr</option>
-                    <option value="ঢাকা">ঢাকা</option>
-                    <option value="দিনাজপুর">দিনাজপুর</option>
-                    <option value="ফরিদপুর">ফরিদপুর</option>
-                    <option value="ফেনী">ফেনী</option>
-                    <option value="গাইবান্ধা">গাইবান্ধা</option>
-                    <option value="গাজীপুর">গাজীপুর</option>
-                    <option value="গোপালগঞ্জ">গোপালগঞ্জ</option>
-                    <option value="হবিগঞ্জ">হবিগঞ্জ</option>
-                    <option value="জয়পুরহাট">জয়পুরহাট</option>
-                    <option value="জামালপুর">জামালপুর</option>
-                    <option value="যশোর">যশোর</option>
-                    <option value="ঝালকাঠী">ঝালকাঠী</option>
-                    <option value="ঝিনাইদহ">ঝিনাইদহ</option>
-                    <option value="খাগড়াছড়ি">খাগড়াছড়ি</option>
-                    <option value="খুলনা">খুলনা</option>
-                    <option value="কিশোরগঞ্জ">কিশোরগঞ্জ</option>
-                    <option value="কুড়িগ্রাম">কুড়িগ্রাম</option>
-                    <option value="কুষ্টিয়া">কুষ্টিয়া</option>
-                    <option value="লক্ষীপুর">লক্ষীপুর</option>
-                    <option value="লালমনিরহাট">লালমনিরহাট</option>
-                    <option value="মাদারীপুর">মাদারীপুর</option>
-                    <option value="মাগুড়া">মাগুড়া</option>
-                    <option value="মানিকগঞ্জ">মানিকগঞ্জ</option>
-                    <option value="মৌলভীবাজার">মৌলভীবাজার</option>
-                    <option value="মেহেরপুর">মেহেরপুর</option>
-                    <option value="মুন্সিগঞ্জ">মুন্সিগঞ্জ</option>
-                    <option value="ময়মনসিংহ">ময়মনসিংহ</option>
-                    <option value="নওগাঁ">নওগাঁ</option>
-                    <option value="নড়াইল">নড়াইল</option>
-                    <option value="নারায়নগঞ্জ">নারায়নগঞ্জ</option>
-                    <option value="নরসিংদী">নরসিংদী</option>
-                    <option value="নাটোর">নাটোর</option>
-                    <option value="নবাবগঞ্জ">নবাবগঞ্জ</option>
-                    <option value="নেত্রকোনা">নেত্রকোনা</option>
-                    <option value="নীলফামারী">নীলফামারী</option>
-                    <option value="নোয়াখালী">নোয়াখালী</option>
-                    <option value="পাবনা">পাবনা</option>
-                    <option value="পঞ্চগড়">পঞ্চগড়</option>
-                    <option value="পটুয়াখালী">পটুয়াখালী</option>
-                    <option value="পিরোজপুর">পিরোজপুর</option>
-                    <option value="রাজবাড়ী">রাজবাড়ী</option>
-                    <option value="রাজশাহী">রাজশাহী</option>
-                    <option value="রাঙ্গামাটি">রাঙ্গামাটি</option>
-                    <option value="রংপুর">রংপুর</option>
-                    <option value="সাতক্ষিরা">সাতক্ষিরা</option>
-                    <option value="শরিয়তপুর">শরিয়তপুর</option>
-                    <option value="শেরপুর">শেরপুর</option>
-                    <option value="সিরাজগঞ্জ">সিরাজগঞ্জ</option>
-                    <option value="সুনামগঞ্জ">সুনামগঞ্জ</option>
-                    <option value="সিলেট">সিলেট</option>
-                    <option value="টাংগাইল">টাংগাইল</option>
-                    <option value="ঠাকুরগাঁ">ঠাকুরগাঁ</option>
+                    {districts.map((item) => (
+                      <option value={item.district_name}>
+                        {item.district_name}
+                      </option>
+                    ))}
                   </select>
                 </div>
+
                 <div className="py-3">
                   <level className="text-yellow-200">উপজেলা :</level>
                   <select
@@ -691,9 +566,11 @@ const PersonelInfo = () => {
                     name="upzila"
                     onChange={perthanaHandler}
                   >
-                    {upzilas.map((item) => {
-                      return <option>{item.bn_name}</option>;
-                    })}
+                    {upzilas.map((item) => (
+                      <option value={item.upazila_name}>
+                        {item.upazila_name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -754,15 +631,11 @@ const PersonelInfo = () => {
                     name="division"
                     onChange={predivisionHandler}
                   >
-                    <option value="">নির্বাচন করুন</option>
-                    <option value="ঢাকা">ঢাকা</option>
-                    <option value="চট্রগ্রাম">চট্রগ্রাম</option>
-                    <option value="রাজশাহী">রাজশাহী</option>
-                    <option value="খুলনা">খুলনা</option>
-                    <option value="সিলেট">সিলেট</option>
-                    <option value="বরিশাল">বরিশাল</option>
-                    <option value="রংপুর">রংপুর</option>
-                    <option value="ময়মনসিংহ">ময়মনসিংহ</option>
+                    {divisions.map((item) => (
+                      <option value={item.division_name}>
+                        {item.division_name}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="py-3">
@@ -773,11 +646,11 @@ const PersonelInfo = () => {
                     name="dist"
                     onChange={predristrictHandler}
                   >
-                    <option value="dist">নির্বাচন করুন</option>
-                    <option value="dist">ঢাকা</option>
-                    <option value="dist">চট্রগ্রাম</option>
-                    <option value="dist">রাজশাহী</option>
-                    <option value="dist">সিলেট</option>
+                    {districts.map((item) => (
+                      <option value={item.district_name}>
+                        {item.district_name}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="py-3">
@@ -788,11 +661,11 @@ const PersonelInfo = () => {
                     name="upzila"
                     onChange={prethanaHandler}
                   >
-                    <option value="dist">নির্বাচন করুন</option>
-                    <option value="dist">ঢাকা</option>
-                    <option value="dist">চট্রগ্রাম</option>
-                    <option value="dist">রাজশাহী</option>
-                    <option value="dist">সিলেট</option>
+                    {upazilas.map((item) => (
+                      <option value={item.upazila_name}>
+                        {item.upazila_name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
