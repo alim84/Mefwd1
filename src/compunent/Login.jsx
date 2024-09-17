@@ -6,8 +6,9 @@ import { RiAdminFill } from "react-icons/ri";
 const Login = () => {
   return (
     <>
-      <div className="bg-black/40 w-screen h-screen pt-[120px] ">
-        <div className="w-[600px] h-[600px] bg-black/50 shadow-2xl shadow-white rounded-3xl mx-auto  ">
+      <div className="bg-black/40 w-screen h-screen pt-[120px] relative ">
+       <div className="w-[800px] h-[800px] bg-black/30 shadow-2xl shadow-white rounded-3xl mx-auto ">
+       <div className="w-[600px] h-[600px] bg-black/20 shadow-t-2xl shadow-2xl shadow-white rounded-3xl mx-auto absolute translate-x-[100px] translate-y-[100px] ">
           <div className="text-center">
             <h1 className="text-xl text-white py-4 font-bold ">
               স্বাস্থ্য শিক্ষা ও পরিবার কল্যাণ বিভাগ
@@ -53,14 +54,15 @@ const Login = () => {
             </h4>
           </div>
           <div className="relative">
-            <button className=" absolute bg-blue-500 text-[10px] py-3 px-6 rounded-lg translate-x-[570px] translate-y-[-120px] shadow-sm shadow-white">
+            <button className=" absolute bg-blue-500 text-[10px] py-3 px-6 rounded-lg translate-x-[570px] translate-y-[-120px] shadow-sm shadow-yellow-50">
               Request An Account
             </button>
-            <button className="absolute bg-white text-[10px] py-3 px-6 rounded-lg translate-x-[590px] translate-y-[-60px] shadow-sm shadow-white">
+            <button className="absolute bg-white text-[10px] py-3 px-6 rounded-lg translate-x-[590px] translate-y-[-60px] shadow-lg shadow-yellow-50">
               Need Help?
             </button>
           </div>
         </div>
+       </div>
       </div>
     </>
   );
