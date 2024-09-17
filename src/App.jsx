@@ -29,10 +29,14 @@ import Personnelshow from "./showdata/Personnelshow";
 import Studentshow from "./showdata/Studentshow";
 import Rootlayout from "./layout/Rootlayout";
 import Submenu from "./pages/Submenu";
+import Login from "./compunent/Login";
+import Registration from "./compunent/Registration";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
+      <Route path="/registration" element={<Registration />}></Route>
+      <Route path="/login" element={<Login />}></Route>
       <Route path="/" element={<Rootlayout />}>
         <Route index element={<Dashboard />} />
         <Route path="/disipline" element={<Desipline />}></Route>
@@ -55,7 +59,6 @@ const router = createBrowserRouter(
         <Route path="/personnelshow" element={<Personnelshow />}></Route>
         <Route path="/inventoryshow" element={<Inventoryshow />}></Route>
         <Route path="/studentshow" element={<Studentshow />}></Route>
-        
       </Route>
     </>
   )
