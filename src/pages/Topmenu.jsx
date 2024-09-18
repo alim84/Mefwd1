@@ -17,6 +17,7 @@ import {
   FaArrowRightToCity,
 } from "react-icons/fa6";
 import { FaPeopleGroup } from "react-icons/fa6";
+import logo from "../assets/LOGO.png";
 
 const Topmenu = () => {
   let [toggle, Settoggle] = useState(false);
@@ -40,6 +41,10 @@ const Topmenu = () => {
   return (
     <>
       <div className=" container flex mx-auto gap-5 justify-end items-center bg-cyan-900 text-yellow-200 shadow-md shadow-gray-100 relative py-[22px] ">
+        <img
+          className="w-[130px] h-[50px]  mt-[-15px]  "
+          src={logo}
+        ></img>
         <div className=" py-3 px-3 rounded-full bg-purple-900 ">
           <a href={`/`}>
             <GoHomeFill />
@@ -163,7 +168,7 @@ const Topmenu = () => {
 
         <button className="bg-purple-900 absolute  py-5 px-6 z-0 translate-x-[-90px] rounded-r-md rounded-l-full translate-y-[-4px]"></button>
         <div className="bg-purple-900 w-[45px] h-[45px] mr-8 rounded-full">
-          <a href={'/login'}>
+          <a href={"/login"}>
             <RiAdminFill className="absolute translate-y-[15px] translate-x-[15px] " />
           </a>
         </div>

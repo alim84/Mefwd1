@@ -2,8 +2,12 @@ import React from "react";
 import { FaEyeSlash } from "react-icons/fa6";
 import { IoMdCheckmark } from "react-icons/io";
 import { RiAdminFill } from "react-icons/ri";
+import { getDatabase, ref, set } from "firebase/database";
 
 const Login = () => {
+const db=getDatabase();
+
+
   return (
     <>
       <div className="bg-black/40 w-screen h-screen pt-[120px] relative ">
