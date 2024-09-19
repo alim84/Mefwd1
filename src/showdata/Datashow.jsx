@@ -25,18 +25,20 @@ const Datashow = () => {
         .toLowerCase()
         .includes(e.target.value.toLowerCase());
     });
-    setAllData(data);
+    setAllData(alldata);
   };
 
+  function subtotal(alldata) {
+    return alldata.map(({ quantity }) => quantity).reduce((sum, i) => sum + i, 0);
+  }
+
+  const invoiceSubtotal = subtotal(alldata);
+
   const columns = [
+   
     {
       name: "মালামালের নাম",
       selector: (row) => row.productName,
-      sortable: true,
-    },
-    {
-      name: "পরিমান",
-      selector: (row) => row.quantity,
       sortable: true,
     },
     {
@@ -49,11 +51,17 @@ const Datashow = () => {
       selector: (row) => row.delevarydate,
       sortable: true,
     },
+    {
+      name: "পরিমান",
+      selector: (row) => row.quantity,
+      sortable: true,
+    },
+
   ];
 
   return (
-    <div>
-      <div className="text-end mt-2">
+    <div className="container mx-auto rounded-lg">
+      <div className=" text-end mt-2">
         <input
           onChange={handleFilter}
           className="py-2 px-3 rounded-lg border border-orange-400"

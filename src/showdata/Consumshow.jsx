@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { IoIosSearch } from "react-icons/io";
+import DataTable from "react-data-table-component";
 
 
 const Consumshow = () => {
@@ -20,6 +21,7 @@ const Consumshow = () => {
     });
   }, []);
 
+
   return (
     <>
       <div className="container mx-auto  mt- shadow-lg shadow-gray-400  text-[14px]">
@@ -35,6 +37,7 @@ const Consumshow = () => {
           </table>
           {alldata.map((item) => {
             return (
+              
               <li>
                 <table id="showdata">
                   <tr>
@@ -62,6 +65,7 @@ const Consumshow = () => {
             );
           })}
         </ul>
+
       </div>
     </>
   );
