@@ -9,10 +9,9 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   sendEmailVerification,
-  updateProfile,
 } from "firebase/auth";
 import { ColorRing } from "react-loader-spinner";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, push, ref, set } from "firebase/database";
 
 const Registration = () => {
   const db = getDatabase();
@@ -72,21 +71,14 @@ const Registration = () => {
     setLoader(true);
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      await sendEmailVerification(auth.currentUser);
-      await updateProfile(auth.currentUser, {});
+      
 
-      await set(ref(db, `users/${userCredential.user.uid}`), {
-        name: userCredential.user.displayName,
-        email: userCredential.user.email,
+      await set(push(ref(db, 'users/')), {
+        name: name,
+        email: email,
+        password: password,
 
-        date: `${new Date().getFullYear()}-${
-          new Date().getMonth() + 1
-        }-${new Date().getDate()}-${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}`,
+        date: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}-${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}`,
       });
 
       setLoader(false);

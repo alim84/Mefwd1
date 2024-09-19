@@ -1,5 +1,4 @@
 import React from "react";
-import Dashboard from "./pages/Dashboard";
 import Desipline from "./pages/Desipline";
 import Foriegn from "./pages/Foriegn";
 import Foriegndoctor from "./pages/ForiegnDoctor";
@@ -28,17 +27,19 @@ import Meshow from "./showdata/Meshow";
 import Personnelshow from "./showdata/Personnelshow";
 import Studentshow from "./showdata/Studentshow";
 import Rootlayout from "./layout/Rootlayout";
-import Submenu from "./pages/Submenu";
-import Login from "./compunent/Login";
+
 import Registration from "./compunent/Registration";
+import Dashboard from "./pages/Dashboard";
+import Login from "./compunent/Login";
+import Datashow from "./showdata/Datashow";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
+      <Route path="/dashboard" element={<Dashboard />}></Route>
       <Route path="/registration" element={<Registration />}></Route>
-      <Route path="/login" element={<Login />}></Route>
       <Route path="/" element={<Rootlayout />}>
-        <Route index element={<Dashboard />} />
+        <Route index element={<Login />} />
         <Route path="/disipline" element={<Desipline />}></Route>
         <Route path="/foriegn" element={<Foriegn />}></Route>
         <Route path="/doctor" element={<Foriegndoctor />}></Route>
@@ -59,6 +60,7 @@ const router = createBrowserRouter(
         <Route path="/personnelshow" element={<Personnelshow />}></Route>
         <Route path="/inventoryshow" element={<Inventoryshow />}></Route>
         <Route path="/studentshow" element={<Studentshow />}></Route>
+        <Route path="/data" element={<Datashow />}></Route>
       </Route>
     </>
   )
