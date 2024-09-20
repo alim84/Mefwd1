@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { IoIosSearch } from "react-icons/io";
 import DataTable from "react-data-table-component";
+import { FaDeleteLeft } from "react-icons/fa6";
+import { BsPencilFill } from "react-icons/bs";
 
 
 const Consumshow = () => {
@@ -50,13 +52,13 @@ const Consumshow = () => {
                       {item.delevarydate}
                     </td>
                     <td className="w-[150px] text-center">
-                      <button className=" bg-green-600 text-white font-bold py-1 px-2 rounded-lg  ">
-                        Update
+                      <button className=" bg-green-600 text-white  py-1 px-2 rounded-lg  ">
+                      <BsPencilFill />
                       </button>
                     </td>
                     <td className="w-[150px] text-center">
-                      <button className="  bg-red-500 text-white font-bold py-1 px-2 rounded-lg ">
-                        Delete
+                      <button className="  bg-red-500 text-white py-1 px-2 rounded-lg ">
+                      <FaDeleteLeft />
                       </button>
                     </td>
                   </tr>
@@ -65,7 +67,13 @@ const Consumshow = () => {
             );
           })}
         </ul>
-
+        <DataTable
+      
+       
+        selectableRows
+        fixedHeader
+        pagination
+      ></DataTable>
       </div>
     </>
   );

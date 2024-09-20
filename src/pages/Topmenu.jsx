@@ -22,21 +22,7 @@ import logo from "../assets/LOGO.png";
 const Topmenu = () => {
   let [toggle, Settoggle] = useState(false);
 
-  let Menus = [
-    "Contract",
-    "About",
-    "Ask",
-    "Ask",
-    "Ask",
-    "Ask",
-    "Ask",
-    "Ask",
-    "Ask",
-    "Ask",
-    "Ask",
-    "Ask",
-    "Ask",
-  ];
+
 
   return (
     <>

@@ -56,6 +56,7 @@ const Datashow = () => {
       selector: (row) => row.quantity,
       sortable: true,
     },
+ 
 
   ];
 
