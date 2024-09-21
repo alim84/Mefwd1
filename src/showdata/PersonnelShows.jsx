@@ -1,37 +1,43 @@
-
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import DataTable from "react-data-table-component";
 import Submenu from "../pages/Submenu";
+import { IoPencilOutline } from "react-icons/io5";
+import { TiDeleteOutline } from "react-icons/ti";
+import { FaSearch } from "react-icons/fa";
 
 const PersonnelShows = () => {
+  const db = getDatabase();
+  let [alldata, setAllData] = useState([]);
+
+  useEffect(() => {
     const db = getDatabase();
-    let [alldata, setAllData] = useState([]);
-  
-    useEffect(() => {
-      const db = getDatabase();
-      const personnelRef = ref(db, "personell/");
-      onValue(personnelRef, (snapshot) => {
-        let array = [];
-        snapshot.forEach((items) => {
-          array.push(items.val());
-        });
-  
-        setAllData(array);
+    const personnelRef = ref(db, "personell/");
+    onValue(personnelRef, (snapshot) => {
+      let array = [];
+      snapshot.forEach((items) => {
+        array.push(items.val());
       });
-    }, []);
-    let handleFilter = (e) => {
-        let data = alldata.filter((row) => {
-          return row.productName
-            .toLowerCase()
-            .includes(e.target.value.toLowerCase());
-        });
-        setAllData(alldata);
-      };
-    
-   
+
+      setAllData(array);
+    });
+  }, []);
+  let handleFilter = (e) => {
+    let data = alldata.filter((row) => {
+      return row.productName
+        .toLowerCase()
+        .includes(e.target.value.toLowerCase());
+    });
+    setAllData(alldata);
+  };
+
+  {
+    icon: {
+      IoPencilOutline;
+    }
+  }
+
   const columns = [
-   
     {
       name: " কর্মকর্তার নাম",
       selector: (row) => row.name,
@@ -158,68 +164,79 @@ const PersonnelShows = () => {
       selector: (row) => row.prehouse,
       sortable: true,
     },
- 
+
     {
       name: "নিয়োগের ধরন",
       selector: (row) => row.appontmentCatagory,
       sortable: true,
     },
- 
+
     {
       name: "যোগদানের তারিখ",
       selector: (row) => row.firstjoint,
       sortable: true,
     },
- 
+
     {
       name: "যোগদানের পদবি",
       selector: (row) => row.firstdesignation,
       sortable: true,
     },
- 
+
     {
       name: "গ্রেড",
       selector: (row) => row.scale,
       sortable: true,
     },
- 
+
     {
       name: "পদোন্নতি পদবি",
       selector: (row) => row.promotiondesignation,
       sortable: true,
     },
- 
+
     {
       name: "পদোন্নতির তারিখ",
       selector: (row) => row.promotionjoinindate,
       sortable: true,
     },
- 
-
-
+    {
+      name: "কার্যক্রম",
+      selector: (row) => (
+        <button className="flex gap-4">
+          {" "}
+          <IoPencilOutline className="text-white bg-purple-400 text-[16px]  rounded-full" />{" "}
+          <a href="">
+            {" "}
+            <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
+          </a>{" "}
+        </button>
+      ),
+    },
   ];
 
-    return (
-        <>
-            <div className="container mx-auto rounded-lg">
-                <Submenu/>
-      <div className=" text-end mt-2">
-        <input
-          onChange={handleFilter}
-          className="py-2 px-3 rounded-lg border border-orange-400"
-          type="text"
-        ></input>
+  return (
+    <>
+      <div className="container mx-auto rounded-lg ">
+        <Submenu />
+        <div className=" text-end m-2 relative">
+          <input
+            onChange={handleFilter}
+            className="py-1 px-5 rounded-lg border border-orange-400 "
+            type="text"
+          ></input>
+          <FaSearch className="absolute text-purple-500 text-[13px] translate-x-[1285px] translate-y-[-22px]" />
+        </div>
+        <DataTable
+          columns={columns}
+          data={alldata}
+          fixedHeader
+          pagination
+          selectableRows
+        ></DataTable>
       </div>
-      <DataTable
-        columns={columns}
-        data={alldata}
-        selectableRows
-        fixedHeader
-        pagination
-      ></DataTable>
-    </div>
-        </>
-    );
+    </>
+  );
 };
 
 export default PersonnelShows;

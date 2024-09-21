@@ -32,6 +32,7 @@ const PersonelInfo = () => {
   let [promotiondesignation, setPromotiondesignation] = useState("");
   let [promotionjoinindate, setPromotionjoinindate] = useState("");
 
+  let [alldata, setAllData] = useState([]);
   let [divisitons, setDivisions] = useState([]);
   let [districts, setDistricts] = useState([]);
   let [upzilas, setUpzila] = useState([]);
@@ -516,7 +517,7 @@ const PersonelInfo = () => {
                     name="selfdist"
                     onChange={homedristrictHandler}
                   >
-                    {districts.map((item) => (
+                    {districtss.map((item) => (
                       <option value={item.district_name}>
                         {item.district_name}
                       </option>
