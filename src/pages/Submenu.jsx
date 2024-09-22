@@ -31,7 +31,7 @@ const Submenu = () => {
 
   return (
     <>
-      <div className=" container flex mx-auto gap-5 justify-between items-center bg-cyan-900 text-yellow-200 shadow-md shadow-gray-100 relative py-[22px] ">
+      <div className=" container flex mx-auto gap-5 justify-between items-center bg-cyan-900 text-yellow-200 shadow-lg shadow-white relative py-[22px] rounded-b-xl ">
         <div className="  py-3 px-3 rounded-full  text-white  ml-10">
           <button onClick={() => SetSidebar(!sidebar)}>
             <FiGrid className="text-[30px] hover:text-teal-600 " />
