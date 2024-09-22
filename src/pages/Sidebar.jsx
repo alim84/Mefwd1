@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../pages/Dashboard.css";
 import "../pages/Dashboarstyle.css";
 import { RiAdminFill } from "react-icons/ri";
@@ -8,12 +8,15 @@ import { SiMicrosoftacademic, SiConstruct3 } from "react-icons/si";
 import { IoIosLogOut } from "react-icons/io";
 
 const Sidebar = () => {
+
+
   return (
     <>
       <link rel="stylesheet" href="style.css" />
       <link rel="stylesheet" href="responsive.css" />
 
-      <div className="navcontainer shadow-md shadow-gray-100 ">
+
+<div className="navcontainer shadow-md shadow-gray-100 absolute mt-32 ">
         <nav className="nav bg-cyan-900 text-white   ">
           <div className="nav-upper-options  ">
             <div className="nav-option option1 py-[52px] bg-cyan-900 shadow-sm shadow-gray-100 ">
@@ -24,106 +27,12 @@ const Sidebar = () => {
               />
               <h3 className="text-[16px] font-bold"> কার্যক্রম</h3>
             </div>
-            <div className="option2 nav-option relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <RiAdminFill className="flex absolute top-[20px] left-[32px] text-white" />
-              </div>
-              <div className="relative">
-                <button className="block focus:overflow-visible cursor-visible drop relative text-[12px]  ">
-               
-                      <a href={`/disipline`}>শৃঙ্খলা</a>
-                   
-                </button>
-              </div>
-            </div>
-
-            <div className="nav-option option3 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <MdOutlineFamilyRestroom className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <div className="relative">
-                <button className="block focus:overflow-visible cursor-visible drop relative text-[12px]">
-                  <a href={`/foriegn`}>বহিঃ বাংলাদেশ</a>
-                </button>
-              </div>
-            </div>
-            <div className="nav-option option4 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <SiConstruct3 className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <div className="relative">
-                <button className="block focus:overflow-visible cursor-visible drop relative  text-[12px] ">
-                  <a href={`/doctor`}>চিকিৎসক বহিঃ বাংলাদেশ</a>
-                </button>
-              </div>
-            </div>
-            <div className="nav-option option5 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <SiMicrosoftacademic className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <div className="relative">
-                <button className="block focus:overflow-visible cursor-visible drop relative  text-[12px] ">
-                  <a href={`/institute`}>জনবল</a>
-                </button>
-              </div>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white ">
-                <MdAttachMoney className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <a className=" text-[12px]" href={`/inventory`}>
-                মালামাল গ্রহণ
-              </a>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <a className=" text-[12px]" href={`/consumption`}>
-                মালামাল বিতরন
-              </a>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <a className=" text-[12px]" href={`/leave`}>
-                ছুটি
-              </a>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <a className=" text-[12px]" href={`/me`}>
-                প্রতিষ্ঠান
-              </a>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <a className=" text-[12px]" href={`/personell`}>
-                মানব সম্পদ
-              </a>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <a className=" text-[12px]" href={`/student`}>
-                শিক্ষার্থী
-              </a>
-            </div>
-            <div className="nav-option logout relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <IoIosLogOut className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <h3>বাহির</h3>
-            </div>
+           
           </div>
         </nav>
       </div>
+
+      
     </>
   );
 };

@@ -1,14 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../pages/Sidebar";
-import Topmenu from "../pages/Topmenu";
+
+import Submenu from "../pages/Submenu";
 
 const Rootlayout = () => {
   return (
     <div className="flex">
-      <Sidebar />
+
       <div>
-        <Topmenu />
+      <Submenu/>
         <Outlet />
       </div>
     </div>

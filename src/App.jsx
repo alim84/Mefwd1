@@ -33,7 +33,8 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./compunent/Login";
 import Datashow from "./showdata/Datashow";
 import PersonnelShows from "./showdata/PersonnelShows";
-import Submenu from "./pages/Submenu";
+
+import Sidebar from "./pages/Sidebar";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -52,7 +53,9 @@ const router = createBrowserRouter(
       <Route path="/data" element={<Datashow />}></Route>
       <Route path="/personnelSh" element={<PersonnelShows />}></Route>
       <Route path="/login" element={<Login />}></Route>
-      <Route path="/submenu" element={<Submenu />}></Route>
+      <Route path="/sidemenu" element={<Sidebar />}></Route>
+      
+      
       <Route path="/" element={<Rootlayout />}>
         <Route index element={<Dashboard />} />
         <Route path="/disipline" element={<Desipline />}></Route>

@@ -64,12 +64,12 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div >
       <link rel="stylesheet" href="style.css" />
       <link rel="stylesheet" href="responsive.css" />
 
       <div className="main-container ">
-        <div className="main container">
+        <div className="container mx-auto">
           <div className="searchbar2">
             <input type="text" name="" id="" placeholder="Search" />
             <div className="searchbtn">

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
-import divisions from "../json/Division.json";
+import divisionss from "../json/Division.json";
 import districtss from "../json/Districts.json";
-import upazilas from "../json/Upazilas.json";
+import upzilass from "../json/Upazilas.json";
 
 const PersonelInfo = () => {
   let [name, setName] = useState("");
@@ -33,7 +33,7 @@ const PersonelInfo = () => {
   let [promotionjoinindate, setPromotionjoinindate] = useState("");
 
   let [alldata, setAllData] = useState([]);
-  let [divisitons, setDivisions] = useState([]);
+  let [divisions, setDivisions] = useState([]);
   let [districts, setDistricts] = useState([]);
   let [upzilas, setUpzila] = useState([]);
 
@@ -145,14 +145,14 @@ const PersonelInfo = () => {
       merital: merital,
       religion: religion,
       homedistrict: districts,
-      perdivision: divisitons,
+      perdivision: divisions,
       perdristrict: districts,
       perthana: upzilas,
       perPostoffice: perPostoffice,
       pervillage: pervillage,
       perroad: perroad,
       perhouse: perhouse,
-      predivision: divisitons,
+      predivision: divisions,
       predristrict: districts,
       prethana: upzilas,
       prePostoffice: prePostoffice,
@@ -206,13 +206,13 @@ const PersonelInfo = () => {
     });
   }, []);
   useEffect(() => {
-    setDivisions(divisions);
+    setDivisions(divisionss);
   }, []);
   useEffect(() => {
     setDistricts(districtss);
   }, []);
   useEffect(() => {
-    setUpzila(upazilas);
+    setUpzila(upzilass);
   }, []);
 
   function divisionsList() {
@@ -517,8 +517,8 @@ const PersonelInfo = () => {
                     name="selfdist"
                     onChange={homedristrictHandler}
                   >
-                    {districtss.map((item) => (
-                      <option value={item.district_name}>
+                    {districts.map((item, index) => (
+                      <option key={index} value={item.district_name}>
                         {item.district_name}
                       </option>
                     ))}
@@ -662,7 +662,7 @@ const PersonelInfo = () => {
                     name="upzila"
                     onChange={prethanaHandler}
                   >
-                    {upazilas.map((item) => (
+                    {upzilas.map((item) => (
                       <option value={item.upazila_name}>
                         {item.upazila_name}
                       </option>
