@@ -92,7 +92,7 @@ const Foriegndoctor = () => {
             </h2>
           </div>
           <div className="relative">
-            <div className="border border-2 border-white px-4 py-8 mx-[200px]">
+            <div className=" border-2 border-white px-4 py-8 mx-[200px]">
               <div>
                 <div className="absulate translate-y-[-50px]">
                   <h3 className=" inline-block bg-blue-200 px-2 font-bold text-purple-800">

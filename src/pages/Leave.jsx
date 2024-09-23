@@ -98,7 +98,7 @@ const Leave = () => {
           </h2>
         </div>
 
-        <div className="border border-2 border-white px-6 py-8 mx-[250px]">
+        <div className=" border-2 border-white px-6 py-8 mx-[250px]">
           <div className="grid grid-cols-3 gap-4 content-center">
             <div>
               <label className="block font-light py-2 text-white">

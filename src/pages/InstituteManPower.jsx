@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
-import { IoIosSearch } from "react-icons/io";
+
 
 const InstituteManPower = () => {
   let [instituteName, setInstituteName] = useState("");
@@ -79,7 +79,7 @@ const InstituteManPower = () => {
     <div>
       <div>
         <form action="" method="POST">
-          <div className=" w-[1200px]  mx-auto bg-cyan-900 py-10 px-5">
+          <div className=" container  mx-auto bg-cyan-900 py-10 px-5">
             <div className="mb-12 text-center font-bold text-2xl text-orange-500">
               <h1 className="py-4">প্রতিষ্ঠানের জনবলের তথ্য</h1>
               <hr></hr>

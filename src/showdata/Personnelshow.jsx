@@ -22,8 +22,6 @@ const Personnelshow = () => {
   return (
     <>
       <div className=" mx-auto  shadow-lg shadow-gray-400 text-[14px] ">
-    
-
         <ul>
           <table id="showdata">
             <th className="w-[193px] ">কর্মকর্তার নাম</th>

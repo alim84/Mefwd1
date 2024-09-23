@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { IoIosSearch } from "react-icons/io";
+import { IoPencilOutline } from "react-icons/io5";
+import { TiDeleteOutline } from "react-icons/ti";
+import { FaSearch } from "react-icons/fa";
+import DataTable from "react-data-table-component";
 
 const Desiplineshow = () => {
   const db = getDatabase();
@@ -19,58 +22,96 @@ const Desiplineshow = () => {
     });
   }, []);
 
+
+  let handleFilter = (e) => {
+    let data = alldata.filter((row) => {
+      return row.name
+        .toLowerCase()
+        .includes(e.target.value.toLowerCase());
+    });
+    setAllData(alldata);
+  };
+
+  const columns = [
+    {
+      name: " কর্মকর্তার নাম",
+      selector: (row) => row.name,
+      sortable: true,
+    },
+    {
+      name: "পদবি",
+      selector: (row) => row.designation,
+      sortable: true,
+    },
+ 
+    {
+      name: "কোড",
+      selector: (row) => row.code,
+      sortable: true,
+    },
+    {
+      name: "মামলার বিবরণ",
+      selector: (row) => row.casedes,
+      sortable: true,
+    },
+    {
+      name: "কর্মস্থল",
+      selector: (row) => row.institute,
+      sortable: true,
+    },
+    {
+      name: "মামলার ধরন",
+      selector: (row) => row.casecatagory,
+      sortable: true,
+    },
+    {
+      name: "সন",
+      selector: (row) => row.year,
+      sortable: true,
+    },
+    {
+      name: "শাস্তির ধরন",
+      selector: (row) => row.punishment,
+      sortable: true,
+    },
+    {
+      name: "কার্যক্রম",
+      selector: (row) => (
+        <button className="flex gap-4">
+          {" "}
+          <IoPencilOutline className="text-white bg-purple-400 text-[16px]  rounded-full" />{" "}
+          <a href="">
+            {" "}
+            <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
+          </a>{" "}
+        </button>
+      ),
+    },
+  ]
+
+
   return (
     <>
-      <div className="container  mx-auto shadow-lg shadow-gray-400 text-[14px] ">
-  
 
-        <ul>
-          <table id="showdata">
-            <th className="w-[150px] ">কর্মকর্তার নাম</th>
-            <th className="w-[150px]">পদবি</th>
-            <th className="w-[150px]">কোড</th>
-            <th className="w-[150px]">মামলার বিবরণ</th>
-            <th className="w-[150px]">প্রতিষ্ঠানের নাম</th>
-            <th className="w-[150px]">মামলার ধরন</th>
-            <th className="w-[150px]">সন</th>
-            <th className="w-[150px]">শাস্তির ধরন</th>
-            <th className="w-[150px] ">Update</th>
-            <th className="w-[150px]">Delete</th>
-          </table>
-          {alldata.map((item) => {
-            return (
-              <li>
-                <table id="showdata">
-                  <tr>
-                    <td className="w-[150px] text-center">{item.name}</td>
-                    <td className="w-[150px] text-center">
-                      {item.designation}
-                    </td>
-                    <td className="w-[150px] text-center">{item.code}</td>
-                    <td className="w-[150px] text-center">{item.casedes}</td>
-                    <td className="w-[150px] text-center">{item.institute}</td>
-                    <td className="w-[150px] text-center">
-                      {item.casecatagory}
-                    </td>
-                    <td className="w-[150px] text-center">{item.year}</td>
-                    <td className="w-[150px] text-center">{item.punishment}</td>
-                    <td className="w-[150px] text-center">
-                      <button className=" bg-green-600 text-white font-bold py-1 px-2 rounded-lg  ">
-                        Update
-                      </button>
-                    </td>
-                    <td className="w-[150px] text-center">
-                      <button className="  bg-red-500 text-white font-bold py-1 px-2 rounded-lg ">
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                </table>
-              </li>
-            );
-          })}
-        </ul>
+<div className="container mx-auto rounded-lg ">
+      <div className=" text-end m-2 relative">
+        <input
+          onChange={handleFilter}
+          className="py-1 px-5 rounded-lg border border-orange-400 "
+          type="text"
+        ></input>
+        <FaSearch className="absolute text-purple-500 text-[13px] translate-x-[1285px] translate-y-[-22px]" />
       </div>
+      <DataTable
+        columns={columns}
+        data={alldata}
+        fixedHeader
+        pagination
+        selectableRows
+      ></DataTable>
+    </div>
+
+   
     </>
   );
 };

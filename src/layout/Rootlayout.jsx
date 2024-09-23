@@ -8,8 +8,8 @@ const Rootlayout = () => {
   return (
     <div className="flex">
 
-      <div>
-      <Submenu/>
+      <div >
+      <Submenu />
         <Outlet />
       </div>
     </div>

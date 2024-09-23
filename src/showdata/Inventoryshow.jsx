@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
-
-import { IoIosSearch } from "react-icons/io";
+import { IoPencilOutline } from "react-icons/io5";
+import { TiDeleteOutline } from "react-icons/ti";
+import { FaSearch } from "react-icons/fa";
+import DataTable from "react-data-table-component";
 
 const Inventoryshow = () => {
   const db = getDatabase();
@@ -20,51 +22,75 @@ const Inventoryshow = () => {
     });
   }, []);
 
+  let handleFilter = (e) => {
+    let data = alldata.filter((row) => {
+      return row.productName
+        .toLowerCase()
+        .includes(e.target.value.toLowerCase());
+    });
+    setAllData(alldata);
+  };
+
+  const columns = [
+    {
+      name: " মালামালের নাম",
+      selector: (row) => row.productName,
+      sortable: true,
+    },
+    {
+      name: "পরিমান",
+      selector: (row) => row.quantity,
+      sortable: true,
+    },
+
+    {
+      name: "ক্যাশ মেমো/টেন্ডারের তথ্য",
+      selector: (row) => row.cashmemo,
+      sortable: true,
+    },
+    {
+      name: "ক্রয়ের তারিখ",
+      selector: (row) => row.purchasedate,
+      sortable: true,
+    },
+    {
+      name: "মালামালের ধরন",
+      selector: (row) => row.productscatagory,
+      sortable: true,
+    },
+    {
+      name: "কার্যক্রম",
+      selector: (row) => (
+        <button className="flex gap-4">
+          {" "}
+          <IoPencilOutline className="text-white bg-purple-400 text-[16px]  rounded-full" />{" "}
+          <a href="">
+            {" "}
+            <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
+          </a>{" "}
+        </button>
+      ),
+    },
+  ];
+
   return (
     <>
-      <div className="container  mx-auto  shadow-lg shadow-gray-400 text-[14px] ">
-        <ul>
-          <table className="outline-red-300" id="showdata">
-            <th className="w-[150px] text-center  ">মালামালের নাম</th>
-            <th className="w-[150px] text-center">পরিমান</th>
-            <th className="w-[150px]">ক্যাশ মেমো/টেন্ডারের তথ্য</th>
-            <th className="w-[150px]">ক্রয়ের তারিখ</th>
-            <th className="w-[150px]">মালামালের ধরন</th>
-            <th className="w-[150px] text-center ">Update</th>
-            <th className="w-[150px]">Delete</th>
-          </table>
-          {alldata.map((item) => {
-            return (
-              <li>
-                <table id="showdata">
-                  <tr>
-                    <td className="w-[150px] text-center">
-                      {item.productName}
-                    </td>
-                    <td className="w-[150px] text-center">{item.quantity}</td>
-                    <td className="w-[150px] text-center">{item.cashmemo}</td>
-                    <td className="w-[150px] text-center">
-                      {item.purchasedate}
-                    </td>
-                    <td className="w-[150px] text-center">
-                      {item.productscatagory}
-                    </td>
-                    <td className="w-[150px] text-center">
-                      <button className=" bg-green-600 text-white font-bold py-1 px-2 rounded-lg  ">
-                        Update
-                      </button>
-                    </td>
-                    <td className="w-[150px] text-center">
-                      <button className="  bg-red-500 text-white font-bold py-1 px-2 rounded-lg ">
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                </table>
-              </li>
-            );
-          })}
-        </ul>
+      <div className="container mx-auto rounded-lg ">
+        <div className=" text-end m-2 relative">
+          <input
+            onChange={handleFilter}
+            className="py-1 px-5 rounded-lg border border-orange-400 "
+            type="text"
+          ></input>
+          <FaSearch className="absolute text-purple-500 text-[13px] translate-x-[1285px] translate-y-[-22px]" />
+        </div>
+        <DataTable
+          columns={columns}
+          data={alldata}
+          fixedHeader
+          pagination
+          selectableRows
+        ></DataTable>
       </div>
     </>
   );

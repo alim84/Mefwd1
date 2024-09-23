@@ -5,14 +5,10 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-
-    fontFamily: {
-    
-      mono: ['ui-monospace', 'SFMono-Regular'],
-      
-    },
     extend: {
-      container:"1320px",
+
+
+
     },
   },
   plugins: [],

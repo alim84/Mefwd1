@@ -10,7 +10,7 @@ import { RiAdminFill } from "react-icons/ri";
 const Login = () => {
   return (
     <>
-      <div className="bg-black/40 w-screen h-screen pt-[120px] relative ">
+      <div className="bg-black/40 w-screen h-screen pt-[60px] relative ">
         <div className="w-[800px] h-[800px] bg-black/30 shadow-2xl shadow-white rounded-3xl mx-auto ">
           <div className="w-[600px] h-[600px] bg-black/20 shadow-t-2xl shadow-2xl shadow-white rounded-3xl mx-auto absolute translate-x-[100px] translate-y-[100px] ">
             <div className="text-center">

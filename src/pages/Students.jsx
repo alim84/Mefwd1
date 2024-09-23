@@ -83,7 +83,7 @@ const Students = () => {
   return (
     <>
       <form action="" method="POST">
-        <div className=" w-[1200px]  mx-auto bg-cyan-900 py-10 px-5 rounded-b-lg shadow-xl shadow-slate-500 ">
+        <div className="container  mx-auto bg-cyan-900 py-10 px-5 rounded-b-lg shadow-xl shadow-slate-500 ">
           <div className="mb-12 text-center font-bold text-2xl text-orange-500">
             <h1 className="py-4">শিক্ষার্থীর তথ্য</h1>
             <hr></hr>

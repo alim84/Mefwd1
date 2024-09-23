@@ -251,7 +251,7 @@ const PersonelInfo = () => {
   return (
     <>
       <form action="" method="POST">
-        <div className=" w-[1200px]  mx-auto bg-cyan-900 py-10 px-5 ">
+        <div className=" container  mx-auto bg-cyan-900 py-10 px-5 ">
           <div className="mb-12 text-center font-bold text-2xl text-orange-500">
             <h1 className="py-4">Personel Information of Mefwd Employee</h1>
             <hr></hr>

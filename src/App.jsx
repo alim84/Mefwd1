@@ -40,23 +40,23 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/registration" element={<Registration />}></Route>
-      <Route path="/disiplineshow" element={<Desiplineshow />}></Route>
-      <Route path="/foriegnshow" element={<Foriegnshow />}></Route>
-      <Route path="/doctorshow" element={<DoctorForShow />}></Route>
-      <Route path="/manpowershow" element={<ManpowerShow />}></Route>
-      <Route path="/consumshow" element={<Consumshow />}></Route>
-      <Route path="/leaveshow" element={<Leaveshow />}></Route>
-      <Route path="/meshow" element={<Meshow />}></Route>
-      <Route path="/personnelshow" element={<Personnelshow />}></Route>
-      <Route path="/inventoryshow" element={<Inventoryshow />}></Route>
-      <Route path="/studentshow" element={<Studentshow />}></Route>
-      <Route path="/data" element={<Datashow />}></Route>
-      <Route path="/personnelSh" element={<PersonnelShows />}></Route>
       <Route path="/login" element={<Login />}></Route>
-      <Route path="/sidemenu" element={<Sidebar />}></Route>
-      
-      
+
       <Route path="/" element={<Rootlayout />}>
+        <Route path="/disiplineshow" element={<Desiplineshow />}></Route>
+        <Route path="/foriegnshow" element={<Foriegnshow />}></Route>
+        <Route path="/doctorshow" element={<DoctorForShow />}></Route>
+        <Route path="/manpowershow" element={<ManpowerShow />}></Route>
+        <Route path="/consumshow" element={<Consumshow />}></Route>
+        <Route path="/leaveshow" element={<Leaveshow />}></Route>
+        <Route path="/meshow" element={<Meshow />}></Route>
+        <Route path="/personnelshow" element={<Personnelshow />}></Route>
+        <Route path="/inventoryshow" element={<Inventoryshow />}></Route>
+        <Route path="/studentshow" element={<Studentshow />}></Route>
+        <Route path="/data" element={<Datashow />}></Route>
+        <Route path="/personnelSh" element={<PersonnelShows />}></Route>
+        <Route path="/sidemenu" element={<Sidebar />}></Route>
+
         <Route index element={<Dashboard />} />
         <Route path="/disipline" element={<Desipline />}></Route>
         <Route path="/foriegn" element={<Foriegn />}></Route>

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { IoIosSearch } from "react-icons/io";
+import { IoPencilOutline } from "react-icons/io5";
+import { TiDeleteOutline } from "react-icons/ti";
+import { FaSearch } from "react-icons/fa";
+import DataTable from "react-data-table-component";
 
 const ManpowerShow = () => {
   const db = getDatabase();
@@ -19,61 +22,91 @@ const ManpowerShow = () => {
     });
   }, []);
 
+  let handleFilter = (e) => {
+    let data = alldata.filter((row) => {
+      return row.productName
+        .toLowerCase()
+        .includes(e.target.value.toLowerCase());
+    });
+    setAllData(alldata);
+  };
+
+  const columns = [
+    {
+      name: "প্রতিষ্ঠানের নাম",
+      selector: (row) => row.instituteName,
+      sortable: true,
+    },
+    {
+      name: "পদবি",
+      selector: (row) => row.designation,
+      sortable: true,
+    },
+
+    {
+      name: "গ্রেড",
+      selector: (row) => row.grade,
+      sortable: true,
+    },
+    {
+      name: "অনুমোদিত পদ সংখ্যা",
+      selector: (row) => row.approvalPost,
+      sortable: true,
+    },
+    {
+      name: "কর্মরত জনবল",
+      selector: (row) => row.workingMan,
+      sortable: true,
+    },
+    {
+      name: "শুন্য পদের সংখ্যা",
+      selector: (row) => row.vacantPost,
+      sortable: true,
+    },
+    {
+      name: "কর্মরত পুরুষ জনবল",
+      selector: (row) => row.workingMale,
+      sortable: true,
+    },
+    {
+      name: "কর্মরত মহিলা জনবল",
+      selector: (row) => row.workingFemale,
+      sortable: true,
+    },
+
+    {
+      name: "কার্যক্রম",
+      selector: (row) => (
+        <button className="flex gap-4">
+          {" "}
+          <IoPencilOutline className="text-white bg-purple-400 text-[16px]  rounded-full" />{" "}
+          <a href="">
+            {" "}
+            <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
+          </a>{" "}
+        </button>
+      ),
+    },
+  ];
+
   return (
     <>
-      <div className="container  mx-auto shadow-lg shadow-gray-400 text-[14px] ">
-   
-
-        <ul>
-          <table id="showdata">
-            <th className="w-[150px] "> প্রতিষ্ঠানের নাম</th>
-            <th className="w-[150px]">পদবি</th>
-            <th className="w-[150px]">গ্রেড</th>
-            <th className="w-[150px]">অনুমোদিত পদ সংখ্যা</th>
-            <th className="w-[150px]">কর্মরত জনবল</th>
-            <th className="w-[150px]">শুন্য পদের সংখ্যা</th>
-            <th className="w-[150px]">কর্মরত পুরুষ জনবল</th>
-            <th className="w-[150px]">কর্মরত মহিলা জনবল</th>
-            <th className="w-[150px] ">Update</th>
-            <th className="w-[150px]">Delete</th>
-          </table>
-          {alldata.map((item) => {
-            return (
-              <li>
-                <table id="showdata">
-                  <tr>
-                    <td className="w-[150px]">{item.instituteName}</td>
-                    <td className="w-[150px] text-center">
-                      {item.designation}
-                    </td>
-                    <td className="w-[150px] text-center">{item.grade}</td>
-                    <td className="w-[150px] text-center">
-                      {item.approvalPost}
-                    </td>
-                    <td className="w-[150px] text-center">{item.workingMan}</td>
-                    <td className="w-[150px] text-center">{item.vacantPost}</td>
-                    <td className="w-[150px] text-center">
-                      {item.workingMale}
-                    </td>
-                    <td className="w-[150px] text-center">
-                      {item.workingFemale}
-                    </td>
-                    <td className="w-[150px] text-center">
-                      <button className=" bg-green-600 text-white font-bold py-1 px-2 rounded-lg  ">
-                        Update
-                      </button>
-                    </td>
-                    <td className="w-[150px] text-center">
-                      <button className="  bg-red-500 text-white font-bold py-1 px-2 rounded-lg ">
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                </table>
-              </li>
-            );
-          })}
-        </ul>
+      <div className="container mx-auto rounded-lg ">
+        <div className=" text-end m-2 relative">
+          <input
+            onChange={handleFilter}
+            className="py-1 px-5 rounded-lg border border-orange-400 "
+            type="text"
+          ></input>
+          <FaSearch className="absolute text-purple-500 text-[13px] translate-x-[1285px] translate-y-[-22px]" />
+        </div>
+        <DataTable
+          columns={columns}
+          data={alldata}
+          fixedHeader
+          pagination
+          selectableRows
+        ></DataTable>
       </div>
     </>
   );

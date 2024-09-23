@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
-import { IoIosSearch } from "react-icons/io";
+
 
 const Foriegn = () => {
   let [inputname, setinputName] = useState("");

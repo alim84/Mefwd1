@@ -24,18 +24,10 @@ const PersonnelShows = () => {
   }, []);
   let handleFilter = (e) => {
     let data = alldata.filter((row) => {
-      return row.productName
-        .toLowerCase()
-        .includes(e.target.value.toLowerCase());
+      return row.name.toLowerCase().includes(e.target.value.toLowerCase());
     });
     setAllData(alldata);
   };
-
-  {
-    icon: {
-      IoPencilOutline;
-    }
-  }
 
   const columns = [
     {
@@ -218,7 +210,6 @@ const PersonnelShows = () => {
   return (
     <>
       <div className="container mx-auto rounded-lg ">
-        <Submenu />
         <div className=" text-end m-2 relative">
           <input
             onChange={handleFilter}

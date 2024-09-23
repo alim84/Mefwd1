@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { DiYii } from "react-icons/di";
 import { DiAppstore } from "react-icons/di";
 
-import { IoIosArrowDown } from "react-icons/io";
 import { FiGrid } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
 import { GiHumanPyramid, GiThreeLeaves } from "react-icons/gi";
@@ -17,8 +16,6 @@ import {
 } from "react-icons/fa6";
 import { FaPeopleGroup } from "react-icons/fa6";
 
-import "../pages/Dashboard.css";
-import "../pages/Dashboarstyle.css";
 import { RiAdminFill } from "react-icons/ri";
 import { MdOutlineFamilyRestroom, MdAttachMoney } from "react-icons/md";
 import { FaMoneyCheck } from "react-icons/fa";
@@ -31,7 +28,7 @@ const Submenu = () => {
 
   return (
     <>
-      <div className=" container flex mx-auto gap-5 justify-between items-center bg-cyan-900 text-yellow-200 shadow-lg shadow-white relative py-[22px] rounded-b-xl ">
+      <div className="container mx-auto flex gap-5 justify-between items-center bg-cyan-900 text-yellow-200 shadow-2xl shadow-red-500  py-[22px] mb-[2px]  ">
         <div className="  py-3 px-3 rounded-full  text-white  ml-10">
           <button onClick={() => SetSidebar(!sidebar)}>
             <FiGrid className="text-[30px] hover:text-teal-600 " />
@@ -54,7 +51,7 @@ const Submenu = () => {
           </button>
           <div>
             {toggle && (
-              <div className="absolute translate-x-[-600px] translate-y-[14px] cursor-pointer  grid grid-cols-4 justify-between items-center w-[600px] h-[200px] rounded-b-md bg-cyan-900  z-20 mt-10 text-center text-white font-semibold text-[13px] transition delay-150 duration-300 ease-in-out shadow-md shadow-slate-200  ">
+              <div className="absolute translate-x-[-600px] translate-y-[14px] cursor-pointer  grid grid-cols-4 justify-between items-center w-[600px] h-[200px] rounded-b-md bg-cyan-900  z-20 mt-10 text-center text-white font-semibold text-[13px]  duration-300 ease-in-out shadow-md shadow-slate-200  ">
                 <div className=" flex justify-center items-center hover:bg-slate-400 hover:py-2 hover:ml-2 hover:rounded-md ">
                   <FaHome className=" w-[20px] h-[20px] bg-cyan-900 border-2  mr-2 rounded-full " />
                   <ul className=" ">
