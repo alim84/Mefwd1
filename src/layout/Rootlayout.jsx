@@ -6,13 +6,13 @@ import Submenu from "../pages/Submenu";
 
 const Rootlayout = () => {
   return (
-    <div className="flex">
+  
 
       <div >
       <Submenu />
         <Outlet />
       </div>
-    </div>
+  
   );
 };
 

@@ -28,8 +28,8 @@ const Submenu = () => {
 
   return (
     <>
-      <div className="container mx-auto flex gap-5 justify-between items-center bg-cyan-900 text-yellow-200 shadow-2xl shadow-red-500  py-[22px] mb-[2px]  ">
-        <div className="  py-3 px-3 rounded-full  text-white  ml-10">
+      <div className="container mx-auto  flex gap-5 justify-between items-center bg-cyan-900 text-yellow-200 shadow-2xl shadow-cyan-950  py-[22px] mb-[2px]  ">
+        <div className="py-3 px-3 rounded-full  text-white  ml-10">
           <button onClick={() => SetSidebar(!sidebar)}>
             <FiGrid className="text-[30px] hover:text-teal-600 " />
           </button>
@@ -149,101 +149,116 @@ const Submenu = () => {
         </div>
 
         {sidebar && (
-          <div className="absolute bg-cyan-900 translate-x-0 translate-y-[385px] z-50">
-            <div className="option2 nav-option relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <RiAdminFill className="flex absolute top-[20px] left-[32px] text-white" />
+          <div className="absolute w-[300px] bg-cyan-900 translate-x-[-300px] translate-y-[400px] z-50">
+            <div className="p-6">
+              <div className="flex justify-start items-center py-3 relative ">
+                <div className="  w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                  <RiAdminFill className="flex absolute top-[22px] left-[12px] text-white" />
+                </div>
+                <div className="">
+                  <button className="block focus:overflow-visible hover:font-bold cursor-visible drop relative text-[12px] text-white ml-3 ">
+                    <a href={`/disipline`}>শৃঙ্খলা</a>
+                  </button>
+                </div>
               </div>
-              <div className="relative">
-                <button className="block focus:overflow-visible cursor-visible drop relative text-[12px]  ">
-                  <a href={`/disipline`}>শৃঙ্খলা</a>
-                </button>
-              </div>
-            </div>
 
-            <div className="nav-option option3 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <MdOutlineFamilyRestroom className="flex absolute top-[22px] left-[32px] text-white" />
+              <div className="flex justify-start items-center py-3 relative ">
+                <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                  <MdOutlineFamilyRestroom className="flex absolute top-[22px] left-[12px] text-white" />
+                </div>
+                <div className="relative">
+                  <button className="block focus:overflow-visible cursor-visible drop relative text-[12px] text-white ml-3 hover:font-bold">
+                    <a href={`/foriegn`}>বহিঃ বাংলাদেশ</a>
+                  </button>
+                </div>
               </div>
-              <div className="relative">
-                <button className="block focus:overflow-visible cursor-visible drop relative text-[12px]">
-                  <a href={`/foriegn`}>বহিঃ বাংলাদেশ</a>
-                </button>
+              <div className="  flex justify-start items-center py-3 relative">
+                <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                  <SiConstruct3 className="flex absolute top-[22px] left-[15px] text-white" />
+                </div>
+                <div className="relative">
+                  <button className="block focus:overflow-visible cursor-visible drop relative  text-[12px] text-white ml-3 hover:font-bold ">
+                    <a href={`/doctor`}>চিকিৎসক বহিঃ বাংলাদেশ</a>
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="nav-option option4 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <SiConstruct3 className="flex absolute top-[22px] left-[32px] text-white" />
+              <div className=" flex justify-start items-center py-3 relative">
+                <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                  <SiMicrosoftacademic className="flex absolute top-[22px] left-[12px] text-white" />
+                </div>
+                <div className="relative">
+                  <button className="block focus:overflow-visible cursor-visible drop relative  text-[12px] text-white ml-3 hover:font-bold ">
+                    <a href={`/institute`}>জনবল</a>
+                  </button>
+                </div>
               </div>
-              <div className="relative">
-                <button className="block focus:overflow-visible cursor-visible drop relative  text-[12px] ">
-                  <a href={`/doctor`}>চিকিৎসক বহিঃ বাংলাদেশ</a>
-                </button>
+              <div className=" flex justify-start items-center py-3 relative">
+                <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white ">
+                  <MdAttachMoney className="flex absolute top-[22px] left-[12px] text-white" />
+                </div>
+                <a
+                  className=" text-[12px] ml-3 text-white hover:font-bold"
+                  href={`/inventory`}
+                >
+                  মালামাল গ্রহণ
+                </a>
               </div>
-            </div>
-            <div className="nav-option option5 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <SiMicrosoftacademic className="flex absolute top-[22px] left-[32px] text-white" />
+              <div className=" flex justify-start items-center py-3 relative   ">
+                <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                  <FaMoneyCheck className="flex absolute top-[22px] left-[12px] text-white" />
+                </div>
+                <a
+                  className=" text-[12px] ml-3 text-white hover:font-bold"
+                  href={`/consumption`}
+                >
+                  মালামাল বিতরন
+                </a>
               </div>
-              <div className="relative">
-                <button className="block focus:overflow-visible cursor-visible drop relative  text-[12px] ">
-                  <a href={`/institute`}>জনবল</a>
-                </button>
+              <div className=" flex justify-start items-center py-3 relative">
+                <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                  <FaMoneyCheck className="flex absolute top-[22px] left-[12px] text-white" />
+                </div>
+                <a
+                  className=" text-[12px] text-white ml-3 hover:font-bold"
+                  href={`/leave`}
+                >
+                  ছুটি
+                </a>
               </div>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white ">
-                <MdAttachMoney className="flex absolute top-[22px] left-[32px] text-white" />
+              <div className=" flex justify-start items-center py-3 relative">
+                <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                  <FaMoneyCheck className="flex absolute top-[22px] left-[12px] text-white" />
+                </div>
+                <a
+                  className=" text-[12px] text-white ml-3 hover:font-bold"
+                  href={`/me`}
+                >
+                  প্রতিষ্ঠান
+                </a>
               </div>
-              <a className=" text-[12px]" href={`/inventory`}>
-                মালামাল গ্রহণ
-              </a>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
+              <div className=" flex justify-start items-center py-3 relative">
+                <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
+                  <FaMoneyCheck className="flex absolute top-[22px] left-[12px] text-white" />
+                </div>
+                <a
+                  className=" text-[12px] text-white ml-3 hover:font-bold"
+                  href={`/personell`}
+                >
+                  মানব সম্পদ
+                </a>
               </div>
-              <a className=" text-[12px]" href={`/consumption`}>
-                মালামাল বিতরন
-              </a>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
+              <div className=" flex justify-start items-center py-3 relative ">
+                <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white pb-3">
+                  <FaMoneyCheck className="flex absolute top-[22px] left-[12px] text-white" />
+                </div>
+
+                <a
+                  className=" text-[12px] text-white ml-3 hover:font-bold ]"
+                  href={`/student`}
+                >
+                  শিক্ষার্থী
+                </a>
               </div>
-              <a className=" text-[12px]" href={`/leave`}>
-                ছুটি
-              </a>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <a className=" text-[12px]" href={`/me`}>
-                প্রতিষ্ঠান
-              </a>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <a className=" text-[12px]" href={`/personell`}>
-                মানব সম্পদ
-              </a>
-            </div>
-            <div className="nav-option option6 relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <FaMoneyCheck className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <a className=" text-[12px]" href={`/student`}>
-                শিক্ষার্থী
-              </a>
-            </div>
-            <div className="nav-option logout relative">
-              <div className="w-[40px] h-[40px] bg-cyan-900 border-2 rounded-full  hover:text-white">
-                <IoIosLogOut className="flex absolute top-[22px] left-[32px] text-white" />
-              </div>
-              <h3>বাহির</h3>
             </div>
           </div>
         )}
