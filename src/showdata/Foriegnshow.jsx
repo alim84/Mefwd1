@@ -5,7 +5,6 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { FaSearch } from "react-icons/fa";
 import DataTable from "react-data-table-component";
 
-
 const Foriegnshow = () => {
   const db = getDatabase();
   let [alldata, setAllData] = useState([]);
@@ -23,8 +22,6 @@ const Foriegnshow = () => {
     });
   }, []);
 
-
-  
   let handleFilter = (e) => {
     let data = alldata.filter((row) => {
       return row.name.toLowerCase().includes(e.target.value.toLowerCase());
@@ -38,7 +35,7 @@ const Foriegnshow = () => {
       selector: (row) => row.name,
       sortable: true,
     },
-   
+
     {
       name: "পদবি",
       selector: (row) => row.designation,
@@ -76,24 +73,26 @@ const Foriegnshow = () => {
     },
 
     {
-      name: "কার্যক্রম",
+      name: "আপডেট",
       selector: (row) => (
-        <button className="flex gap-4">
-          {" "}
-          <IoPencilOutline className="text-white bg-purple-400 text-[16px]  rounded-full" />{" "}
-          <a href="">
-            {" "}
-            <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
-          </a>{" "}
+        <button onClick={() => handleDelete(item.key)} className="">
+          <IoPencilOutline className="text-white bg-purple-400 text-[16px] text-center  rounded-full" />{" "}
+        </button>
+      ),
+    },
+    {
+      name: "ডিলেট",
+      selector: (row) => (
+        <button className="">
+          <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
         </button>
       ),
     },
   ];
 
-
   return (
     <>
-         <div className="container mx-auto rounded-lg ">
+      <div className="container mx-auto rounded-lg ">
         <div className=" text-end m-2 relative">
           <input
             onChange={handleFilter}

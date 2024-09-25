@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, remove } from "firebase/database";
 import { IoPencilOutline } from "react-icons/io5";
 import { TiDeleteOutline } from "react-icons/ti";
 import { FaSearch } from "react-icons/fa";
@@ -15,7 +15,7 @@ const Leaveshow = () => {
     onValue(leaveshowRef, (snapshot) => {
       let array = [];
       snapshot.forEach((item) => {
-        array.push(item.val());
+        array.push({ ...item.val(), id: item.key });
       });
 
       setAllData(array);
@@ -29,6 +29,11 @@ const Leaveshow = () => {
         .includes(e.target.value.toLowerCase());
     });
     setAllData(alldata);
+  };
+
+  let handleDelete = (id) => {
+    console.log(id);
+    // remove(ref(db, "Leave/" + id));
   };
 
   const columns = [
@@ -85,15 +90,18 @@ const Leaveshow = () => {
     },
 
     {
-      name: "কার্যক্রম",
+      name: "আপডেট",
       selector: (row) => (
-        <button className="flex gap-4">
-          {" "}
-          <IoPencilOutline className="text-white bg-purple-400 text-[16px]  rounded-full" />{" "}
-          <a href="">
-            {" "}
-            <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
-          </a>{" "}
+        <button onClick={() => handleDelete(item.key)} className="">
+          <IoPencilOutline className="text-white bg-purple-400 text-[16px] text-center  rounded-full" />{" "}
+        </button>
+      ),
+    },
+    {
+      name: "ডিলেট",
+      selector: (row) => (
+        <button className="">
+          <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
         </button>
       ),
     },

@@ -22,12 +22,9 @@ const Desiplineshow = () => {
     });
   }, []);
 
-
   let handleFilter = (e) => {
     let data = alldata.filter((row) => {
-      return row.name
-        .toLowerCase()
-        .includes(e.target.value.toLowerCase());
+      return row.name.toLowerCase().includes(e.target.value.toLowerCase());
     });
     setAllData(alldata);
   };
@@ -43,7 +40,7 @@ const Desiplineshow = () => {
       selector: (row) => row.designation,
       sortable: true,
     },
- 
+
     {
       name: "কোড",
       selector: (row) => row.code,
@@ -75,43 +72,42 @@ const Desiplineshow = () => {
       sortable: true,
     },
     {
-      name: "কার্যক্রম",
+      name: "আপডেট",
       selector: (row) => (
-        <button className="flex gap-4">
-          {" "}
-          <IoPencilOutline className="text-white bg-purple-400 text-[16px]  rounded-full" />{" "}
-          <a href="">
-            {" "}
-            <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
-          </a>{" "}
+        <button onClick={() => handleDelete(item.key)} className="">
+          <IoPencilOutline className="text-white bg-purple-400 text-[16px] text-center  rounded-full" />{" "}
         </button>
       ),
     },
-  ]
-
+    {
+      name: "ডিলেট",
+      selector: (row) => (
+        <button className="">
+          <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
+        </button>
+      ),
+    },
+  ];
 
   return (
     <>
-
-<div className="container mx-auto rounded-lg ">
-      <div className=" text-end m-2 relative">
-        <input
-          onChange={handleFilter}
-          className="py-1 px-5 rounded-lg border border-orange-400 "
-          type="text"
-        ></input>
-        <FaSearch className="absolute text-purple-500 text-[13px] translate-x-[1285px] translate-y-[-22px]" />
+      <div className="container mx-auto rounded-lg ">
+        <div className=" text-end m-2 relative">
+          <input
+            onChange={handleFilter}
+            className="py-1 px-5 rounded-lg border border-orange-400 "
+            type="text"
+          ></input>
+          <FaSearch className="absolute text-purple-500 text-[13px] translate-x-[1285px] translate-y-[-22px]" />
+        </div>
+        <DataTable
+          columns={columns}
+          data={alldata}
+          fixedHeader
+          pagination
+          selectableRows
+        ></DataTable>
       </div>
-      <DataTable
-        columns={columns}
-        data={alldata}
-        fixedHeader
-        pagination
-        selectableRows
-      ></DataTable>
-    </div>
-
-   
     </>
   );
 };

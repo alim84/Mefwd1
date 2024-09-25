@@ -64,14 +64,14 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="  bg-gray-400 ">
+      <div className="  bg-cyan-800 ">
         <div className="container mx-auto">
           <div className="flex justify-between gap-5 items-center border-4 p-5">
             <div className="border-2 p-4">
               {medata.map((item) => {
                 return (
                   <div className=" w-[350px] h-[130px] p-3 text-slate-900 flex justify-between rounded-2xl shadow-md shadow-white">
-                    <div className="text-[13px] text-sky-950">
+                    <div className="text-[13px] text-white">
                       <h2 className="text-[18px] font-bold mb-[8px] ">
                         চিকিৎসা শিক্ষা{" "}
                       </h2>
@@ -90,7 +90,7 @@ const Dashboard = () => {
               {disdata.map((item) => {
                 return (
                   <div className=" w-[350px] h-[130px] p-3 text-white flex justify-between rounded-2xl shadow-md shadow-white">
-                    <div className="text-[13px] text-sky-950">
+                    <div className="text-[13px] text-white">
                       <h2 className="text-[18px] font-bold mb-[8px]">শৃংখলা</h2>
                       <h2 className="topic">
                         প্রতিষ্ঠানের নাম : {item.institute}
@@ -107,7 +107,7 @@ const Dashboard = () => {
               {manpower.map((item) => {
                 return (
                   <div className=" w-[350px] h-[130px] p-3 text-white flex justify-between rounded-2xl shadow-md shadow-white">
-                    <div className="text-[13px] text-sky-950">
+                    <div className="text-[13px] text-white">
                       <h2 className="text-[18px] font-bold mb-[8px]">জনবল</h2>
                       <h2>প্রতিষ্ঠান : {item.instituteName} </h2>
                       <h2>পদ সংখ্যা : {item.approvalPost} </h2>
@@ -121,7 +121,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="flex justify-center gap-20 mt-10 border-4 p-5">
-            <div className="w-[500px] h-[400px]  rounded-2xl p-5 overflow-scroll shadow-md shadow-white border-2">
+            <div className="w-[500px] h-[400px] text-white  rounded-2xl p-5 overflow-scroll shadow-md shadow-white border-2">
               <div className="flex justify-between mb-3 items-center">
                 <h1 className=" text-[18px] font-bold">
                   সরকারী মেডিকেল কলেজ শিক্ষার্থী
@@ -169,13 +169,13 @@ const Dashboard = () => {
             </div>
 
             <div className=" flex w-[500px] shadow-md shadow-white rounded-md border-2">
-              <div className="">
+              <div className="text-white">
                 <section>
                   <h2 className=" flex justify-between items-center gap-3 text-[13px] font-semibold">
                     মেডিকেল কলেজ শিক্ষার্থী তথ্য
                     <div>
                       <select
-                        className="rounded-lg  border-none hover:border-indigo-300 py-1 px-3"
+                        className="rounded-lg text-black border-none hover:border-indigo-300 py-1 px-3"
                         id="designation"
                         name="designation"
                       >

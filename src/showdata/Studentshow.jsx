@@ -80,15 +80,18 @@ const Studentshow = () => {
     },
 
     {
-      name: "কার্যক্রম",
+      name: "আপডেট",
       selector: (row) => (
-        <button className="flex gap-4">
-          {" "}
-          <IoPencilOutline className="text-white bg-purple-400 text-[16px]  rounded-full" />{" "}
-          <a href="">
-            {" "}
-            <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
-          </a>{" "}
+        <button onClick={() => handleDelete(item.key)} className="">
+          <IoPencilOutline className="text-white bg-purple-400 text-[16px] text-center  rounded-full" />{" "}
+        </button>
+      ),
+    },
+    {
+      name: "ডিলেট",
+      selector: (row) => (
+        <button className="">
+          <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
         </button>
       ),
     },
