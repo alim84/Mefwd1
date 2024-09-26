@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
 
-
 const Foriegn = () => {
   let [inputname, setinputName] = useState("");
   let [inputdesignation, setinputDesignation] = useState("");
@@ -76,8 +75,7 @@ const Foriegn = () => {
   return (
     <>
       <div>
-     
-        <div className="container bg-cyan-900 mx-auto h-[800px] ">
+        <div className="container bg-cyan-900 mx-auto py-10 ">
           <div>
             <h1 className="text-center font-bold text-yellow-200 pt-10 text-2xl mb-2 underline ">
               Medical Education and family Welfare Division
@@ -86,7 +84,7 @@ const Foriegn = () => {
               Foriegn Training/WorkShop/Seminar DataSheet
             </h2>
           </div>
-          <div className="relative">
+          <div className="relative w-full mx-auto justify-between">
             <div className=" border-2 border-white px-4 py-8 mx-[250px]">
               <div>
                 <div className="absulate translate-y-[-50px]">
@@ -101,7 +99,7 @@ const Foriegn = () => {
                         Employee Name
                       </label>
                       <input
-                        className="py-2 px-24 rounded-lg mb-6"
+                        className="py-2 px-4 rounded-lg mb-6"
                         type="text"
                         onChange={nameHandler}
                         name="name"
@@ -115,7 +113,7 @@ const Foriegn = () => {
                         name="designation"
                         onChange={designationHandler}
                         value={inputdesignation.designation}
-                        className="py-2 px-20  rounded-lg border-red-400 mb-6"
+                        className="py-2 px-4  rounded-lg border-red-400 mb-6"
                       >
                         <option>Select</option>
                         <option>Secretary</option>
@@ -141,7 +139,7 @@ const Foriegn = () => {
                         GO Date
                       </label>
                       <input
-                        className="py-2 px-28 rounded-lg border-red-400 mb-6"
+                        className="py-2 px-4 rounded-lg border-red-400 mb-6"
                         type="date"
                         onChange={goHandler}
                         name="godate"
@@ -154,7 +152,7 @@ const Foriegn = () => {
                         name="catagory"
                         onChange={catagoryHandler}
                         value={inputcatagory.catagory}
-                        className="py-2 px-32  rounded-lg border-red-400 mb-6"
+                        className="py-2 px-4  rounded-lg border-red-400 mb-6"
                       >
                         <option>Select</option>
                         <option>Training</option>
@@ -170,7 +168,7 @@ const Foriegn = () => {
                         Subject
                       </label>
                       <input
-                        className="py-2 px-24 rounded-lg border-red-400 mb-6"
+                        className="py-2 px-4 rounded-lg border-red-400 mb-6"
                         type="text"
                         name="subject"
                         value={inputsubject.subject}
@@ -184,7 +182,7 @@ const Foriegn = () => {
                         name="financeby"
                         value={inputfinance.finance}
                         onChange={financeHandler}
-                        className="py-2 px-28  rounded-lg border-red-400 mb-6"
+                        className="py-2 px-4  rounded-lg border-red-400 mb-6"
                       >
                         <option>Select</option>
                         <option>GoB</option>
@@ -199,7 +197,7 @@ const Foriegn = () => {
                         Going date
                       </label>
                       <input
-                        className="py-2 px-28 rounded-lg border-red-400 mb-6"
+                        className="py-2 px-4 rounded-lg border-red-400 mb-6"
                         type="date"
                         value={inputgoingdate.goingdate}
                         onChange={goingHandler}
@@ -213,7 +211,7 @@ const Foriegn = () => {
                         name="country"
                         value={inputcountry.country}
                         onChange={countryHandler}
-                        className="py-2 rounded-lg border-red-400 mb-6"
+                        className="py-2 rounded-lg w-48 border-red-400 mb-6"
                       >
                         <option value="Select">Select</option>
                         <option value="Afghanistan">Afghanistan</option>

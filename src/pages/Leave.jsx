@@ -57,7 +57,7 @@ const Leave = () => {
       totaldaysrequired: totaldaysrequired,
       enjoytotalleave: enjoytotalleave,
       remainingleave: remainingleave,
-      totaldaysdue: totaldaysdue,
+      totaldaysdue: 20,
     }).then(() => {
       setName("");
       setDesignation("");
@@ -68,7 +68,7 @@ const Leave = () => {
       setTotaldaysrequired("");
       setenjoytotalleave("");
       setRemainingleave("");
-      setTotaldaysdue("");
+      
 
       alert("Successfully Submit Data");
     });
@@ -334,7 +334,7 @@ const Leave = () => {
                 onChange={totaldaysdueHandler}
                 className="py-2 px-12 rounded-md mb-6"
                 type="text"
-                value={totaldaysdue.totaldaysdue}
+                value="20"
                 name="totaldaysdue"
               ></input>
             </div>
