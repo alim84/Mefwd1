@@ -24,16 +24,14 @@ const Leaveshow = () => {
 
   let handleFilter = (e) => {
     let data = alldata.filter((row) => {
-      return row.productName
-        .toLowerCase()
-        .includes(e.target.value.toLowerCase());
+      return row.name.toLowerCase().includes(e.target.value.toLowerCase());
     });
-    setAllData(alldata);
+    setAllData(data);
   };
 
   let handleDelete = (id) => {
     console.log(id);
-    // remove(ref(db, "Leave/" + id));
+    remove(ref(db, "Leave/" + alldata.data.id));
   };
 
   const columns = [
@@ -92,7 +90,7 @@ const Leaveshow = () => {
     {
       name: "আপডেট",
       selector: (row) => (
-        <button onClick={() => handleDelete(item.key)} className="">
+        <button onClick={() => handleDelete(alldata)} className="">
           <IoPencilOutline className="text-white bg-purple-400 text-[16px] text-center  rounded-full" />{" "}
         </button>
       ),

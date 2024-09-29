@@ -26,7 +26,7 @@ const PersonnelShows = () => {
     let data = alldata.filter((row) => {
       return row.name.toLowerCase().includes(e.target.value.toLowerCase());
     });
-    setAllData(alldata);
+    setAllData(data);
   };
 
   const columns = [

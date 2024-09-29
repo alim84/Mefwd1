@@ -27,7 +27,12 @@ const Consumshow = () => {
         .toLowerCase()
         .includes(e.target.value.toLowerCase());
     });
-    setAllData(alldata);
+    setAllData(data);
+  };
+
+  let handleDelete = (id) => {
+    console.log(id);
+    remove(ref(db, "StoreOut/" + alldatad));
   };
 
   const columns = [
@@ -55,7 +60,7 @@ const Consumshow = () => {
     {
       name: "আপডেট",
       selector: (row) => (
-        <button onClick={() => handleDelete(item.key)} className="">
+        <button className="">
           <IoPencilOutline className="text-white bg-purple-400 text-[16px] text-center  rounded-full" />{" "}
         </button>
       ),
@@ -63,7 +68,7 @@ const Consumshow = () => {
     {
       name: "ডিলেট",
       selector: (row) => (
-        <button className="">
+        <button onClick={() => handleDelete(alldata)} className="">
           <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
         </button>
       ),

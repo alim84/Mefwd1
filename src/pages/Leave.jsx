@@ -68,7 +68,6 @@ const Leave = () => {
       setTotaldaysrequired("");
       setenjoytotalleave("");
       setRemainingleave("");
-      
 
       alert("Successfully Submit Data");
     });
@@ -252,10 +251,10 @@ const Leave = () => {
                 <option disabled selected>
                   ছুটির ধরন
                 </option>
-                <option value="cl">নৈমেত্তিক ছুটি</option>
-                <option value="ml">মাতৃকালীন ছুটি</option>
-                <option value="sl">অসুস্থতাজনিত ছুটি</option>
-                <option value="el">অর্জিত ছুটি</option>
+                <option value="নৈমেত্তিক ছুটি">নৈমেত্তিক ছুটি</option>
+                <option value="মাতৃকালীন ছুটি">মাতৃকালীন ছুটি</option>
+                <option value="অসুস্থতাজনিত ছুটি">অসুস্থতাজনিত ছুটি</option>
+                <option value="অর্জিত ছুটি">অর্জিত ছুটি</option>
               </select>
             </div>
           </div>
