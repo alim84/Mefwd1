@@ -23,17 +23,21 @@ const Registration = () => {
   const [emailError, setEmailError] = useState("");
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [emailShow, setemailShow] = useState(false);
+  const [nameShow, setNameShow] = useState(false);
   const [passwordShow, setPasswordShow] = useState(false);
   const [loader, setLoader] = useState(false);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
     setEmailError("");
+    setemailShow(true);
   };
 
   const handleName = (e) => {
     setName(e.target.value);
     setNameError("");
+    setNameShow(true);
   };
 
   const handlePassword = (e) => {
@@ -71,9 +75,7 @@ const Registration = () => {
     setLoader(true);
 
     try {
-      
-
-      await set(push(ref(db, 'users/')), {
+      await set(push(ref(db, "users/")), {
         name: name,
         email: email,
         password: password,
@@ -110,7 +112,7 @@ const Registration = () => {
             </div>
             <div className="text-center relative mb-[30px] ">
               <label
-                className={`text-white text-[12px] ${
+                className={`text-[12px] ${
                   emailError ? "text-red-500" : "text-white"
                 } absolute translate-x-[3px] translate-y-[-12px] bg-black/40 rounded-full px-2`}
               >
@@ -122,10 +124,15 @@ const Registration = () => {
                 type="text"
                 value={email}
               ></input>
-              {emailError ? (
-                <p ClassName="text-red-500 text-[12px] ">{emailError}</p>
-              ) : (
+              {emailError && (
+                <p className="text-red-500 text-[12px] font-normal">
+                  {emailError}
+                </p>
+              )}
+              {emailShow ? (
                 <IoMdCheckmark className="absolute translate-x-[450px] translate-y-[-30px] text-cyan-500" />
+              ) : (
+                <IoMdCheckmark className="absolute translate-x-[450px] translate-y-[-37px] text-red-500" />
               )}
             </div>
             <div className="text-center relative mb-[30px] ">
@@ -142,12 +149,16 @@ const Registration = () => {
                 type="text"
                 value={name}
               ></input>
-              {nameError ? (
-                <p lassName="text-red-500 text-[12px] font-normal">
+              {nameError && (
+                <p className="text-red-500 text-[12px] font-normal">
                   {nameError}
                 </p>
-              ) : (
+              )}
+
+              {nameShow ? (
                 <IoMdCheckmark className="absolute translate-x-[450px] translate-y-[-30px] text-cyan-500" />
+              ) : (
+                <IoMdCheckmark className="absolute translate-x-[450px] translate-y-[-37px] text-red-500" />
               )}
             </div>
             <div className="text-center relative ">
@@ -189,7 +200,7 @@ const Registration = () => {
                   width="50"
                   ariaLabel="color-ring-loading"
                   wrapperStyle={{}}
-                  wrapperClass="color-ring-wrapper mx-40"
+                  wrapperClass="color-ring-wrapper mx-72"
                   colors={[
                     "#e15b64",
                     "#f47e60",
@@ -230,9 +241,6 @@ const Registration = () => {
               </h4>
             </div>
             <div className="relative">
-              <button className=" absolute bg-blue-500 text-[10px] py-3 px-6 rounded-lg translate-x-[570px] translate-y-[-200px] shadow-sm shadow-yellow-50">
-                Request An Account
-              </button>
               <button className="absolute bg-white text-[10px] py-3 px-6 rounded-lg translate-x-[580px] translate-y-[-140px] shadow-lg shadow-yellow-50">
                 Need Help?
               </button>

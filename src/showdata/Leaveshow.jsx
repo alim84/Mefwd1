@@ -30,8 +30,8 @@ const Leaveshow = () => {
   };
 
   let handleDelete = (id) => {
-    console.log(id);
-    remove(ref(db, "Leave/" + alldata.data.id));
+    console.log(id)
+    remove(ref(db, "Leave/" + alldata.id));
   };
 
   const columns = [
