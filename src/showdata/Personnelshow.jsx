@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, push } from "firebase/database";
 import { IoIosSearch } from "react-icons/io";
 
 const Personnelshow = () => {
@@ -12,12 +12,17 @@ const Personnelshow = () => {
     onValue(personnelRef, (snapshot) => {
       let array = [];
       snapshot.forEach((items) => {
-        array.push(items.val());
+        array.push(...items.val());
       });
 
       setAllData(array);
     });
   }, []);
+
+  let handleDelete = (id) => {
+    console.log(id);
+    remove(ref(db, "Leave/" + id));
+  };
 
   return (
     <>
@@ -100,7 +105,10 @@ const Personnelshow = () => {
                       </button>
                     </td>
                     <td className="w-[150px] text-center">
-                      <button className="  bg-red-500 text-white font-bold py-1 px-2 rounded-lg ">
+                      <button
+                        onClick={() => handleDelete(alldata)}
+                        className="  bg-red-500 text-white font-bold py-1 px-2 rounded-lg "
+                      >
                         Delete
                       </button>
                     </td>

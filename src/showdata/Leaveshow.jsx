@@ -10,7 +10,6 @@ const Leaveshow = () => {
   let [alldata, setAllData] = useState([]);
 
   useEffect(() => {
-    const db = getDatabase();
     const leaveshowRef = ref(db, "Leave/");
     onValue(leaveshowRef, (snapshot) => {
       let array = [];
@@ -30,8 +29,8 @@ const Leaveshow = () => {
   };
 
   let handleDelete = (id) => {
-    console.log(id)
-    remove(ref(db, "Leave/" + alldata.id));
+    console.log(id);
+    remove(ref(db, "Leave/" + alldata.item));
   };
 
   const columns = [
@@ -86,11 +85,11 @@ const Leaveshow = () => {
       selector: (row) => row.totaldaysdue,
       sortable: true,
     },
-
+  
     {
       name: "আপডেট",
       selector: (row) => (
-        <button onClick={() => handleDelete(alldata)} className="">
+        <button className="">
           <IoPencilOutline className="text-white bg-purple-400 text-[16px] text-center  rounded-full" />{" "}
         </button>
       ),
@@ -98,7 +97,7 @@ const Leaveshow = () => {
     {
       name: "ডিলেট",
       selector: (row) => (
-        <button className="">
+        <button onClick={() => handleDelete(alldata)} className="bg-cyan-900">
           <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
         </button>
       ),
@@ -111,19 +110,25 @@ const Leaveshow = () => {
         <div className=" text-end m-2 relative">
           <input
             onChange={handleFilter}
-            className="py-1 px-5 rounded-lg border border-orange-400 "
+            className="py-1 px-5 rounded-l-full border border-orange-400 "
             type="text"
           ></input>
-          <FaSearch className="absolute text-purple-500 text-[13px] translate-x-[1285px] translate-y-[-22px]" />
+          <FaSearch className="absolute text-[13px] translate-x-[1320px] text-orange-500 z-30 translate-y-[-22px]" />
+          <button className="bg-blue-950 w-[60px] h-[35px] absolute translate-x-[-235px] rounded-l-full"></button>
         </div>
         <DataTable
           columns={columns}
           data={alldata}
           fixedHeader
           pagination
+ 
           selectableRows
-        ></DataTable>
+     
+        >
+          
+        </DataTable>
       </div>
+
     </>
   );
 };

@@ -20,7 +20,6 @@ import { RiAdminFill } from "react-icons/ri";
 import { MdOutlineFamilyRestroom, MdAttachMoney } from "react-icons/md";
 import { FaMoneyCheck } from "react-icons/fa";
 import { SiMicrosoftacademic, SiConstruct3 } from "react-icons/si";
-import { IoIosLogOut } from "react-icons/io";
 
 const Submenu = () => {
   let [toggle, Settoggle] = useState(false);
@@ -29,7 +28,7 @@ const Submenu = () => {
   return (
     <>
       <div className="container mx-auto  flex gap-5 justify-between items-center bg-cyan-900 text-yellow-200 shadow-2xl shadow-cyan-950  py-[22px] mb-[2px]  ">
-        <div className="py-3 px-3 rounded-full  text-white  ml-10">
+        <div className="flex justify-center items-center  w-[50px] h-[50px] shadow-lg shadow-cyan-700  text-white  ml-10">
           <button onClick={() => SetSidebar(!sidebar)}>
             <FiGrid className="text-[30px] hover:text-teal-600 " />
           </button>
