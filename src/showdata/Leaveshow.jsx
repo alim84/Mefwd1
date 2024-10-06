@@ -4,6 +4,7 @@ import { IoPencilOutline } from "react-icons/io5";
 import { TiDeleteOutline } from "react-icons/ti";
 import { FaSearch } from "react-icons/fa";
 import DataTable from "react-data-table-component";
+import { data } from "autoprefixer";
 
 const Leaveshow = () => {
   const db = getDatabase();
@@ -14,7 +15,7 @@ const Leaveshow = () => {
     onValue(leaveshowRef, (snapshot) => {
       let array = [];
       snapshot.forEach((item) => {
-        array.push({ ...item.val(), id: item.key });
+        array.push({ ...item.val(), key: item.key });
       });
 
       setAllData(array);
@@ -28,9 +29,9 @@ const Leaveshow = () => {
     setAllData(data);
   };
 
-  let handleDelete = (id) => {
-    console.log(id);
-    remove(ref(db, "Leave/" + alldata.item));
+  let handleDelete = (alldata) => {
+    remove(ref(db, "Leave/" + alldata.key));
+    console.log(alldata);
   };
 
   const columns = [
@@ -85,7 +86,7 @@ const Leaveshow = () => {
       selector: (row) => row.totaldaysdue,
       sortable: true,
     },
-  
+
     {
       name: "আপডেট",
       selector: (row) => (
@@ -121,14 +122,9 @@ const Leaveshow = () => {
           data={alldata}
           fixedHeader
           pagination
- 
           selectableRows
-     
-        >
-          
-        </DataTable>
+        ></DataTable>
       </div>
-
     </>
   );
 };
