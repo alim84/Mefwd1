@@ -3,12 +3,7 @@ import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
 import { RiAdminFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
-
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { ColorRing } from "react-loader-spinner";
 import { getDatabase, push, ref, set } from "firebase/database";
 
@@ -47,6 +42,23 @@ const Login = () => {
     if (!password) {
       setPasswordError("Password is required");
       isValid = false;
+    }
+
+    if (email && password) {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          setLoader(false);
+          const user = userCredential.user;
+          navigate("/");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+
+          setLoader(false);
+          if (error.code.includes("auth/invalid-credential")) {
+            setEmailError("Invalid-credential");
+          }
+        });
     }
   };
 
