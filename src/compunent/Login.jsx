@@ -17,7 +17,6 @@ const Login = () => {
   const auth = getAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -36,9 +35,7 @@ const Login = () => {
     setPasswordError("");
   };
 
-  const validateInputs = () => {
-    let isValid = true;
-
+  const handleSignup = async () => {
     if (!email) {
       setEmailError("Email is required");
       isValid = false;
@@ -50,33 +47,6 @@ const Login = () => {
     if (!password) {
       setPasswordError("Password is required");
       isValid = false;
-    }
-
-    return isValid;
-  };
-
-  const handleSignup = async () => {
-    if (!validateInputs()) return;
-
-    setLoader(true);
-
-    try {
-      await set(push(ref(db, "users/")), {
-        email: email,
-        password: password,
-
-        date: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}-${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}`,
-      });
-
-      setLoader(false);
-      navigate("/");
-    } catch (error) {
-      setLoader(false);
-      if (error.code.includes("auth/email-already-in-use")) {
-        setEmailError("Email already in use");
-      } else {
-        console.log("Error during signup:", error);
-      }
     }
   };
 
@@ -179,7 +149,7 @@ const Login = () => {
               )}
 
               <h5 className="mt-5 text-[10px] text-white">
-                <a href="">Forget My Password</a>
+                <Link to="/"></Link> Forget My Password
               </h5>
             </div>
 

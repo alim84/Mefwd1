@@ -4,7 +4,6 @@ import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
 import { RiAdminFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
-
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -72,8 +71,6 @@ const Registration = () => {
   const handleSignup = async () => {
     if (!validateInputs()) return;
 
-    setLoader(true);
-
     try {
       await set(push(ref(db, "users/")), {
         name: name,
@@ -82,7 +79,9 @@ const Registration = () => {
 
         date: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}-${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}`,
       });
-
+      if (email && name && password) {
+        createUserWithEmailAndPassword(auth, email, password);
+      }
       setLoader(false);
       navigate("/login");
     } catch (error) {
@@ -90,7 +89,7 @@ const Registration = () => {
       if (error.code.includes("auth/email-already-in-use")) {
         setEmailError("Email already in use");
       } else {
-        console.log("Error during signup:", error);
+        setEmailError("Error during signup:", error);
       }
     }
   };
