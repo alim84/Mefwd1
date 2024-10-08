@@ -4,7 +4,6 @@ import { IoPencilOutline } from "react-icons/io5";
 import { TiDeleteOutline } from "react-icons/ti";
 import { FaSearch } from "react-icons/fa";
 import DataTable from "react-data-table-component";
-import { data } from "autoprefixer";
 
 const Leaveshow = () => {
   const db = getDatabase();
@@ -29,11 +28,21 @@ const Leaveshow = () => {
     setAllData(data);
   };
 
-  let handleDelete = (alldata) => {
-    remove(ref(db, "Leave/" + alldata.key));
-    console.log(alldata);
+  const handleDelete = (row) => {
+    remove(ref(db, "Leave/" + row.key))
+      .then(() => {
+        setAllData((prevData) =>
+          prevData.filter((item) => item.key !== row.key)
+        );
+        setFilteredData((prevData) =>
+          prevData.filter((item) => item.key !== row.key)
+        );
+        alert("Data Deleted Successfully");
+      })
+      .catch((error) => {
+        alert("Are You Sure Deleting Data");
+      });
   };
-
   const columns = [
     {
       name: " কর্মকর্তা/কর্মচারী নাম",
@@ -98,7 +107,7 @@ const Leaveshow = () => {
     {
       name: "ডিলেট",
       selector: (row) => (
-        <button onClick={() => handleDelete(alldata)} className="bg-cyan-900">
+        <button onClick={() => handleDelete(row)} className="bg-cyan-900">
           <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
         </button>
       ),
@@ -115,7 +124,7 @@ const Leaveshow = () => {
             type="text"
           ></input>
           <FaSearch className="absolute text-[13px] translate-x-[1320px] text-orange-500 z-30 translate-y-[-22px]" />
-          <button className="bg-blue-950 w-[60px] h-[35px] absolute translate-x-[-235px] rounded-l-full"></button>
+          <button  className="bg-blue-950 w-[60px] h-[35px] absolute translate-x-[-235px] rounded-l-full"></button>
         </div>
         <DataTable
           columns={columns}

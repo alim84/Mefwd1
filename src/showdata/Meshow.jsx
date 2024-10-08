@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, remove } from "firebase/database";
 import { IoPencilOutline } from "react-icons/io5";
 import { TiDeleteOutline } from "react-icons/ti";
 import { FaSearch } from "react-icons/fa";
@@ -15,7 +15,7 @@ const Meshow = () => {
     onValue(medicalRef, (snapshot) => {
       let array = [];
       snapshot.forEach((item) => {
-        array.push(item.val());
+        array.push({ ...item.val(), key: item.key });
       });
 
       setAllData(array);
@@ -30,7 +30,21 @@ const Meshow = () => {
     });
     setAllData(alldata);
   };
-
+  const handleDelete = (row) => {
+    remove(ref(db, "Medical/" + row.key))
+      .then(() => {
+        setAllData((prevData) =>
+          prevData.filter((item) => item.key !== row.key)
+        );
+        setFilteredData((prevData) =>
+          prevData.filter((item) => item.key !== row.key)
+        );
+        alert("Data Deleted Successfully");
+      })
+      .catch((error) => {
+        alert("Are You Sure Deleting Data");
+      });
+  };
   const columns = [
     {
       name: "প্রতিষ্ঠানের নাম",
@@ -106,7 +120,7 @@ const Meshow = () => {
     {
       name: "আপডেট",
       selector: (row) => (
-        <button onClick={() => handleDelete(item.key)} className="">
+        <button className="">
           <IoPencilOutline className="text-white bg-purple-400 text-[16px] text-center  rounded-full" />{" "}
         </button>
       ),
@@ -114,7 +128,7 @@ const Meshow = () => {
     {
       name: "ডিলেট",
       selector: (row) => (
-        <button className="">
+        <button onClick={() => handleDelete(row)} className="">
           <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
         </button>
       ),

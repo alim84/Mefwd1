@@ -40,10 +40,10 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/registration" element={<Registration />}></Route>
+      <Route path="/login" element={<Login />}></Route>
 
       <Route path="/" element={<Rootlayout />}>
-        <Route index element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route index element={<Dashboard />} />
         <Route path="/disiplineshow" element={<Desiplineshow />}></Route>
         <Route path="/foriegnshow" element={<Foriegnshow />}></Route>
         <Route path="/doctorshow" element={<DoctorForShow />}></Route>

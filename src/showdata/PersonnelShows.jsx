@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, remove } from "firebase/database";
 import DataTable from "react-data-table-component";
 import Submenu from "../pages/Submenu";
 import { IoPencilOutline } from "react-icons/io5";
@@ -15,8 +15,8 @@ const PersonnelShows = () => {
     const personnelRef = ref(db, "personell/");
     onValue(personnelRef, (snapshot) => {
       let array = [];
-      snapshot.forEach((items) => {
-        array.push(items.val());
+      snapshot.forEach((item) => {
+        array.push({ ...item.val(), key: item.key });
       });
 
       setAllData(array);
@@ -28,7 +28,21 @@ const PersonnelShows = () => {
     });
     setAllData(data);
   };
-
+  const handleDelete = (row) => {
+    remove(ref(db, "personell/" + row.key))
+      .then(() => {
+        setAllData((prevData) =>
+          prevData.filter((item) => item.key !== row.key)
+        );
+        setFilteredData((prevData) =>
+          prevData.filter((item) => item.key !== row.key)
+        );
+        alert("Data Deleted Successfully");
+      })
+      .catch((error) => {
+        alert("Are You Sure Deleting Data");
+      });
+  };
   const columns = [
     {
       name: " কর্মকর্তার নাম",
@@ -195,7 +209,7 @@ const PersonnelShows = () => {
     {
       name: "আপডেট",
       selector: (row) => (
-        <button onClick={() => handleDelete(item.key)} className="">
+        <button className="">
           <IoPencilOutline className="text-white bg-purple-400 text-[16px] text-center  rounded-full" />{" "}
         </button>
       ),
@@ -203,7 +217,7 @@ const PersonnelShows = () => {
     {
       name: "ডিলেট",
       selector: (row) => (
-        <button className="">
+        <button onClick={() => handleDelete(row)} className="">
           <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
         </button>
       ),

@@ -15,7 +15,7 @@ const Foriegnshow = () => {
     onValue(foriegnshowRef, (snapshot) => {
       let array = [];
       snapshot.forEach((item) => {
-        array.push({ ...item.val(), id: item.key });
+        array.push({ ...item.val(), key: item.key });
       });
 
       setAllData(array);
@@ -28,9 +28,20 @@ const Foriegnshow = () => {
     });
     setAllData(alldata);
   };
-  let handleDelete = (item) => {
-    remove(ref(db, "Mefwd/" + item.id));
-    console.log(item.id);
+  const handleDelete = (row) => {
+    remove(ref(db, "Mefwd/" + row.key))
+      .then(() => {
+        setAllData((prevData) =>
+          prevData.filter((item) => item.key !== row.key)
+        );
+        setFilteredData((prevData) =>
+          prevData.filter((item) => item.key !== row.key)
+        );
+        alert("Data Deleted Successfully");
+      })
+      .catch((error) => {
+        alert("Are You Sure Deleting Data");
+      });
   };
   const columns = [
     {
@@ -86,7 +97,7 @@ const Foriegnshow = () => {
     {
       name: "ডিলেট",
       selector: (row) => (
-        <button onClick={() => handleDelete(alldata)} className="">
+        <button onClick={() => handleDelete(row)} className="">
           <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
         </button>
       ),
