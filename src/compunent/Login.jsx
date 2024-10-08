@@ -49,7 +49,7 @@ const Login = () => {
         .then((userCredential) => {
           setLoader(false);
           const user = userCredential.user;
-          navigate("/");
+          navigate("/dashboard");
         })
         .catch((error) => {
           const errorCode = error.code;

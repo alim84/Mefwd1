@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, remove } from "firebase/database";
 import { IoPencilOutline } from "react-icons/io5";
 import { TiDeleteOutline } from "react-icons/ti";
 import { FaSearch } from "react-icons/fa";
@@ -15,7 +15,7 @@ const Foriegnshow = () => {
     onValue(foriegnshowRef, (snapshot) => {
       let array = [];
       snapshot.forEach((item) => {
-        array.push(item.val());
+        array.push({ ...item.val(), id: item.key });
       });
 
       setAllData(array);
@@ -28,7 +28,10 @@ const Foriegnshow = () => {
     });
     setAllData(alldata);
   };
-
+  let handleDelete = (item) => {
+    remove(ref(db, "Mefwd/" + item.id));
+    console.log(item.id);
+  };
   const columns = [
     {
       name: " কর্মকর্তার নাম",
@@ -75,7 +78,7 @@ const Foriegnshow = () => {
     {
       name: "আপডেট",
       selector: (row) => (
-        <button onClick={() => handleDelete(item.key)} className="">
+        <button className="">
           <IoPencilOutline className="text-white bg-purple-400 text-[16px] text-center  rounded-full" />{" "}
         </button>
       ),
@@ -83,7 +86,7 @@ const Foriegnshow = () => {
     {
       name: "ডিলেট",
       selector: (row) => (
-        <button className="">
+        <button onClick={() => handleDelete(alldata)} className="">
           <TiDeleteOutline className="text-white bg-red-500 text-[16px] rounded-full" />{" "}
         </button>
       ),

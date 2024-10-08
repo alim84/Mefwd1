@@ -218,7 +218,7 @@ const Registration = () => {
               )}
               <p className="text-[10px] text-white text-center pt-[5px]">
                 Already have an account?{" "}
-                <Link to="/login" className="text-[#EA6C00] font-bold">
+                <Link to="/" className="text-[#EA6C00] font-bold">
                   Sign In
                 </Link>
               </p>

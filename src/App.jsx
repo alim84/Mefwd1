@@ -40,9 +40,10 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/registration" element={<Registration />}></Route>
-      <Route path="/login" element={<Login />}></Route>
 
       <Route path="/" element={<Rootlayout />}>
+        <Route index element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/disiplineshow" element={<Desiplineshow />}></Route>
         <Route path="/foriegnshow" element={<Foriegnshow />}></Route>
         <Route path="/doctorshow" element={<DoctorForShow />}></Route>
@@ -57,7 +58,6 @@ const router = createBrowserRouter(
         <Route path="/personnelSh" element={<PersonnelShows />}></Route>
         <Route path="/sidemenu" element={<Sidebar />}></Route>
 
-        <Route index element={<Dashboard />} />
         <Route path="/disipline" element={<Desipline />}></Route>
         <Route path="/foriegn" element={<Foriegn />}></Route>
         <Route path="/doctor" element={<Foriegndoctor />}></Route>
