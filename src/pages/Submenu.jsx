@@ -20,8 +20,10 @@ import { RiAdminFill } from "react-icons/ri";
 import { MdOutlineFamilyRestroom, MdAttachMoney } from "react-icons/md";
 import { FaMoneyCheck } from "react-icons/fa";
 import { SiMicrosoftacademic, SiConstruct3 } from "react-icons/si";
+import { useSelector } from "react-redux";
 
 const Submenu = () => {
+  let user = useSelector((state) => state.userInfo);
   let [toggle, Settoggle] = useState(false);
   let [sidebar, SetSidebar] = useState(false);
 
@@ -39,6 +41,7 @@ const Submenu = () => {
             <a href={`/`}>
               <DiYii />
             </a>
+            <p>User: {user}</p>
           </div>
           <button
             onClick={() => Settoggle(!toggle)}
@@ -257,6 +260,7 @@ const Submenu = () => {
                 >
                   শিক্ষার্থী
                 </a>
+               
               </div>
             </div>
           </div>

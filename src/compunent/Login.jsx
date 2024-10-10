@@ -6,8 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { ColorRing } from "react-loader-spinner";
 import { getDatabase, push, ref, set } from "firebase/database";
+import { useDispatch } from "react-redux";
+import { userLoginInfo } from "../slices/Userslice";
 
 const Login = () => {
+  let dispatch = useDispatch();
   const db = getDatabase();
   const auth = getAuth();
   const navigate = useNavigate();
@@ -31,6 +34,7 @@ const Login = () => {
   };
 
   const handleSignup = async () => {
+    dispatch(userLoginInfo(email));
     if (!email) {
       setEmailError("Email is required");
       isValid = false;
@@ -49,7 +53,7 @@ const Login = () => {
         .then((userCredential) => {
           setLoader(false);
           const user = userCredential.user;
-          navigate("/dashboard");
+          navigate("/");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -74,6 +78,7 @@ const Login = () => {
               <p className="text-[10px] text-white ">
                 দ্রুত এবং সহজে স্বাস্থ্য শিক্ষা ব্যবস্থাপনা
               </p>
+
               <h3 className="text-xl text-white py-10 ">Welcome Back!</h3>
               <RiAdminFill className=" absolute text-cyan-500 w-[70px] h-[70px] translate-x-[500px] translate-y-[-170px]" />
             </div>
