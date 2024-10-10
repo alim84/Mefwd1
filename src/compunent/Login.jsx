@@ -53,6 +53,9 @@ const Login = () => {
         .then((userCredential) => {
           setLoader(false);
           const user = userCredential.user;
+          dispatch(userLoginInfo(user));
+          localStorage.setItem("user", JSON.stringify(user));
+          console.log(user);
           navigate("/");
         })
         .catch((error) => {

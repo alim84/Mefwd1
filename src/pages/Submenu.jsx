@@ -23,9 +23,12 @@ import { SiMicrosoftacademic, SiConstruct3 } from "react-icons/si";
 import { useSelector } from "react-redux";
 
 const Submenu = () => {
-  let user = useSelector((state) => state.userInfo);
   let [toggle, Settoggle] = useState(false);
   let [sidebar, SetSidebar] = useState(false);
+
+  let user = useSelector((state) => state.userInfo);
+  let username = JSON.parse(localStorage.getItem(user));
+  console.log(username);
 
   return (
     <>
@@ -41,8 +44,8 @@ const Submenu = () => {
             <a href={`/`}>
               <DiYii />
             </a>
-            <p>User: {user}</p>
           </div>
+          <p>User: {username}</p>
           <button
             onClick={() => Settoggle(!toggle)}
             className="flex relative mr-10  items-center   "
@@ -260,7 +263,6 @@ const Submenu = () => {
                 >
                   শিক্ষার্থী
                 </a>
-               
               </div>
             </div>
           </div>
