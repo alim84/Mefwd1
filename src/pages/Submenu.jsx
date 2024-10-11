@@ -26,8 +26,9 @@ const Submenu = () => {
   let [toggle, Settoggle] = useState(false);
   let [sidebar, SetSidebar] = useState(false);
 
-  let user = useSelector((state) => state.userInfo);
+  let user = useSelector((state) => state.userInfo.value);
   let username = JSON.parse(localStorage.getItem(user));
+  
   console.log(username);
 
   return (
@@ -45,7 +46,7 @@ const Submenu = () => {
               <DiYii />
             </a>
           </div>
-          <p>User: {username}</p>
+        
           <button
             onClick={() => Settoggle(!toggle)}
             className="flex relative mr-10  items-center   "
@@ -54,6 +55,7 @@ const Submenu = () => {
               <DiAppstore />
             </a>
           </button>
+          <p>User: {username.email}</p>
           <div>
             {toggle && (
               <div className="absolute translate-x-[-600px] translate-y-[14px] cursor-pointer  grid grid-cols-4 justify-between items-center w-[600px] h-[200px] rounded-b-md bg-cyan-900  z-20 mt-10 text-center text-white font-semibold text-[13px]  duration-300 ease-in-out shadow-md shadow-slate-200  ">

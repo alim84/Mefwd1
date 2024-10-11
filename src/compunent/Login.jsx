@@ -3,72 +3,86 @@ import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
 import { RiAdminFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import { ColorRing } from "react-loader-spinner";
 import { getDatabase, push, ref, set } from "firebase/database";
 import { useDispatch } from "react-redux";
 import { userLoginInfo } from "../slices/Userslice";
+import GoogleImage from "../assets/Gmail.png";
+
 
 const Login = () => {
-  let dispatch = useDispatch();
   const db = getDatabase();
+  let dispatch = useDispatch();
+  let navigate = useNavigate();
   const auth = getAuth();
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const Provider = new GoogleAuthProvider();
+ 
+  let [email, setEmail] = useState("");
+  let [password, setPassword] = useState("");
+  let [emailError, setEmailerror] = useState("");
+  let [passwordError, setPassworderror] = useState("");
+  let [passwordShow, setPasswordShow] = useState(false);
   const [emailShow, setemailShow] = useState(false);
-  const [passwordShow, setPasswordShow] = useState(false);
   const [loader, setLoader] = useState(false);
 
-  const handleEmail = (e) => {
+  let handleEmail = (e) => {
     setEmail(e.target.value);
-    setEmailError("");
+    setEmailerror("");
     setemailShow(true);
   };
 
-  const handlePassword = (e) => {
+  let handlePassword = (e) => {
     setPassword(e.target.value);
-    setPasswordError("");
+    setPassworderror("");
   };
 
-  const handleSignup = async () => {
-    dispatch(userLoginInfo(email));
-    if (!email) {
-      setEmailError("Email is required");
-      isValid = false;
-    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      setEmailError("Invalid Email");
-      isValid = false;
-    }
-
-    if (!password) {
-      setPasswordError("Password is required");
-      isValid = false;
-    }
-
-    if (email && password) {
+  let handleSignIn = () => {
+    setLoader(false);
+    if (!email || !password) {
+      if (!email) {
+        setEmailerror("Email is required");
+      }
+      if (!password) {
+        setPassworderror("Password is required");
+      }
+    } else {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          setLoader(false);
           const user = userCredential.user;
           dispatch(userLoginInfo(user));
           localStorage.setItem("user", JSON.stringify(user));
-          console.log(user);
-          navigate("/");
+          navigate("/"); // Navigate to the homepage after successful login
         })
         .catch((error) => {
           const errorCode = error.code;
-
-          setLoader(false);
-          if (error.code.includes("auth/invalid-credential")) {
-            setEmailError("Invalid-credential");
+          console.log(errorCode);
+          if (errorCode.includes("auth/invalid-credential")) {
+            setEmailerror("Invalid credentials");
+          } else {
+            setEmailerror("Failed to sign in");
           }
         });
     }
   };
 
+  let handleGoogleLogin = () => {
+    signInWithPopup(auth, Provider)
+      .then((userCredential) => {
+        set(ref(db, "loginusers/" + userCredential.user.uid), {
+          name: userCredential.user.displayName,
+          email: userCredential.user.email,
+          image: userCredential.user.photoURL,
+          date: `${new Date().getFullYear()}-${
+            new Date().getMonth() + 1
+          }-${new Date().getDate()}-${new Date().getHours()}-${new Date().getMinutes()}-${new Date().getSeconds()}`,
+        });
+        navigate("/"); // Navigate to the homepage after successful Google login
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <>
       <div className="bg-black/40 w-screen h-screen pt-[60px] relative ">
@@ -84,6 +98,13 @@ const Login = () => {
 
               <h3 className="text-xl text-white py-10 ">Welcome Back!</h3>
               <RiAdminFill className=" absolute text-cyan-500 w-[70px] h-[70px] translate-x-[500px] translate-y-[-170px]" />
+            <button
+            onClick={handleGoogleLogin}
+            className="text-center my-5 rounded-lg border-2 border-gray-400 py-3 px-6 shadow shadow-gray-200 mr-8"
+          >
+            <img className="inline-block mr-4" src={GoogleImage} alt="Google" />
+            Login with Google
+          </button>
             </div>
             <div className="text-center relative mb-[30px] ">
               <label
@@ -161,13 +182,16 @@ const Login = () => {
                 />
               ) : (
                 <button
-                  onClick={handleSignup}
+                  onClick={handleSignIn}
                   className=" py-2 px-28 bg-cyan-400  rounded-lg mt-8 font-bold text-white "
                 >
                   Login
                 </button>
+                
+     
+                
               )}
-
+     
               <h5 className="mt-5 text-[10px] text-white">
                 <Link to="/"></Link> Forget My Password
               </h5>

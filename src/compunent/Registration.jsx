@@ -70,7 +70,7 @@ const Registration = () => {
 
   const handleSignup = async () => {
     if (!validateInputs()) return;
-
+    
     try {
       await set(push(ref(db, "users/")), {
         name: name,
