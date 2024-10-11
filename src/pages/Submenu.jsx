@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DiYii } from "react-icons/di";
 import { DiAppstore } from "react-icons/di";
-
+import { RiAdminFill } from "react-icons/ri";
 import { FiGrid } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
 import { GiHumanPyramid, GiThreeLeaves } from "react-icons/gi";
@@ -16,19 +16,21 @@ import {
 } from "react-icons/fa6";
 import { FaPeopleGroup } from "react-icons/fa6";
 
-import { RiAdminFill } from "react-icons/ri";
 import { MdOutlineFamilyRestroom, MdAttachMoney } from "react-icons/md";
 import { FaMoneyCheck } from "react-icons/fa";
 import { SiMicrosoftacademic, SiConstruct3 } from "react-icons/si";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { userLoginInfo } from "../slices/Userslice";
 
 const Submenu = () => {
   let [toggle, Settoggle] = useState(false);
   let [sidebar, SetSidebar] = useState(false);
+  let data = useSelector((state) => state.userInfo);
+  let dispatch = useDispatch();
 
-  let user = useSelector((state) => state.userInfo.value);
-  let username = JSON.parse(localStorage.getItem(user));
-  
+  dispatch(userLoginInfo(data));
+  let username = JSON.parse(localStorage.getItem(data));
+
   console.log(username);
 
   return (
@@ -46,7 +48,7 @@ const Submenu = () => {
               <DiYii />
             </a>
           </div>
-        
+
           <button
             onClick={() => Settoggle(!toggle)}
             className="flex relative mr-10  items-center   "
@@ -55,7 +57,10 @@ const Submenu = () => {
               <DiAppstore />
             </a>
           </button>
-          <p>User: {username.email}</p>
+          <div>
+            <RiAdminFill className=" border-2 rounded-full text-white w-[20px] h-[20px] block" />
+            <p> {data}</p>
+          </div>
           <div>
             {toggle && (
               <div className="absolute translate-x-[-600px] translate-y-[14px] cursor-pointer  grid grid-cols-4 justify-between items-center w-[600px] h-[200px] rounded-b-md bg-cyan-900  z-20 mt-10 text-center text-white font-semibold text-[13px]  duration-300 ease-in-out shadow-md shadow-slate-200  ">

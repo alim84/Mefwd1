@@ -3,21 +3,26 @@ import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
 import { RiAdminFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
-import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
+
 import { ColorRing } from "react-loader-spinner";
 import { getDatabase, push, ref, set } from "firebase/database";
 import { useDispatch } from "react-redux";
 import { userLoginInfo } from "../slices/Userslice";
 import GoogleImage from "../assets/Gmail.png";
-
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 
 const Login = () => {
   const db = getDatabase();
   let dispatch = useDispatch();
   let navigate = useNavigate();
   const auth = getAuth();
-  const Provider = new GoogleAuthProvider();
- 
+  const provider = new GoogleAuthProvider();
+
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [emailError, setEmailerror] = useState("");
@@ -67,9 +72,9 @@ const Login = () => {
   };
 
   let handleGoogleLogin = () => {
-    signInWithPopup(auth, Provider)
+    signInWithPopup(auth, provider)
       .then((userCredential) => {
-        set(ref(db, "loginusers/" + userCredential.user.uid), {
+        set(ref(db, "users/" + userCredential.user.uid), {
           name: userCredential.user.displayName,
           email: userCredential.user.email,
           image: userCredential.user.photoURL,
@@ -98,13 +103,17 @@ const Login = () => {
 
               <h3 className="text-xl text-white py-10 ">Welcome Back!</h3>
               <RiAdminFill className=" absolute text-cyan-500 w-[70px] h-[70px] translate-x-[500px] translate-y-[-170px]" />
-            <button
-            onClick={handleGoogleLogin}
-            className="text-center my-5 rounded-lg border-2 border-gray-400 py-3 px-6 shadow shadow-gray-200 mr-8"
-          >
-            <img className="inline-block mr-4" src={GoogleImage} alt="Google" />
-            Login with Google
-          </button>
+              <button
+                onClick={handleGoogleLogin}
+                className="text-center my-5 rounded-lg border-2 border-gray-400 py-3 px-6 shadow shadow-gray-200 mr-8"
+              >
+                <img
+                  className="inline-block mr-4"
+                  src={GoogleImage}
+                  alt="Google"
+                />
+                Login with Google
+              </button>
             </div>
             <div className="text-center relative mb-[30px] ">
               <label
@@ -187,11 +196,8 @@ const Login = () => {
                 >
                   Login
                 </button>
-                
-     
-                
               )}
-     
+
               <h5 className="mt-5 text-[10px] text-white">
                 <Link to="/"></Link> Forget My Password
               </h5>
