@@ -57,7 +57,7 @@ const Login = () => {
           const user = userCredential.user;
           dispatch(userLoginInfo(user));
           localStorage.setItem("user", JSON.stringify(user));
-          navigate("/"); // Navigate to the homepage after successful login
+          navigate("/"); 
         })
         .catch((error) => {
           const errorCode = error.code;

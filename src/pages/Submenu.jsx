@@ -23,13 +23,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { userLoginInfo } from "../slices/Userslice";
 
 const Submenu = () => {
+  let data = useSelector((state) => state.userInfo.value);
+  let dispatch = useDispatch();
   let [toggle, Settoggle] = useState(false);
   let [sidebar, SetSidebar] = useState(false);
-  let data = useSelector((state) => state.userInfo);
-  let dispatch = useDispatch();
 
   dispatch(userLoginInfo(data));
-  let username = JSON.parse(localStorage.getItem(data));
+  // let username = JSON.parse(localStorage.getItem(data));
 
   console.log(username);
 
@@ -59,7 +59,7 @@ const Submenu = () => {
           </button>
           <div>
             <RiAdminFill className=" border-2 rounded-full text-white w-[20px] h-[20px] block" />
-            <p> {data}</p>
+            <p> {data.name}</p>
           </div>
           <div>
             {toggle && (
