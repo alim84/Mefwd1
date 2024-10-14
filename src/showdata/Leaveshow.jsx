@@ -43,6 +43,13 @@ const Leaveshow = () => {
         alert("Are You Sure Deleting Data");
       });
   };
+
+  function enjoyleave(a, b) {
+    return a + b;
+  }
+  let result = enjoyleave(20, 10);
+  console.log(result);
+
   const columns = [
     {
       name: " কর্মকর্তা/কর্মচারী নাম",
@@ -124,7 +131,7 @@ const Leaveshow = () => {
             type="text"
           ></input>
           <FaSearch className="absolute text-[13px] translate-x-[1320px] text-orange-500 z-30 translate-y-[-22px]" />
-          <button  className="bg-blue-950 w-[60px] h-[35px] absolute translate-x-[-235px] rounded-l-full"></button>
+          <button className="bg-blue-950 w-[60px] h-[35px] absolute translate-x-[-235px] rounded-l-full"></button>
         </div>
         <DataTable
           columns={columns}

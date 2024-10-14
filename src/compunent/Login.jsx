@@ -22,7 +22,6 @@ const Login = () => {
   let navigate = useNavigate();
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
-
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [emailError, setEmailerror] = useState("");
@@ -43,7 +42,6 @@ const Login = () => {
   };
 
   let handleSignIn = () => {
-    setLoader(false);
     if (!email || !password) {
       if (!email) {
         setEmailerror("Email is required");
@@ -57,7 +55,9 @@ const Login = () => {
           const user = userCredential.user;
           dispatch(userLoginInfo(user));
           localStorage.setItem("user", JSON.stringify(user));
-          navigate("/"); 
+          console.log(user);
+          navigate("/");
+          setLoader(false);
         })
         .catch((error) => {
           const errorCode = error.code;
